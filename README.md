@@ -1,2 +1,2 @@
-# reader-web
-a react version of reader
+# reader
+a react based feeds reader
