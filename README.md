@@ -1,2 +1,2 @@
 # reader
-a react based feeds reader
+web based feeds reader
