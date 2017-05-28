@@ -3,6 +3,7 @@ import './Header.scss';
 import Logo from '../Logo'
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink, NavDropdown, DropdownItem, DropdownToggle, DropdownMenu } from 'reactstrap';
 import Image from '../../assets/images/reader.png'
+import { Link } from 'react-router-dom'
 
 class Header extends Component {
   constructor(props) {
@@ -47,10 +48,8 @@ class Header extends Component {
 			              Explore
 			            </DropdownToggle>
 			            <DropdownMenu>
-			              <DropdownItem>TinhTe.vn</DropdownItem>
-			              <DropdownItem>Medium.io</DropdownItem>
-			              <DropdownItem>Another Action</DropdownItem>
-			              <DropdownItem>Another Action</DropdownItem>
+			              <Link to="/tinh-te-vn">TinhTe.vn</Link>
+
 			            </DropdownMenu>
 			         </NavDropdown>	              
 	              <NavItem>

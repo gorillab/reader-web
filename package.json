@@ -8,6 +8,8 @@
     "react-addons-css-transition-group": "^15.5.2",
     "react-addons-transition-group": "^15.5.2",
     "react-dom": "^15.5.4",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
     "reactstrap": "^4.6.2"
   },
   "devDependencies": {

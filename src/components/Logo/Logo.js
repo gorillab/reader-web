@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import './Logo.scss';
-import Image from '../../assets/images/reader.png'
-import { NavbarBrand } from 'reactstrap';
+import Image from '../../assets/images/reader.png';
+import { Link } from 'react-router-dom'
 
 class Logo extends Component {
   state = {};
 
   render() {
     return (
-  		<NavbarBrand href="/">
+  		<Link to="/" className="navbar-brand">
   			<img src={Image} width="30" height="30" className="d-inline-block align-top" alt="" />
-        </NavbarBrand>
+        </Link>
     );
   }
 }
