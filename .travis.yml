@@ -23,4 +23,5 @@ before_script:
   # - serve -s build
 script:
 notifications:
-  slack: travisci: "vLN2ZTWJqtWZhHAydchetefR"
+  slack: 
+    travisci: "vLN2ZTWJqtWZhHAydchetefR"
