@@ -25,7 +25,6 @@
     "eject": "react-scripts eject"
   },
   "craGenerate": {
-    "fileFormat": "camelCase",
     "cssExtension": "scss"
   }
 }

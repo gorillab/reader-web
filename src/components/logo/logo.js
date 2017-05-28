@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './logo.scss';
+import './Logo.scss';
 import Image from '../../assets/images/reader.png'
 import { NavbarBrand } from 'reactstrap';
 

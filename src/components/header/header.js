@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './header.scss';
-import Logo from '../logo'
+import './Header.scss';
+import Logo from '../Logo'
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink, NavDropdown, DropdownItem, DropdownToggle, DropdownMenu } from 'reactstrap';
 import Image from '../../assets/images/reader.png'
 
