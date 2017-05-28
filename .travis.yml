@@ -24,5 +24,4 @@ notifications:
   slack:
     on_success: always
     on_failure: always
-      rooms:
-        secure: "vLN2ZTWJqtWZhHAydchetefR"
+    secure: "vLN2ZTWJqtWZhHAydchetefR"
