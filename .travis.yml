@@ -11,10 +11,10 @@ install:
   - npm install react-transition-group
   - npm install -g serve
 addons:
-  firefox: "46.0"
+  firefox: "38.4.0esr"
 cache:
   directories:
-    - node_modules
+  - node_modules
 
 
 before_script:
