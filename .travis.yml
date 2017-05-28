@@ -19,9 +19,8 @@ cache:
 
 before_script:
   - npm run build
-  - npm test
-  # - serve -s build
 script:
+  - npm test
 notifications:
   slack: 
     travisci: "vLN2ZTWJqtWZhHAydchetefR"
