@@ -7,6 +7,7 @@ sudo: required
 install:
   - nvm install stable
   - nvm use stable
+  - npm install
   - npm install react-transition-group
 addons:
   firefox: "38.4.0esr"
