@@ -9,8 +9,8 @@ class Logo extends Component {
   render() {
     return (
   		<Link to="/" className="navbar-brand">
-  			<img src={Image} width="30" height="30" className="d-inline-block align-top" alt="" />
-        </Link>
+  			<img src={Image} width="30" height="30" className="Logo" alt="" />
+      </Link>
     );
   }
 }

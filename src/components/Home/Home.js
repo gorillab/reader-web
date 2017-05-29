@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Home.css';
 import Sort from '../Sort';
+import PostList from '../PostList';
 
 class Home extends Component {
   constructor(props) {
@@ -19,10 +20,10 @@ class Home extends Component {
     return (
       <div className="Home">
       		<div className="upperContent">
-              <Sort />
+                <Sort />
             </div>
             <div className="mainContent">
-            	{this.state.text}
+            	<PostList />
             </div>
       </div>
     );

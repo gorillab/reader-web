@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import './Header.scss';
+import './Header.css';
 import Logo from '../Logo'
-import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink, NavDropdown, DropdownItem, DropdownToggle, DropdownMenu } from 'reactstrap';
+import { Collapse, Navbar, Nav, NavItem, NavLink, NavbarToggler, NavDropdown, DropdownItem, DropdownToggle, DropdownMenu } from 'reactstrap';
 import Image from '../../assets/images/reader.png'
-import { Link } from 'react-router-dom'
 
 class Header extends Component {
   constructor(props) {
@@ -36,38 +35,37 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="header">
-		<Navbar color="faded" light toggleable fixed>
-			<div className="container">	
-	          <NavbarToggler right onClick={this.toggle} />
-	          <Logo />
-	          <Collapse isOpen={this.state.isOpen} navbar>
-	            <Nav className="mr-auto" navbar>
-					<NavDropdown isOpen={this.state.exploreDropdownOpen} toggle={this.toggleExplore}>
-			            <DropdownToggle nav caret>
-			              Explore
-			            </DropdownToggle>
-			            <DropdownMenu>
-			              <Link to="/tinh-te-vn">TinhTe.vn</Link>
-
-			            </DropdownMenu>
-			         </NavDropdown>	              
-	              <NavItem>
-	                <NavLink href="https://github.com/reactstrap/reactstrap">For you</NavLink>
-	              </NavItem>
-	            </Nav>
-	            <Nav navbar>
-					<NavDropdown isOpen={this.state.userDropdownOpen} toggle={this.toggleUser}>
-			            <DropdownToggle nav caret>
-			            	<img src={Image} width="20" height="20" className="avatar" alt="" />
-			            </DropdownToggle>
-			            <DropdownMenu>
-			              <DropdownItem>Logout</DropdownItem>
-			            </DropdownMenu>
-			         </NavDropdown>
-	            </Nav>	            
-	          </Collapse>
-			</div>
+      <header className="Header">
+		    <Navbar light toggleable className="inner">
+            <NavbarToggler right onClick={this.toggle} />
+            <Logo />
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="mr-auto" navbar>
+                <NavDropdown isOpen={this.state.exploreDropdownOpen} toggle={this.toggleExplore}>
+                        <DropdownToggle nav caret className="router-link-active">
+                          Explore
+                        </DropdownToggle>
+                        <DropdownMenu>
+                          <DropdownItem>
+                            TinhTe.vn
+                          </DropdownItem>
+                        </DropdownMenu>
+                </NavDropdown>	              
+                <NavItem>
+                  <NavLink href="https://github.com/reactstrap/reactstrap">For you</NavLink>
+                </NavItem>
+              </Nav>
+              <Nav navbar>
+                <NavDropdown isOpen={this.state.userDropdownOpen} toggle={this.toggleUser}>
+                    <DropdownToggle nav caret className="a-last">
+                      <img src={Image} width="20" height="20" className="avatar" alt="" />
+                    </DropdownToggle>
+                    <DropdownMenu right>
+                      <DropdownItem>Logout</DropdownItem>
+                    </DropdownMenu>
+                </NavDropdown>
+              </Nav>	            
+            </Collapse>
         </Navbar>     	
       </header>
     );
