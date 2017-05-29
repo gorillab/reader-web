@@ -1,27 +1,26 @@
-.Sort ul {
+.sort ul {
   display: inline-block;
   list-style: none;
   margin: 0;
   padding: 0; }
 
-.Sort li {
+.sort li {
   display: inline-block;
   padding: 0;
   margin: 0 10px 0 0; }
 
-.Sort div {
+.sort div {
   display: inline-block; }
 
-.Sort a {
+.sort a {
   color: rgba(0, 0, 0, 0.5); }
+  .sort a:focus, .sort a:hover {
+    color: rgba(0, 0, 0, 0.5);
+    text-decoration: none; }
 
-.Sort a:focus, .Sort a:hover {
-  color: rgba(0, 0, 0, 0.5);
-  text-decoration: none; }
-
-.Sort .sort-active:before {
+.sort .sort-active:before {
   content: "> "; }
 
-.Sort .sort-active a {
+.sort .sort-active a {
   font-weight: bold;
   color: #333; }

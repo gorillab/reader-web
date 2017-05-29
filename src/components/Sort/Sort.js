@@ -6,21 +6,21 @@ class Sort extends Component {
 
   render() {
     return (
-      <div className="Sort mr-auto">
+      <div className="sort mr-auto">
       	<ul>
       		<li className="sort-active">
             <div>
-              <a href="/sort/new">New</a>
+              <a href="#">New</a>
             </div>
       		</li>
       		<li>
             <div>
-              <a href="/sort/best">Best</a>
+              <a href="#">Best</a>
             </div>
           </li>
           <li>
             <div>
-              <a href="/sort/daily">Daily</a>
+              <a href="#">Daily</a>
             </div>
           </li>          
       	</ul>

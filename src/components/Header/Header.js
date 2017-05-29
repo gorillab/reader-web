@@ -35,7 +35,7 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="Header">
+      <header className="header">
 		    <Navbar light toggleable className="inner">
             <NavbarToggler right onClick={this.toggle} />
             <Logo />
@@ -52,13 +52,13 @@ class Header extends Component {
                         </DropdownMenu>
                 </NavDropdown>	              
                 <NavItem>
-                  <NavLink href="https://github.com/reactstrap/reactstrap">For you</NavLink>
+                  <NavLink href="#">For you</NavLink>
                 </NavItem>
               </Nav>
               <Nav navbar>
                 <NavDropdown isOpen={this.state.userDropdownOpen} toggle={this.toggleUser}>
                     <DropdownToggle nav caret className="a-last">
-                      <img src={Image} width="20" height="20" className="avatar" alt="" />
+                      <img src={Image} className="avatar" alt="" />
                     </DropdownToggle>
                     <DropdownMenu right>
                       <DropdownItem>Logout</DropdownItem>

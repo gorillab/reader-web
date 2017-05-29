@@ -1,24 +1,27 @@
-.Post {
+.post {
   background-color: #fff;
   padding: 20px 30px 20px 80px;
   border-bottom: 1px solid #eee;
   position: relative;
   line-height: 20px; }
-  .Post img {
+  .post img {
     position: absolute;
     margin-top: -10px;
     left: 20px;
     top: 35%; }
-  .Post .title a, .Post .title a:hover {
+  .post .thumnail {
+    width: 40px;
+    height: 40px; }
+  .post .title a, .post .title a:hover {
     color: #34495e;
     text-decoration: none; }
-  .Post .meta {
+  .post .meta {
     font-size: .85em;
     color: #828282; }
-    .Post .meta a {
+    .post .meta a {
       color: #828282;
       text-decoration: underline; }
-    .Post .meta a:hover {
-      color: #1daaf1; }
-    .Post .meta button {
+      .post .meta a:hover {
+        color: #1daaf1; }
+    .post .meta button {
       margin-left: 5px; }

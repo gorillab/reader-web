@@ -1,4 +1,4 @@
-.Post {
+.post {
     background-color: #fff;
     padding: 20px 30px 20px 80px;
     border-bottom: 1px solid #eee;
@@ -11,9 +11,15 @@
         left: 20px;
         top: 35%;
     }
-    .title a, .title a:hover{
-        color: #34495e;
-        text-decoration: none;
+    .thumnail{
+        width: 40px;
+        height: 40px;
+    }
+    .title{
+        a, a:hover {
+            color: #34495e;
+            text-decoration: none;
+        }
     }
     .meta {
         font-size: .85em;
@@ -22,9 +28,10 @@
         a{
             color: #828282;
             text-decoration: underline;
-        }
-        a:hover{
-            color: #1daaf1;
+
+            &:hover{
+                color: #1daaf1;
+            }
         }
         button{
             margin-left: 5px;

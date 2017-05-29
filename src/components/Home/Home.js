@@ -18,11 +18,11 @@ class Home extends Component {
   }
   render() {
     return (
-      <div className="Home">
-      		<div className="upperContent">
+      <div className="home">
+      		<div className="upper-content">
                 <Sort />
             </div>
-            <div className="mainContent">
+            <div className="main-content">
             	<PostList />
             </div>
       </div>
