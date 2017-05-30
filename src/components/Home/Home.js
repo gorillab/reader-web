@@ -12,9 +12,9 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    if(this.props.match.params.source){
-    	 this.setState({text: this.props.match.params.source });
-    }
+    // if(this.props.match.params.source){
+    // 	 this.setState({text: this.props.match.params.source });
+    // }
   }
   render() {
     return (

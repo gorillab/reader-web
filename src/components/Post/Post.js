@@ -17,7 +17,7 @@ class Post extends Component {
         <span className="meta">
           <span className="by">
             <span>by </span>
-            <a target="_blank" href={this.props.list.by.link}>{this.props.list.by.name}</a>
+            <a target="_blank" rel="noopener noreferrer" href={this.props.list.by.link}>{this.props.list.by.name}</a>
           </span>
           <span className="time"> {timeAgo}</span>
           <span>

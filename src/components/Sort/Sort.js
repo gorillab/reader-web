@@ -10,17 +10,17 @@ class Sort extends Component {
       	<ul>
       		<li className="sort-active">
             <div>
-              <a href="#">New</a>
+              <a href="">New</a>
             </div>
       		</li>
       		<li>
             <div>
-              <a href="#">Best</a>
+              <a href="">Best</a>
             </div>
           </li>
           <li>
             <div>
-              <a href="#">Daily</a>
+              <a href="">Daily</a>
             </div>
           </li>          
       	</ul>
