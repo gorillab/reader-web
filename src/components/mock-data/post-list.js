@@ -3,7 +3,7 @@ import Image from '../../assets/images/reader.png';
 export const PostData  = [
   {
     id: 1,
-    thumnail: Image,
+    thumbnail: Image,
     title: 'Jean E. Sammet, who developed the FORMAC programming language, has died',
     url: 'abc/abc',
     by: {
@@ -14,7 +14,7 @@ export const PostData  = [
   },
   {
     id: 2,
-    thumnail: Image,
+    thumbnail: Image,
     title: 'Jean E. Sammet, who developed the FORMAC programming language, has died',
     url: 'abc/abc',
     by: {
@@ -25,7 +25,7 @@ export const PostData  = [
   },
   {
     id: 3,
-    thumnail: Image,
+    thumbnail: Image,
     title: 'Jean E. Sammet, who developed the FORMAC programming language, has died',
     url: 'abc/abc',
     by: {

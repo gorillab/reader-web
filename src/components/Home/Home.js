@@ -21,7 +21,7 @@ class Home extends Component {
     return (
       <div className="home">
       		<div className="upper-content">
-                <HeaderTitle />
+                <HeaderTitle title='Explore'/>
                 <Sort />
             </div>
             <div className="main-content">

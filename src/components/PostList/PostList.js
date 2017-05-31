@@ -8,7 +8,7 @@ class PostList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lists: PostData
+      posts: PostData
     }
   }
   
@@ -16,8 +16,8 @@ class PostList extends Component {
   render() {
     return (
       <ul className="post-list">
-        {this.state.lists.map((list, index) => (
-            <Post key={index} list={list} />     
+        {this.state.posts.map((post, index) => (
+            <Post key={index} post={post} />     
         ))}
       </ul>
     );

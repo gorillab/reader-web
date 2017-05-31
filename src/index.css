@@ -5,6 +5,8 @@ body {
   background-color: #f2f3f5;
   padding-top: 55px;
   overflow-y: scroll; }
+  body .btn:focus {
+    box-shadow: none; }
 
 .container {
   max-width: 800px;

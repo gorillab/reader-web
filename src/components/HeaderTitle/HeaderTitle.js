@@ -7,7 +7,7 @@ class HeaderTitle extends Component {
   render() {
     return (
       <div className="header-title">
-        <h5>Explore</h5>
+        <h5>{this.props.title}</h5>
       </div>
     );
   }
