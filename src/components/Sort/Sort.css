@@ -1,26 +1,23 @@
-.sort ul {
-  display: inline-block;
-  list-style: none;
-  margin: 0;
-  padding: 0; }
-
-.sort li {
-  display: inline-block;
-  padding: 0;
-  margin: 0 10px 0 0; }
-
-.sort div {
-  display: inline-block; }
-
-.sort a {
-  color: rgba(0, 0, 0, 0.5); }
-  .sort a:focus, .sort a:hover {
-    color: rgba(0, 0, 0, 0.5);
-    text-decoration: none; }
-
-.sort .sort-active:before {
-  content: "> "; }
-
-.sort .sort-active a {
-  font-weight: bold;
-  color: #333; }
+.sort {
+  float: right; }
+  .sort ul {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  .sort li {
+    display: inline-block;
+    padding: 0;
+    margin: 0 10px 0 0; }
+    .sort li:last-child {
+      margin: 0; }
+  .sort div {
+    display: inline-block; }
+  .sort a {
+    color: rgba(0, 0, 0, 0.5); }
+    .sort a:focus, .sort a:hover {
+      color: rgba(0, 0, 0, 0.5);
+      text-decoration: none; }
+  .sort .sort-active a {
+    font-weight: 500;
+    color: #333; }

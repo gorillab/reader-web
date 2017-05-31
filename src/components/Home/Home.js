@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Home.css';
 import Sort from '../Sort';
+import HeaderTitle from '../HeaderTitle';
 import PostList from '../PostList';
 
 class Home extends Component {
@@ -20,6 +21,7 @@ class Home extends Component {
     return (
       <div className="home">
       		<div className="upper-content">
+                <HeaderTitle />
                 <Sort />
             </div>
             <div className="main-content">

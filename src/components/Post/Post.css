@@ -4,6 +4,8 @@
   border-bottom: 1px solid #eee;
   position: relative;
   line-height: 20px; }
+  .post:hover {
+    background-color: #f9f9f9; }
   .post img {
     position: absolute;
     margin-top: -10px;
@@ -25,3 +27,21 @@
         color: #1daaf1; }
     .post .meta button {
       margin-left: 5px; }
+    .post .meta .button-in-post, .post .meta .facebook-share-button, .post .meta .sub-button {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: .3px;
+      line-height: 16px;
+      text-transform: uppercase;
+      background: #fff;
+      border-color: #e8e8e8;
+      color: #000;
+      fill: #000;
+      height: 24px;
+      padding: 0 8px;
+      border-radius: 3px;
+      cursor: pointer; }
+      .post .meta .button-in-post:hover, .post .meta .facebook-share-button:hover, .post .meta .sub-button:hover {
+        background: #e8e8e8; }
+    .post .meta .sub-button {
+      background: #f8f8f8; }

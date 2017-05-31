@@ -6,7 +6,7 @@ class Sort extends Component {
 
   render() {
     return (
-      <div className="sort mr-auto">
+      <div className="sort">
       	<ul>
       		<li className="sort-active">
             <div>

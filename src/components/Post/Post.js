@@ -6,7 +6,7 @@ class Post extends Component {
   state = {};
   
   render() {
-    var timeAgo = Moment(this.props.list.time).fromNow()
+    var timeAgo = Moment(this.props.list.time).fromNow();
     return (
       <li className="post">
         <img src={this.props.list.thumnail} className="rounded thumnail" alt="..." />
@@ -16,13 +16,16 @@ class Post extends Component {
         <br/>
         <span className="meta">
           <span className="by">
-            <span>by </span>
+            {/*<span>by </span>*/}
             <a target="_blank" rel="noopener noreferrer" href={this.props.list.by.link}>{this.props.list.by.name}</a>
           </span>
           <span className="time"> {timeAgo}</span>
           <span>
-            <button type="button" className="btn btn-secondary btn-sm">Share</button>
+            <button className="btn facebook-share-button">Share</button>
           </span>
+          <span>
+            <button className="btn sub-button">Subscribe</button>
+          </span>          
         </span>
       </li>
     );
