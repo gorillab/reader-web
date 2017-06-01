@@ -5,8 +5,7 @@ class Footer extends Component {
   state = {};
 
   render() {
-    var date = new Date();
-    var year = date.getFullYear();
+    const year = new Date().getFullYear();
     return (
 	    <footer className="text-center footer">
 	       <p>© Gorillab {year}</p>
