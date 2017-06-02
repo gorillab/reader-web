@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import './Footer.scss';
+import './Footer.css';
 
 class Footer extends Component {
   state = {};
 
   render() {
+    const year = new Date().getFullYear();
     return (
-	    <footer className="text-center">
-	       <p>© Gorillab 2017</p>
+	    <footer className="text-center footer">
+	       <p>© Gorillab {year}</p>
 	    </footer>
     );
   }
