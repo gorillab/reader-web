@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './Header.css';
 import Logo from '../Logo'
-import { Collapse, Navbar, Nav, NavItem, NavLink, NavbarToggler, NavDropdown, DropdownItem, DropdownToggle, DropdownMenu } from 'reactstrap';
-import Image from '../../assets/images/reader.png'
+import { Collapse, Navbar, Nav, NavItem, NavbarToggler, NavDropdown, DropdownItem, DropdownToggle, DropdownMenu } from 'reactstrap';
+import Image from '../../assets/images/reader.png';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   constructor(props) {
@@ -52,7 +53,9 @@ class Header extends Component {
                         </DropdownMenu>
                 </NavDropdown>	              
                 <NavItem>
-                  <NavLink href="#">For you</NavLink>
+                  <Link to="/for-you" className="nav-link">
+                    For You
+                    </Link>
                 </NavItem>
               </Nav>
               <Nav navbar>
