@@ -5,19 +5,20 @@ import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 
-const rootEl = document.getElementById('root');
+const rootElem = document.getElementById('root');
 ReactDOM.render(
   <App />,
-  rootEl
+  rootElem
 );
-registerServiceWorker();
 
 if (module.hot) {
   module.hot.accept('./App', () => {
     const NextApp = require('./App').default;
     ReactDOM.render(
       <NextApp />,
-      rootEl
+      rootElem
     );
   }); 
 }
+
+registerServiceWorker();
