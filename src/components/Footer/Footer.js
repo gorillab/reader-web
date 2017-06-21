@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import './Footer.css';
+
+import './Footer.scss';
 
 class Footer extends Component {
-  state = {};
-
   render() {
     const year = new Date().getFullYear();
+    
     return (
-	    <footer className="text-center footer">
-	       <p>© Gorillab {year}</p>
-	    </footer>
+	    <footer className="text-center footer">© Gorillab {year}</footer>
     );
   }
 }

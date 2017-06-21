@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import './Header.css';
-import Logo from '../Logo'
+
 import { Collapse, Navbar, Nav, NavItem, NavbarToggler, NavDropdown, DropdownItem, DropdownToggle, DropdownMenu } from 'reactstrap';
-import Image from '../../assets/images/reader.png';
 import { Link } from 'react-router-dom';
+import Logo from '../Logo'
+
+import logoImage from '../../assets/images/reader.png';
+import './Header.scss';
 
 class Header extends Component {
   constructor(props) {
@@ -12,22 +14,26 @@ class Header extends Component {
     this.toggle = this.toggle.bind(this);
     this.toggleExplore = this.toggleExplore.bind(this);
     this.toggleUser = this.toggleUser.bind(this);
+
     this.state = {
       isOpen: false,
       exploreDropdownOpen: false,
       userDropdownOpen: false
     };
   }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
+
   toggleExplore() {
     this.setState({
       exploreDropdownOpen: !this.state.exploreDropdownOpen
     });
-  } 
+  }
+
   toggleUser() {
     this.setState({
       userDropdownOpen: !this.state.userDropdownOpen
@@ -38,37 +44,37 @@ class Header extends Component {
     return (
       <header className="header">
 		    <Navbar light toggleable className="inner">
-            <NavbarToggler right onClick={this.toggle} />
-            <Logo />
-            <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="mr-auto" navbar>
-                <NavDropdown isOpen={this.state.exploreDropdownOpen} toggle={this.toggleExplore}>
-                        <DropdownToggle nav caret className="router-link-active">
-                          Explore
-                        </DropdownToggle>
-                        <DropdownMenu>
-                          <DropdownItem>
-                            TinhTe.vn
-                          </DropdownItem>
-                        </DropdownMenu>
-                </NavDropdown>	              
-                <NavItem>
-                  <Link to="/for-you" className="nav-link">
-                    For You
-                    </Link>
-                </NavItem>
-              </Nav>
-              <Nav navbar>
-                <NavDropdown isOpen={this.state.userDropdownOpen} toggle={this.toggleUser}>
-                    <DropdownToggle nav caret className="a-last">
-                      <img src={Image} className="avatar" alt="" />
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                      <DropdownItem>Logout</DropdownItem>
-                    </DropdownMenu>
-                </NavDropdown>
-              </Nav>	            
-            </Collapse>
+          <NavbarToggler right onClick={this.toggle} />
+
+          <Logo />
+          
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="mr-auto" navbar>
+              <NavDropdown isOpen={this.state.exploreDropdownOpen} toggle={this.toggleExplore}>
+                <DropdownToggle nav caret className="routerLinkActive">Explore</DropdownToggle>
+
+                <DropdownMenu>
+                  <DropdownItem>TinhTe.vn</DropdownItem>
+                </DropdownMenu>
+              </NavDropdown>
+              
+              <NavItem>
+                <Link to="/for-you" className="nav-link">For You</Link>
+              </NavItem>
+            </Nav>
+
+            <Nav navbar>
+              <NavDropdown isOpen={this.state.userDropdownOpen} toggle={this.toggleUser}>
+                <DropdownToggle nav caret className="aLast">
+                  <img src={logoImage} className="avatar" alt="" />
+                </DropdownToggle>
+                
+                <DropdownMenu right>
+                  <DropdownItem>Logout</DropdownItem>
+                </DropdownMenu>
+              </NavDropdown>
+            </Nav>	            
+          </Collapse>
         </Navbar>     	
       </header>
     );

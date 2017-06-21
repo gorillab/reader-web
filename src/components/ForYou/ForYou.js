@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
-import './ForYou.scss';
-import Sort from '../Sort';
+
 import HeaderTitle from '../HeaderTitle';
+import Sort from '../Sort';
 import PostList from '../PostList';
 
-class ForYou extends Component {
-  state = {};
+import './ForYou.scss';
 
+class ForYou extends Component {
   render() {
     return (
-      <div className="ForYou">
-        <div className="upper-content">
-              <HeaderTitle title='For you'/>
-              <Sort />
-          </div>
-          <div className="main-content">
-            	<PostList />
-          </div>
+      <div className="forYou">
+        <div className="upperContent">
+          <HeaderTitle title='For You'/>
+
+          <Sort />
+        </div>
+
+        <div className="mainContent">
+          <PostList />
+        </div>
       </div>
     );
   }

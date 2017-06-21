@@ -11,8 +11,9 @@
 	li {
 		display: inline-block;
 		padding: 0;
-    	margin: 0 10px 0 0;
-		&:last-child{
+    margin: 0 10px 0 0;
+
+		&:last-child {
 			margin: 0;
 		}
 	}
@@ -23,15 +24,15 @@
 
 	a {
 		color: rgba(0, 0, 0, 0.5);
-		&:focus, &:hover{
+
+		&:focus, &:hover {
 			color: rgba(0, 0, 0, 0.5);
 	    	text-decoration: none;
 		}
 	}
 
-	.sort-active{
-		
-		& a{
+	.sortActive {
+		a {
 			font-weight: 500;
 			color: #333;
 		}

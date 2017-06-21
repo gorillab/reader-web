@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
-import './Home.css';
-import Sort from '../Sort';
+
 import HeaderTitle from '../HeaderTitle';
+import Sort from '../Sort';
 import PostList from '../PostList';
+
+import './Home.scss';
 
 class Home extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
     	text: 'All-data'
     };
   }
 
-  componentDidMount() {
-    // if(this.props.match.params.source){
-    // 	 this.setState({text: this.props.match.params.source });
-    // }
-  }
   render() {
     return (
       <div className="home">
-      		<div className="upper-content">
-              <HeaderTitle title='Explore'/>
-              <Sort />
+      		<div className="upperContent">
+            <HeaderTitle title='Explore'/>
+            
+            <Sort />
           </div>
-          <div className="main-content">
-            	<PostList />
+
+          <div className="mainContent">
+            <PostList />
           </div>
       </div>
     );
