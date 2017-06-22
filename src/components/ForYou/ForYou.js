@@ -1,27 +1,30 @@
 import React, { Component } from 'react';
+import CSSModules from 'react-css-modules';
 
+import UpperContent from '../UpperContent';
+import MainContent from '../MainContent';
 import HeaderTitle from '../HeaderTitle';
 import Sort from '../Sort';
 import PostList from '../PostList';
 
-import './ForYou.scss';
+import styles from './ForYou.scss';
 
 class ForYou extends Component {
   render() {
     return (
-      <div className="forYou">
-        <div className="upperContent">
+      <div styleName='for-you'>
+        <UpperContent>
           <HeaderTitle title='For You'/>
 
           <Sort />
-        </div>
+        </UpperContent>
 
-        <div className="mainContent">
+        <MainContent>
           <PostList />
-        </div>
+        </MainContent>
       </div>
     );
   }
 }
 
-export default ForYou;
+export default CSSModules(ForYou, styles, {allowMultiple: true});

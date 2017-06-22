@@ -1,1 +1,8 @@
-.app {}
+.app {
+  .content {
+    padding-top: 52px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+  }
+}

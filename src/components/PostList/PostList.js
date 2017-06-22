@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import CSSModules from 'react-css-modules';
 
 import Post from '../Post';
 
-import './PostList.scss';
+import styles from './PostList.scss';
 
 import { PostData } from '../mock-data/post-list.js';
 
@@ -17,7 +18,7 @@ class PostList extends Component {
   
   render() {
     return (
-      <ul className="postList">
+      <ul styleName='post-list'>
         {this.state.posts.map((post, index) => (
           <Post key={index} post={post} />     
         ))}
@@ -26,4 +27,4 @@ class PostList extends Component {
   }
 }
 
-export default PostList;
+export default CSSModules(PostList, styles, {allowMultiple: true});

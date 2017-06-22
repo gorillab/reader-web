@@ -1,3 +1,11 @@
+// variables and mixins
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+// components
+@import '~bootstrap/scss/navbar';
+// utility
+@import "~bootstrap/scss/utilities";
+
 .header {
   position: fixed;
   z-index: 999;
@@ -7,7 +15,7 @@
   right: 0;
   background-color: #1daaf1;
 
-  nav {
+  .nav {
     background-color:#1daaf1;
   }
 
@@ -24,11 +32,11 @@
     }
   }
 
-  .aLast {
+  .a-last {
     margin-right: 0 !important;
   }
 
-  a {
+  .nav-link {
     color: #f7f7f7 !important;
     line-height: 24px;
     transition: color .15s ease;
@@ -44,7 +52,7 @@
     }
   }
 
-  .routerLinkActive {
+  .router-link-active {
     color: #fff !important;
     font-weight: 400;
   }

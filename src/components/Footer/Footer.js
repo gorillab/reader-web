@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import CSSModules from 'react-css-modules';
 
-import './Footer.scss';
+import styles from './Footer.scss';
 
 class Footer extends Component {
   render() {
     const year = new Date().getFullYear();
     
     return (
-	    <footer className="text-center footer">© Gorillab {year}</footer>
+	    <footer styleName='footer'>© Gorillab {year}</footer>
     );
   }
 }
 
-export default Footer;
+export default CSSModules(Footer, styles, {allowMultiple: true});

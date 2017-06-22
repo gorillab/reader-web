@@ -1,44 +1,41 @@
 import React, { Component } from 'react';
+import CSSModules from 'react-css-modules';
 import Moment from 'moment';
 
-import './Post.scss';
+import styles from './Post.scss';
 
 class Post extends Component {
   render() {
     const timeAgo = Moment(this.props.post.time).fromNow();
     
     return (
-      <li className="post">
-        <img src={this.props.post.thumbnail} className="rounded thumbnail" alt="" />
+      <li styleName='post'>
+        <img src={this.props.post.thumbnail} styleName='rounded thumbnail' alt='' />
 
-        <span className="title">
+        <span styleName='title'>
           <a href={this.props.post.url}>{this.props.post.title}</a>
         </span>
 
         <br/>
 
-        <span className="meta">
-          <span className="by">
-            <a target="_blank" rel="noopener noreferrer" href={this.props.post.by.link}>{this.props.post.by.name}</a>
-          </span>
+        <div styleName='meta'>
+          <a href={this.props.post.by.link} target='_blank' rel='noopener noreferrer'>{this.props.post.by.name}</a>
 
-          <span className="time"> {timeAgo}</span>
+          <span styleName='time'>{timeAgo}</span>
 
-          <span>
-            <button className="btn facebookShareButton">Share</button>
-          </span>
+          <div styleName='actions'>
+            <button styleName='btn facebook-share-button'>Share</button>
 
-          <span>
-            <div className="btn-group btnGroup">
-              <button type="button" className="btn subButton">Subscribe</button>
+            <div styleName='btn-group'>
+              <button type='button' styleName='btn sub-button'>Subscribe</button>
 
-              <button type="button" className="btn plusButton" aria-haspopup="true" aria-expanded="false"></button>
+              <button type='button' styleName='btn plus-button' aria-haspopup='true' aria-expanded='false'></button>
             </div>
-          </span>          
-        </span>
+          </div>
+        </div>
       </li>
     );
   }
 }
 
-export default Post;
+export default CSSModules(Post, styles, {allowMultiple: true});

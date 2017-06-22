@@ -1,3 +1,9 @@
+// variables and mixins
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+// components
+@import '~bootstrap/scss/navbar';
+
 .logo {
   width: 30px;
   height: 30px;

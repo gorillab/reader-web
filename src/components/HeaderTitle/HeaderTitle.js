@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import CSSModules from 'react-css-modules';
 
-import './HeaderTitle.scss';
+import styles from './HeaderTitle.scss';
 
 class HeaderTitle extends Component {
   render() {
     return (
-      <div className="headerTitle">
-        <h5>{this.props.title}</h5>
+      <div styleName='header-title'>
+        <h5 styleName='h5'>{this.props.title}</h5>
       </div>
     );
   }
 }
 
-export default HeaderTitle;
+export default CSSModules(HeaderTitle, styles, {allowMultiple: true});
