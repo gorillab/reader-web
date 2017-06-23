@@ -2,6 +2,8 @@
   // bootstrap core
   @import '~bootstrap/scss/reboot';
   @import '~bootstrap/scss/type';
+  // utilities
+  @import "~bootstrap/scss/utilities";
 
   body {
     margin: 0;

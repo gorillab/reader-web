@@ -10,7 +10,7 @@ class Post extends Component {
     
     return (
       <li styleName='post'>
-        <img src={this.props.post.thumbnail} styleName='rounded thumbnail' alt='' />
+        <img src={this.props.post.thumbnail} className='rounded' styleName='thumbnail' alt='' />
 
         <span styleName='title'>
           <a href={this.props.post.url}>{this.props.post.title}</a>

@@ -50,7 +50,7 @@ class Header extends Component {
           <Logo />
           
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav styleName='mr-auto nav' navbar>
+            <Nav className='mr-auto' styleName='nav' navbar>
               <NavDropdown isOpen={this.state.exploreDropdownOpen} toggle={this.toggleExplore}>
                 <DropdownToggle nav caret styleName='router-link-active'>Explore</DropdownToggle>
 
