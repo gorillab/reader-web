@@ -170,7 +170,18 @@ module.exports = {
             fallback: 'style-loader',
             use: [
               'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]"',
-              'sass-loader'
+              'sass-loader',
+              {
+                loader: 'sass-resources-loader',
+                options: {
+                  resources: [
+                    './node_modules/bootstrap/scss/_functions.scss',
+                    './node_modules/bootstrap/scss/_variables.scss',
+                    './config/resources-polyfills.scss',
+                    './node_modules/bootstrap/scss/mixins/!(_box-shadow|_transition).scss',
+                  ]
+                },
+              },
             ]
           })
       },

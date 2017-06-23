@@ -1,17 +1,14 @@
-// variables and mixins
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins';
-// reset
-@import '~bootstrap/scss/normalize';
-// core
+// bootstrap core
 @import '~bootstrap/scss/reboot';
 @import '~bootstrap/scss/type';
 
-body {
-  margin: 0;
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
-  font-size: 15px;
-  background-color: #f2f3f5;
-  padding-top: 55px;
-  overflow-y: scroll;
+:global {
+  body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    font-size: 15px;
+    background-color: #f2f3f5;
+    padding-top: 55px;
+    overflow-y: scroll;
+  }
 }
