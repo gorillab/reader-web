@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 
 import styles from './Sort.scss';
 
 class Sort extends Component {
   render() {
     return (
-      <div styleName='sort'>
+      <div className={styles.sort}>
       	<ul>
-      		<li styleName='sort-active'>
+      		<li className={styles.sortActive}>
             <a href=''>New</a>
       		</li>
 
@@ -25,4 +24,4 @@ class Sort extends Component {
   }
 }
 
-export default CSSModules(Sort, styles, {allowMultiple: true});
+export default Sort;

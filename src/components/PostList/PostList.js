@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 
 import Post from '../Post';
 
@@ -18,7 +17,7 @@ class PostList extends Component {
   
   render() {
     return (
-      <ul styleName='post-list'>
+      <ul className={styles.postList}>
         {this.state.posts.map((post, index) => (
           <Post key={index} post={post} />     
         ))}
@@ -27,4 +26,4 @@ class PostList extends Component {
   }
 }
 
-export default CSSModules(PostList, styles, {allowMultiple: true});
+export default PostList;

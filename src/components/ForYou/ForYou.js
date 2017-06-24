@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 
 import UpperContent from '../UpperContent';
 import MainContent from '../MainContent';
@@ -12,7 +11,7 @@ import styles from './ForYou.scss';
 class ForYou extends Component {
   render() {
     return (
-      <div styleName='for-you'>
+      <div className={styles.forYou}>
         <UpperContent>
           <HeaderTitle title='For You'/>
 
@@ -27,4 +26,4 @@ class ForYou extends Component {
   }
 }
 
-export default CSSModules(ForYou, styles, {allowMultiple: true});
+export default ForYou;

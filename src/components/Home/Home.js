@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 
 import UpperContent from '../UpperContent';
 import MainContent from '../MainContent';
@@ -12,7 +11,7 @@ import styles from './Home.scss';
 class Home extends Component {
   render() {
     return (
-      <div styleName='home'>
+      <div className={styles.home}>
       		<UpperContent>
             <HeaderTitle title='Explore'/>
             
@@ -27,4 +26,4 @@ class Home extends Component {
   }
 }
 
-export default CSSModules(Home, styles, {allowMultiple: true});
+export default Home;

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 import Moment from 'moment';
 
 import styles from './Post.scss';
@@ -9,27 +8,27 @@ class Post extends Component {
     const timeAgo = Moment(this.props.post.time).fromNow();
     
     return (
-      <li styleName='post'>
-        <img src={this.props.post.thumbnail} className='rounded' styleName='thumbnail' alt='' />
+      <li className={styles.post}>
+        <img src={this.props.post.thumbnail} className={`${styles.rounded} ${styles.thumbnail}`} alt='' />
 
-        <span styleName='title'>
+        <span className={styles.title}>
           <a href={this.props.post.url}>{this.props.post.title}</a>
         </span>
 
         <br/>
 
-        <div styleName='meta'>
+        <div className={styles.meta}>
           <a href={this.props.post.by.link} target='_blank' rel='noopener noreferrer'>{this.props.post.by.name}</a>
 
-          <span styleName='time'>{timeAgo}</span>
+          <span className={styles.time}>{timeAgo}</span>
 
-          <div styleName='actions'>
-            <button styleName='btn facebook-share-button'>Share</button>
+          <div className={styles.actions}>
+            <button className={styles.facebookShareButton}>Share</button>
 
-            <div styleName='btn-group'>
-              <button type='button' styleName='btn sub-button'>Subscribe</button>
+            <div className={styles.btnGroup}>
+              <button type='button' className={styles.subButton}>Subscribe</button>
 
-              <button type='button' styleName='btn plus-button' aria-haspopup='true' aria-expanded='false'></button>
+              <button type='button' className={styles.plusButton} aria-haspopup='true' aria-expanded='false'></button>
             </div>
           </div>
         </div>
@@ -38,4 +37,4 @@ class Post extends Component {
   }
 }
 
-export default CSSModules(Post, styles, {allowMultiple: true});
+export default Post;

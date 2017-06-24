@@ -53,7 +53,7 @@
       display: inline-block;
     }
 
-    .button-in-post {
+    .buttonInPost {
       font-size: 11px;
       font-weight: 400;
       letter-spacing: .3px;
@@ -73,22 +73,25 @@
       }
     }
 
-    .facebook-share-button {
-      @extend .button-in-post;
+    .facebookShareButton {
+      @extend .btn;
+      @extend .buttonInPost;
 
       margin-left: 5px;
       background: #fff;
     }
 
-    .sub-button {
-      @extend .button-in-post;
+    .subButton {
+      @extend .btn;
+      @extend .buttonInPost;
 
       background: #f8f8f8;
       border-radius: 3px !important;
     }
     
-    .plus-button {
-      @extend .button-in-post;
+    .plusButton {
+      @extend .btn;
+      @extend .buttonInPost;
 
       background: #f8f8f8;
       width: 0;
@@ -103,18 +106,20 @@
       }
     }
 
-    .btn-group {
+    .btnGroup {
+      @extend .btn-group;
+
       margin-left: 5px;
 
       &:hover {
-        .plus-button {
+        .plusButton {
           width: 26px;
           height: 24px;
           border: 1px solid #e8e8e8;
           border-left-width: 1px;
         }
 
-        .sub-button {
+        .subButton {
           border-bottom-right-radius: 0 !important;
           border-top-right-radius: 0 !important;
         }

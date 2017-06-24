@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
 
 import { Collapse, Navbar, Nav, NavItem, NavbarToggler, NavDropdown, DropdownItem, DropdownToggle, DropdownMenu } from 'reactstrap';
 import { Link } from 'react-router-dom';
@@ -43,16 +42,16 @@ class Header extends Component {
 
   render() {
     return (
-      <header styleName='header'>
-		    <Navbar light toggleable styleName='inner'>
+      <header className={styles.header}>
+		    <Navbar light toggleable className={styles.inner}>
           <NavbarToggler right onClick={this.toggle} />
 
           <Logo />
           
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className='mr-auto' styleName='nav' navbar>
+            <Nav className={`${styles.mrAuto} ${styles.nav}`} navbar>
               <NavDropdown isOpen={this.state.exploreDropdownOpen} toggle={this.toggleExplore}>
-                <DropdownToggle nav caret styleName='router-link-active'>Explore</DropdownToggle>
+                <DropdownToggle nav caret className={styles.routerLinkActive}>Explore</DropdownToggle>
 
                 <DropdownMenu>
                   <DropdownItem>TinhTe.vn</DropdownItem>
@@ -60,14 +59,14 @@ class Header extends Component {
               </NavDropdown>
               
               <NavItem>
-                <Link to='/for-you' styleName='nav-link'>For You</Link>
+                <Link to='/for-you' className={styles.navLink}>For You</Link>
               </NavItem>
             </Nav>
 
-            <Nav navbar styleName='nav'>
+            <Nav navbar className={styles.nav}>
               <NavDropdown isOpen={this.state.userDropdownOpen} toggle={this.toggleUser}>
-                <DropdownToggle nav caret styleName='a-last'>
-                  <img src={logoImage} styleName='avatar' alt='' />
+                <DropdownToggle nav caret className={styles.aLast}>
+                  <img src={logoImage} className={styles.avatar} alt='' />
                 </DropdownToggle>
                 
                 <DropdownMenu right>
@@ -82,4 +81,4 @@ class Header extends Component {
   }
 }
 
-export default CSSModules(Header, styles, {allowMultiple: true});
+export default Header;
