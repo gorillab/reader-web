@@ -1,6 +1,6 @@
 import Image from '../../assets/images/reader.png';
 
-export const PostData  = [
+export const posts  = [
   {
     id: 1,
     thumbnail: Image,

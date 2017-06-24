@@ -1,26 +1,37 @@
 import React, { Component } from 'react';
 
-import UpperContent from '../common/upper-content';
-import MainContent from '../common/main-content';
-import HeaderTitle from '../common/header-title';
+import PageHeader from '../common/page-header';
+import PageTitle from '../common/page-title';
 import Sort from '../common/sort';
-import PostList from '../common/post-list';
+import PageContent from '../common/page-content';
+import PostsList from '../posts-list';
 
 import './for-you.scss';
 
+// for testing purpose, should remove later
+import { posts } from '../mock-data/posts';
+
 class ForYou extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      posts
+    }
+  }
+
   render() {
     return (
       <div className='for-you'>
-        <UpperContent>
-          <HeaderTitle title='For You'/>
-
+        <PageHeader>
+          <PageTitle title='For You'/>
+          
           <Sort />
-        </UpperContent>
+        </PageHeader>
 
-        <MainContent>
-          <PostList />
-        </MainContent>
+        <PageContent>
+          <PostsList posts={this.state.posts} />
+        </PageContent>
       </div>
     );
   }

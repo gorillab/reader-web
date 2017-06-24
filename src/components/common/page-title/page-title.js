@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-import './header-title.scss';
+import './page-title.scss';
 
-class HeaderTitle extends Component {
+class PageTitle extends Component {
   render() {
     return (
-      <div className='header-title'>
+      <div className='page-title'>
         <h5>{this.props.title}</h5>
       </div>
     );
   }
 }
 
-export default HeaderTitle;
+export default PageTitle;

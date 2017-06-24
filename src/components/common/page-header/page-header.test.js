@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import UpperContent from './upper-content';
+import PageHeader from './page-header';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<UpperContent />, div);
+  ReactDOM.render(<PageHeader />, div);
 });
