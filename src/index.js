@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 
-import App from './App';
+import App from './app';
 
 import './index.scss';
 
@@ -14,8 +14,8 @@ ReactDOM.render(
 );
 
 if (module.hot) {
-  module.hot.accept('./App', () => {
-    const NextApp = require('./App').default;
+  module.hot.accept('./app', () => {
+    const NextApp = require('./app').default;
     ReactDOM.render(
       <NextApp />,
       rootElem

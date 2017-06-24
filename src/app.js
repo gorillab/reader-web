@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './components/Home';
-import ForYou from './components/ForYou';
+import Header from './components/header';
+import Footer from './components/footer';
+import Home from './components/home';
+import ForYou from './components/for-you';
 
 import './app.scss';
 
