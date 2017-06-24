@@ -168,7 +168,8 @@ module.exports = {
           use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
             use: [
-              'css-loader?minimize&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]"',
+              // 'css-loader?minimize&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]"',
+              'css-loader?minimize&importLoaders=1',
               'postcss-loader',
               'sass-loader',
               {

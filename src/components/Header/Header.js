@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../Logo'
 
 import logoImage from '../../assets/images/reader.png';
-import styles from './Header.scss';
+import './Header.scss';
 
 class Header extends Component {
   constructor(props) {
@@ -42,16 +42,16 @@ class Header extends Component {
 
   render() {
     return (
-      <header className={styles.header}>
-		    <Navbar light toggleable className={styles.inner}>
+      <header className='header'>
+		    <Navbar light toggleable className='inner'>
           <NavbarToggler right onClick={this.toggle} />
 
           <Logo />
           
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className={`mr-auto ${styles.nav}`} navbar>
+            <Nav className='mr-auto nav' navbar>
               <NavDropdown isOpen={this.state.exploreDropdownOpen} toggle={this.toggleExplore}>
-                <DropdownToggle nav caret className={styles.routerLinkActive}>Explore</DropdownToggle>
+                <DropdownToggle nav caret className='router-link-active'>Explore</DropdownToggle>
 
                 <DropdownMenu>
                   <DropdownItem>TinhTe.vn</DropdownItem>
@@ -59,14 +59,14 @@ class Header extends Component {
               </NavDropdown>
               
               <NavItem>
-                <Link to='/for-you' className={styles.navLink}>For You</Link>
+                <Link to='/for-you' className='nav-link'>For You</Link>
               </NavItem>
             </Nav>
 
-            <Nav navbar className={styles.nav}>
+            <Nav navbar className='nav'>
               <NavDropdown isOpen={this.state.userDropdownOpen} toggle={this.toggleUser}>
-                <DropdownToggle nav caret className={styles.aLast}>
-                  <img src={logoImage} className={styles.avatar} alt='' />
+                <DropdownToggle nav caret className='a-aast'>
+                  <img src={logoImage} className='avatar' alt='' />
                 </DropdownToggle>
                 
                 <DropdownMenu right>

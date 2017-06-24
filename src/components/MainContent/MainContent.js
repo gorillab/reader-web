@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import styles from './MainContent.scss';
+import './MainContent.scss';
 
 class MainContent extends Component {
   render() {
     return (
-      <div className={styles.mainContent}>
+      <div className='main-content'>
         {this.props.children}
       </div>
     );

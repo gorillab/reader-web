@@ -1,7 +1,3 @@
-// components
-@import '~bootstrap/scss/navbar';
-@import '~bootstrap/scss/dropdown';
-
 .header {
   position: fixed;
   z-index: 999;
@@ -28,11 +24,11 @@
     }
   }
 
-  .aLast {
+  .a-last {
     margin-right: 0 !important;
   }
 
-  .navLink {
+  .nav-link {
     color: #f7f7f7 !important;
     line-height: 24px;
     transition: color .15s ease;
@@ -48,7 +44,7 @@
     }
   }
 
-  .routerLinkActive {
+  .router-link-active {
     color: #fff !important;
     font-weight: 400;
   }

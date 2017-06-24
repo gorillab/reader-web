@@ -1,7 +1,3 @@
-// components
-@import '~bootstrap/scss/buttons';
-@import '~bootstrap/scss/button-group';
-
 .post {
   background-color: #fff;
   padding: 20px 30px 20px 80px;
@@ -53,7 +49,7 @@
       display: inline-block;
     }
 
-    .buttonInPost {
+    .button-in-post {
       font-size: 11px;
       font-weight: 400;
       letter-spacing: .3px;
@@ -73,25 +69,22 @@
       }
     }
 
-    .facebookShareButton {
-      @extend .btn;
-      @extend .buttonInPost;
+    .facebook-share-button {
+      @extend .button-in-post;
 
       margin-left: 5px;
       background: #fff;
     }
 
-    .subButton {
-      @extend .btn;
-      @extend .buttonInPost;
+    .sub-button {
+      @extend .button-in-post;
 
       background: #f8f8f8;
       border-radius: 3px !important;
     }
     
-    .plusButton {
-      @extend .btn;
-      @extend .buttonInPost;
+    .plus-button {
+      @extend .button-in-post;
 
       background: #f8f8f8;
       width: 0;
@@ -106,20 +99,18 @@
       }
     }
 
-    .btnGroup {
-      @extend .btn-group;
-
+    .btn-group {
       margin-left: 5px;
 
       &:hover {
-        .plusButton {
+        .plus-button {
           width: 26px;
           height: 24px;
           border: 1px solid #e8e8e8;
           border-left-width: 1px;
         }
 
-        .subButton {
+        .sub-button {
           border-bottom-right-radius: 0 !important;
           border-top-right-radius: 0 !important;
         }

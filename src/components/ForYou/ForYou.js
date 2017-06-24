@@ -6,12 +6,12 @@ import HeaderTitle from '../HeaderTitle';
 import Sort from '../Sort';
 import PostList from '../PostList';
 
-import styles from './ForYou.scss';
+import './ForYou.scss';
 
 class ForYou extends Component {
   render() {
     return (
-      <div className={styles.forYou}>
+      <div className='for-you'>
         <UpperContent>
           <HeaderTitle title='For You'/>
 

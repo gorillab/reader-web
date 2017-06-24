@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import styles from './HeaderTitle.scss';
+import './HeaderTitle.scss';
 
 class HeaderTitle extends Component {
   render() {
     return (
-      <div className={styles.headerTitle}>
+      <div className='header-title'>
         <h5>{this.props.title}</h5>
       </div>
     );

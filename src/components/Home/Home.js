@@ -6,12 +6,12 @@ import HeaderTitle from '../HeaderTitle';
 import Sort from '../Sort';
 import PostList from '../PostList';
 
-import styles from './Home.scss';
+import './Home.scss';
 
 class Home extends Component {
   render() {
     return (
-      <div className={styles.home}>
+      <div className='home'>
       		<UpperContent>
             <HeaderTitle title='Explore'/>
             

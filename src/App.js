@@ -6,16 +6,16 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import ForYou from './components/ForYou';
 
-import styles from './App.scss';
+import './App.scss';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div className={styles.app}>
+        <div className='app'>
           <Header />
 
-          <div className={styles.content}>
+          <div className='content'>
             <Route exact path='/' component={Home}/>
             <Route path='/source/:source' component={Home}/>
             <Route path='/for-you' component={ForYou}/>

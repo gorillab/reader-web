@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import styles from './Sort.scss';
+import './Sort.scss';
 
 class Sort extends Component {
   render() {
     return (
-      <div className={styles.sort}>
+      <div className='sort'>
       	<ul>
-      		<li className={styles.sortActive}>
+      		<li className='sort-active'>
             <a href=''>New</a>
       		</li>
 

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import styles from './UpperContent.scss';
+import './UpperContent.scss';
 
 class UpperContent extends Component {
   render() {
     return (
-      <div className={styles.upperContent}>
+      <div className='upper-content'>
         {this.props.children}
       </div>
     );
