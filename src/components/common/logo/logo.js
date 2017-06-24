@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import logoImage from '../../assets/images/reader.png';
+import logoImage from '../../../assets/images/reader.png';
 import './logo.scss';
 
 class Logo extends Component {

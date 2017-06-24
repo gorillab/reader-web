@@ -4,7 +4,7 @@ import Post from '../post';
 
 import './post-list.scss';
 
-import { PostData } from '../mock-data/post-list.js';
+import { PostData } from '../../mock-data/post-list.js';
 
 class PostList extends Component {
   constructor(props) {

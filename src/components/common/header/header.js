@@ -4,7 +4,7 @@ import { Collapse, Navbar, Nav, NavItem, NavbarToggler, NavDropdown, DropdownIte
 import { Link } from 'react-router-dom';
 import Logo from '../logo'
 
-import logoImage from '../../assets/images/reader.png';
+import logoImage from '../../../assets/images/reader.png';
 import './header.scss';
 
 class Header extends Component {

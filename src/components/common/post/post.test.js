@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Post from './post';
-import { PostData } from '../mock-data/post-list.js';
+import { PostData } from '../../mock-data/post-list.js';
 
 it('renders without crashing', () => {
   const post = PostData[0];

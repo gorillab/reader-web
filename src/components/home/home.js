@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import UpperContent from '../upper-content';
-import MainContent from '../main-content';
-import HeaderTitle from '../header-title';
-import Sort from '../sort';
-import PostList from '../post-list';
+import UpperContent from '../common/upper-content';
+import MainContent from '../common/main-content';
+import HeaderTitle from '../common/header-title';
+import Sort from '../common/sort';
+import PostList from '../common/post-list';
 
 import './home.scss';
 
