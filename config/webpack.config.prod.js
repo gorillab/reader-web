@@ -234,7 +234,7 @@ module.exports = {
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
     new ExtractTextPlugin({
-      filename: 'styles.css',
+      filename: '[name].[id].[contenthash:8].css',
       allChunks: true
     }),
     // Generate a manifest file which contains a mapping of all asset filenames
