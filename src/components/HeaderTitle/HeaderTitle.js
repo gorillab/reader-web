@@ -5,7 +5,7 @@ import './HeaderTitle.scss';
 class HeaderTitle extends Component {
   render() {
     return (
-      <div className="headerTitle">
+      <div className='header-title'>
         <h5>{this.props.title}</h5>
       </div>
     );

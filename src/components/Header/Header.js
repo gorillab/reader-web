@@ -42,16 +42,16 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="header">
-		    <Navbar light toggleable className="inner">
+      <header className='header'>
+		    <Navbar light toggleable className='inner'>
           <NavbarToggler right onClick={this.toggle} />
 
           <Logo />
           
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="mr-auto" navbar>
+            <Nav className='mr-auto nav' navbar>
               <NavDropdown isOpen={this.state.exploreDropdownOpen} toggle={this.toggleExplore}>
-                <DropdownToggle nav caret className="routerLinkActive">Explore</DropdownToggle>
+                <DropdownToggle nav caret className='router-link-active'>Explore</DropdownToggle>
 
                 <DropdownMenu>
                   <DropdownItem>TinhTe.vn</DropdownItem>
@@ -59,14 +59,14 @@ class Header extends Component {
               </NavDropdown>
               
               <NavItem>
-                <Link to="/for-you" className="nav-link">For You</Link>
+                <Link to='/for-you' className='nav-link'>For You</Link>
               </NavItem>
             </Nav>
 
-            <Nav navbar>
+            <Nav navbar className='nav'>
               <NavDropdown isOpen={this.state.userDropdownOpen} toggle={this.toggleUser}>
-                <DropdownToggle nav caret className="aLast">
-                  <img src={logoImage} className="avatar" alt="" />
+                <DropdownToggle nav caret className='a-aast'>
+                  <img src={logoImage} className='avatar' alt='' />
                 </DropdownToggle>
                 
                 <DropdownMenu right>

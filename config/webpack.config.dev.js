@@ -1,6 +1,5 @@
 'use strict';
 
-const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -177,15 +176,21 @@ module.exports = {
       {
           test: /\.scss$/,
           use: [
+            'style-loader',
+            // 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+            'css-loader?importLoaders=1',
+            'postcss-loader',
+            'sass-loader',
             {
-              // creates style nodes from JS strings
-              loader: "style-loader"
-            }, {
-              // translates CSS into CommonJS
-              loader: 'css-loader'
-            }, {
-              // compiles Sass to CSS
-              loader: "sass-loader"
+              loader: 'sass-resources-loader',
+              options: {
+                resources: [
+                  './node_modules/bootstrap/scss/_functions.scss',
+                  './node_modules/bootstrap/scss/_variables.scss',
+                  './config/resources-polyfills.scss',
+                  './node_modules/bootstrap/scss/mixins/!(_box-shadow|_transition).scss',
+                ]
+              },
             },
           ]
       },

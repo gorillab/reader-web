@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import UpperContent from '../UpperContent';
+import MainContent from '../MainContent';
 import HeaderTitle from '../HeaderTitle';
 import Sort from '../Sort';
 import PostList from '../PostList';
@@ -7,26 +9,18 @@ import PostList from '../PostList';
 import './Home.scss';
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-    	text: 'All-data'
-    };
-  }
-
   render() {
     return (
-      <div className="home">
-      		<div className="upperContent">
+      <div className='home'>
+      		<UpperContent>
             <HeaderTitle title='Explore'/>
             
             <Sort />
-          </div>
+          </UpperContent>
 
-          <div className="mainContent">
+          <MainContent>
             <PostList />
-          </div>
+          </MainContent>
       </div>
     );
   }

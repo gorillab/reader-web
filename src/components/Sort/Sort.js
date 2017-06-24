@@ -5,18 +5,18 @@ import './Sort.scss';
 class Sort extends Component {
   render() {
     return (
-      <div className="sort">
+      <div className='sort'>
       	<ul>
-      		<li className="sortActive">
-            <a href="">New</a>
+      		<li className='sort-active'>
+            <a href=''>New</a>
       		</li>
 
       		<li>
-            <a href="">Best</a>
+            <a href=''>Best</a>
           </li>
 
           <li>
-            <a href="">Daily</a>
+            <a href=''>Daily</a>
           </li>
       	</ul>
       </div>

@@ -1,4 +1,37 @@
-@import '~bootstrap/scss/bootstrap.scss';
+// bootstrap core
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/type';
+// bootstrap components
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/custom-forms";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/jumbotron";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/media";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/responsive-embed";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/carousel";
+// utilities
+@import "~bootstrap/scss/utilities";
 
 body {
   margin: 0;
@@ -7,39 +40,4 @@ body {
   background-color: #f2f3f5;
   padding-top: 55px;
   overflow-y: scroll;
-
-  .btn:focus { box-shadow: none}
-}
-
-.page {
-  .pageContent {
-    padding-top: 52px;
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-
-    .upperContent {
-      padding: 15px 440px;
-      position: fixed;
-      box-shadow: 0 1px 2px rgba(0,0,0,.1);
-      background-color: #fff;
-      z-index: 998;
-      top: 55px;
-      left: 0;
-      right: 0;
-
-      @media (max-width: 575px) {
-        padding: 15px;
-      }
-    }
-
-    .mainContent {
-      position: absolute;
-      margin: 30px 0;
-      width: 100%;
-      transition: all .5s cubic-bezier(.55,0,.1,1);
-      background-color: #fff;
-      border-radius: 2px;
-    }
-  }
 }

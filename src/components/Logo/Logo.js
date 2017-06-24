@@ -8,8 +8,8 @@ import './Logo.scss';
 class Logo extends Component {
   render() {
     return (
-  		<Link to="/" className="navbar-brand">
-  			<img src={logoImage} className="logo" alt="" />
+  		<Link to='/' className='navbar-brand'>
+  			<img src={logoImage} className='logo' alt='' />
       </Link>
     );
   }
