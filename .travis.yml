@@ -9,6 +9,7 @@ install:
   - yarn install
 
 cache:
+  yarn: true
   directories:
   - node_modules
 
