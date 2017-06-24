@@ -99,5 +99,10 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
   }
 }
