@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import ForYou from './components/ForYou';
 
-import './App.scss';
+import './app.scss';
 
 class App extends Component {
   render() {
