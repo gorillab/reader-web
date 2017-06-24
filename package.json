@@ -65,7 +65,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "serve": "serve build",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "now-start": "serve build"
   },
   "craGenerate": {
     "cssExtension": "scss"
