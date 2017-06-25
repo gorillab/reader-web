@@ -68,8 +68,9 @@
     "now-start": "serve build"
   },
   "craGenerate": {
-    "fileFormat": "paramCase",
-    "cssExtension": "scss"
+    "cssExtension": "scss",
+    "directory": "",
+    "fileFormat": "paramCase"
   },
   "jest": {
     "collectCoverageFrom": [
