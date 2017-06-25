@@ -1,9 +1,7 @@
-import Image from '../../assets/images/reader.png';
-
 export const posts  = [
   {
     id: 1,
-    thumbnail: Image,
+    thumbnail: '/images/logo.png',
     title: 'Jean E. Sammet, who developed the FORMAC programming language, has died',
     url: 'abc/abc',
     by: {
@@ -14,7 +12,7 @@ export const posts  = [
   },
   {
     id: 2,
-    thumbnail: Image,
+    thumbnail: '/images/logo.png',
     title: 'Jean E. Sammet, who developed the FORMAC programming language, has died',
     url: 'abc/abc',
     by: {
@@ -25,7 +23,7 @@ export const posts  = [
   },
   {
     id: 3,
-    thumbnail: Image,
+    thumbnail: '/images/logo.png',
     title: 'Jean E. Sammet, who developed the FORMAC programming language, has died',
     url: 'abc/abc',
     by: {

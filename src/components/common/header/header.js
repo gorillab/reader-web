@@ -4,7 +4,6 @@ import { Collapse, Navbar, Nav, NavItem, NavbarToggler, NavDropdown, DropdownIte
 import { Link } from 'react-router-dom';
 import Logo from '../logo'
 
-import logoImage from '../../../assets/images/reader.png';
 import './header.scss';
 
 import { sources } from '../../mock-data/sources';
@@ -70,8 +69,8 @@ class Header extends Component {
 
             <Nav navbar className='nav'>
               <NavDropdown isOpen={this.state.userDropdownOpen} toggle={this.toggleUser}>
-                <DropdownToggle nav caret className='a-aast'>
-                  <img src={logoImage} className='avatar' alt='' />
+                <DropdownToggle nav caret className='a-last'>
+                  <img src='/images/logo.png' className='avatar' alt='' />
                 </DropdownToggle>
                 
                 <DropdownMenu right>
