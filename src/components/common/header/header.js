@@ -7,7 +7,7 @@ import Logo from '../logo'
 import logoImage from '../../../assets/images/reader.png';
 import './header.scss';
 
-import { sources } from '../../mock-data/data';
+import { sources } from '../../mock-data/sources';
 
 class Header extends Component {
   constructor(props) {

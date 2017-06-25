@@ -10,7 +10,8 @@ import SubscribeButton from '../common/subscribe-button';
 import './home.scss';
 
 // for testing purpose, should remove later
-import { posts, sources } from '../mock-data/data';
+import { posts } from '../mock-data/posts';
+import { sources } from '../mock-data/sources';
 
 class Home extends Component {
   constructor(props) {
