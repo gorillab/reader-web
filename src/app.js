@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import Header from './components/common/header';
 import Footer from './components/common/footer';
@@ -12,7 +12,7 @@ import './app.scss';
 class App extends Component {
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <div className='app'>
           <Header />
 
@@ -24,7 +24,7 @@ class App extends Component {
 
           <Footer />
         </div>
-      </Router>
+      </BrowserRouter>
     );
   }
 }
