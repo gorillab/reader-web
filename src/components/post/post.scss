@@ -63,6 +63,7 @@
       border-radius: 3px;
       cursor: pointer;
       outline: 0;
+      background: #fff;
 
       &:hover {
         background: #e8e8e8;
@@ -73,7 +74,12 @@
       @extend .button-in-post;
 
       margin-left: 5px;
-      background: #fff;
+    }
+
+    .save-button {
+      @extend .button-in-post;
+
+      margin-left: 5px;
     }
 
     .sub-button {

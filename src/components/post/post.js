@@ -24,6 +24,7 @@ class Post extends Component {
 
           <div className='actions'>
             <button className='btn facebook-share-button'>Share</button>
+            <button className='btn save-button'>Save</button>
           </div>
         </div>
       </li>
