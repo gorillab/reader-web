@@ -44,7 +44,6 @@
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.0.0",
     "postcss-loader": "^2.0.6",
-    "pre-push": "^0.1.1",
     "promise": "^8.0.0",
     "react-dev-utils": "^2.0.0",
     "react-error-overlay": "^1.0.5",
@@ -70,9 +69,6 @@
     "gen": "node_modules/cra-generate/index.js",
     "now-start": "serve build"
   },
-  "pre-push": [
-    "test"
-  ],
   "craGenerate": {
     "cssExtension": "scss",
     "fileFormat": "PascalCase"
