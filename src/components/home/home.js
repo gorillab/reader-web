@@ -5,6 +5,7 @@ import PageTitle from '../common/page-title';
 import Sort from '../common/sort';
 import PageContent from '../common/page-content';
 import PostsList from '../posts-list';
+import SubscribeButton from '../common/subscribe-button';
 
 import './home.scss';
 
@@ -25,7 +26,7 @@ class Home extends Component {
       <div className='home'>
         <PageHeader>
           <PageTitle title='Explore'/>
-          
+          <SubscribeButton></SubscribeButton>
           <Sort />
         </PageHeader>
 

@@ -24,12 +24,6 @@ class Post extends Component {
 
           <div className='actions'>
             <button className='btn facebook-share-button'>Share</button>
-
-            <div className='btn-group'>
-              <button type='button' className='btn sub-button'>Subscribe</button>
-
-              <button type='button' className='btn plus-button' aria-haspopup='true' aria-expanded='false'></button>
-            </div>
           </div>
         </div>
       </li>
