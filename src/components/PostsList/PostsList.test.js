@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Post from './Post';
+import PostsList from './PostsList';
 
-import { posts } from '../mock-data/posts';
+import { posts } from '../../mock-data/posts.js';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Post post={posts[0]} />, div);
+  ReactDOM.render(<PostsList posts={posts} />, div);
 });

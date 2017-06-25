@@ -9,7 +9,7 @@ import PostsList from '../PostsList';
 import './ForYou.scss';
 
 // for testing purpose, should remove later
-import { posts } from '../mock-data/posts';
+import { posts } from '../../mock-data/posts';
 
 class ForYou extends Component {
   constructor(props) {

@@ -71,8 +71,7 @@
   },
   "craGenerate": {
     "cssExtension": "scss",
-    "directory": "",
-    "fileFormat": "paramCase"
+    "fileFormat": "PascalCase"
   },
   "jest": {
     "collectCoverageFrom": [

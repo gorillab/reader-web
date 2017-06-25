@@ -7,7 +7,7 @@ import Logo from '../Logo'
 import './Header.scss';
 
 // for testing purpose, should remove later
-import { sources } from '../../mock-data/sources';
+import { sources } from '../../../mock-data/sources';
 
 class Header extends Component {
   constructor(props) {
