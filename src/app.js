@@ -11,15 +11,27 @@ import './app.scss';
 
 class App extends Component {
   render() {
+    const routes = [{
+      path: '/',
+      exact: true,
+      component: Home
+    }, {
+      path: '/source/:source',
+      component: Home
+    }, {
+      path: '/for-you',
+      component: ForYou
+    }];
+    
     return (
       <BrowserRouter>
         <div className='app'>
           <Header />
 
           <Content>
-            <Route exact path='/' component={Home}/>
-            <Route path='/source/:source' component={Home}/>
-            <Route path='/for-you' component={ForYou}/>
+            {routes.map((route, index) => (
+              <Route key={index} {...route} />
+            ))}
           </Content>
 
           <Footer />
