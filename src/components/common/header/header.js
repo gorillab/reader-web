@@ -7,6 +7,8 @@ import Logo from '../logo'
 import logoImage from '../../../assets/images/reader.png';
 import './header.scss';
 
+import { sources } from '../../mock-data/sources';
+
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +20,8 @@ class Header extends Component {
     this.state = {
       isOpen: false,
       exploreDropdownOpen: false,
-      userDropdownOpen: false
+      userDropdownOpen: false,
+      sources
     };
   }
 
@@ -54,7 +57,9 @@ class Header extends Component {
                 <DropdownToggle nav caret className='router-link-active'>Explore</DropdownToggle>
 
                 <DropdownMenu>
-                  <DropdownItem>TinhTe.vn</DropdownItem>
+                  {this.state.sources.map((source, index) => (
+                    <Link to={`/source/${source.id}`} key={index} className='dropdown-item' id={source.id}>{source.title}</Link>
+                  ))}
                 </DropdownMenu>
               </NavDropdown>
               

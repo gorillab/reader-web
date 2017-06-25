@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import Header from './components/common/header';
 import Footer from './components/common/footer';
@@ -11,20 +11,32 @@ import './app.scss';
 
 class App extends Component {
   render() {
+    const routes = [{
+      path: '/',
+      exact: true,
+      component: Home
+    }, {
+      path: '/source/:source',
+      component: Home
+    }, {
+      path: '/for-you',
+      component: ForYou
+    }];
+    
     return (
-      <Router>
+      <BrowserRouter>
         <div className='app'>
           <Header />
 
           <Content>
-            <Route exact path='/' component={Home}/>
-            <Route path='/source/:source' component={Home}/>
-            <Route path='/for-you' component={ForYou}/>
+            {routes.map((route, index) => (
+              <Route key={index} {...route} />
+            ))}
           </Content>
 
           <Footer />
         </div>
-      </Router>
+      </BrowserRouter>
     );
   }
 }

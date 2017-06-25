@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Moment from 'moment';
 
 import './post.scss';
 
 class Post extends Component {
   render() {
-    const timeAgo = Moment(this.props.post.time).fromNow();
+    const time = new Date(this.props.post.time);
+    const date = `${time.getDate()}/${time.getMonth() + 1}/${time.getFullYear()}`;
     
     return (
       <li className='post'>
@@ -20,16 +20,11 @@ class Post extends Component {
         <div className='meta'>
           <a href={this.props.post.by.link} target='_blank' rel='noopener noreferrer'>{this.props.post.by.name}</a>
 
-          <span className='time'>{timeAgo}</span>
+          <span className='time'>{date}</span>
 
           <div className='actions'>
             <button className='btn facebook-share-button'>Share</button>
-
-            <div className='btn-group'>
-              <button type='button' className='btn sub-button'>Subscribe</button>
-
-              <button type='button' className='btn plus-button' aria-haspopup='true' aria-expanded='false'></button>
-            </div>
+            <button className='btn save-button'>Save</button>
           </div>
         </div>
       </li>

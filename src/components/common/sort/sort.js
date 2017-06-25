@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import './sort.scss';
 
@@ -8,15 +9,21 @@ class Sort extends Component {
       <div className='sort'>
       	<ul>
       		<li className='sort-active'>
-            <a href=''>New</a>
+            <Link to={{
+              search: '?sort=new'
+            }}>New</Link>
       		</li>
 
       		<li>
-            <a href=''>Best</a>
+            <Link to={{
+              search: '?sort=best'
+            }}>Best</Link>
           </li>
 
           <li>
-            <a href=''>Daily</a>
+            <Link to={{
+              search: '?sort=daily'
+            }}>Daily</Link>
           </li>
       	</ul>
       </div>
