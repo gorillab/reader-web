@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import PageHeader from '../Common/PageHeader';
 import PageTitle from '../Common/PageTitle';
@@ -10,8 +11,12 @@ import SubscribeButton from '../Common/SubscribeButton';
 import './Home.scss';
 
 // for testing purpose, should remove later
-import { posts } from '../../mock-data/posts';
-import { sources } from '../../mock-data/sources';
+import posts from '../../mock-data/posts';
+import sources from '../../mock-data/sources';
+
+const propTypes = {
+  history: PropTypes.any.isRequired,
+};
 
 class Home extends Component {
   constructor(props) {
@@ -19,14 +24,20 @@ class Home extends Component {
 
     this.state = {
       posts,
-      title: this.getTitle(window.location.pathname)
-    }
+      title: this.getTitle(location.pathname),
+    };
 
-    this.historyUnlisten = this.props.history.listen((location) => {
+    this.historyUnlisten = props.history.listen(({ pathname }) => {
       this.setState({
-        title: this.getTitle(location.pathname)
+        title: this.getTitle(pathname),
       });
     });
+
+    this.getTitle = this.getTitle.bind(this);
+  }
+
+  componentWillUnmount() {
+    this.historyUnlisten();
   }
 
   getTitle(pathname) {
@@ -35,12 +46,12 @@ class Home extends Component {
 
       if (regex && regex[1]) {
         // find matched source
-        const source = sources.find((source) => source.id === regex[1]);
+        const source = sources.find(({ id }) => id === regex[1]);
         if (source) {
           return source.title;
         }
 
-        window.location.href = '/';
+        this.props.history.push('/');
       }
     }
 
@@ -49,10 +60,12 @@ class Home extends Component {
 
   render() {
     return (
-      <div className='home'>
+      <div className="home">
         <PageHeader>
-          <PageTitle title={this.state.title}/>
-          <SubscribeButton></SubscribeButton>
+          <PageTitle title={this.state.title} />
+
+          <SubscribeButton />
+
           <Sort />
         </PageHeader>
 
@@ -62,10 +75,8 @@ class Home extends Component {
       </div>
     );
   }
-
-  componentWillUnmount() {
-    this.historyUnlisten();
-  }
 }
+
+Home.propTypes = propTypes;
 
 export default Home;

@@ -1,15 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import './PageHeader.scss';
 
-class PageHeader extends Component {
-  render() {
-    return (
-      <div className='page-header'>
-        {this.props.children}
-      </div>
-    );
-  }
-}
+const propTypes = {
+  children: PropTypes.any.isRequired,
+};
+
+const PageHeader = ({ children }) => (
+  <div className="page-header">
+    {children}
+  </div>
+);
+
+PageHeader.propTypes = propTypes;
 
 export default PageHeader;

@@ -1,14 +1,16 @@
-export const sources  = [
+const sources = [
   {
     id: '1',
-    title: 'medium.com'
+    title: 'medium.com',
   },
   {
     id: '2',
-    title: 'tinhte.vn'
+    title: 'tinhte.vn',
   },
   {
     id: '3',
-    title: 'cafebiz.vn'
-  }
+    title: 'cafebiz.vn',
+  },
 ];
+
+export default sources;

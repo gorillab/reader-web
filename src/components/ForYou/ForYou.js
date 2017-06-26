@@ -9,23 +9,23 @@ import PostsList from '../Posts/PostsList';
 import './ForYou.scss';
 
 // for testing purpose, should remove later
-import { posts } from '../../mock-data/posts';
+import posts from '../../mock-data/posts';
 
 class ForYou extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      posts
-    }
+      posts,
+    };
   }
 
   render() {
     return (
-      <div className='for-you'>
+      <div className="for-you">
         <PageHeader>
-          <PageTitle title='For You'/>
-          
+          <PageTitle title="For You" />
+
           <Sort />
         </PageHeader>
 

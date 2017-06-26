@@ -1,35 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import './Post.scss';
 
-class Post extends Component {
-  render() {
-    const time = new Date(this.props.post.time);
-    const date = `${time.getDate()}/${time.getMonth() + 1}/${time.getFullYear()}`;
-    
-    return (
-      <li className='post'>
-        <img src={this.props.post.thumbnail} className='rounded thumbnail' alt='' />
+const propTypes = {
+  post: PropTypes.any.isRequired,
+};
 
-        <span className='title'>
-          <a href={this.props.post.url}>{this.props.post.title}</a>
-        </span>
+const Post = ({ post }) => {
+  const time = new Date(post.time);
+  const date = `${time.getDate()}/${time.getMonth() + 1}/${time.getFullYear()}`;
 
-        <br/>
+  return (
+    <li className="post">
+      <img src={post.thumbnail} className="rounded thumbnail" alt="" />
 
-        <div className='meta'>
-          <a href={this.props.post.by.link} target='_blank' rel='noopener noreferrer'>{this.props.post.by.name}</a>
+      <div className="title">
+        <a href={post.url}>{post.title}</a>
+      </div>
 
-          <span className='time'>{date}</span>
+      <div className="meta">
+        <a href={post.by.link} target="_blank" rel="noopener noreferrer">
+          {post.by.name}
+        </a>
 
-          <div className='actions'>
-            <button className='btn facebook-share-button'>Share</button>
-            <button className='btn save-button'>Save</button>
-          </div>
+        <span className="time">{date}</span>
+
+        <div className="actions">
+          <button className="btn facebook-share-button">Share</button>
+          <button className="btn save-button">Save</button>
         </div>
-      </li>
-    );
-  }
-}
+      </div>
+    </li>
+  );
+};
+
+Post.propTypes = propTypes;
 
 export default Post;

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import PageContent from './PageContent';
 
 it('renders without crashing', () => {

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import Post from './Post';
 
-import { posts } from '../../mock-data/posts';
+import posts from '../../mock-data/posts';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

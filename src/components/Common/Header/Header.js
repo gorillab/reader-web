@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 import { Collapse, Navbar, Nav, NavItem, NavbarToggler, NavDropdown, DropdownItem, DropdownToggle, DropdownMenu } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import Logo from '../Logo'
+import Logo from '../Logo';
 
 import './Header.scss';
 
 // for testing purpose, should remove later
-import { sources } from '../../../mock-data/sources';
+import sources from '../../../mock-data/sources';
 
 class Header extends Component {
   constructor(props) {
@@ -21,66 +21,66 @@ class Header extends Component {
       isOpen: false,
       exploreDropdownOpen: false,
       userDropdownOpen: false,
-      sources
+      sources,
     };
   }
 
   toggle() {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     });
   }
 
   toggleExplore() {
     this.setState({
-      exploreDropdownOpen: !this.state.exploreDropdownOpen
+      exploreDropdownOpen: !this.state.exploreDropdownOpen,
     });
   }
 
   toggleUser() {
     this.setState({
-      userDropdownOpen: !this.state.userDropdownOpen
+      userDropdownOpen: !this.state.userDropdownOpen,
     });
   }
 
   render() {
     return (
-      <header className='header'>
-		    <Navbar light toggleable className='inner'>
+      <header className="header">
+        <Navbar className="inner" light toggleable>
           <NavbarToggler right onClick={this.toggle} />
 
           <Logo />
-          
+
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className='mr-auto nav' navbar>
+            <Nav className="mr-auto nav" navbar>
               <NavDropdown isOpen={this.state.exploreDropdownOpen} toggle={this.toggleExplore}>
-                <DropdownToggle nav caret className='router-link-active'>Explore</DropdownToggle>
+                <DropdownToggle className="router-link-active" nav caret>Explore</DropdownToggle>
 
                 <DropdownMenu>
-                  {this.state.sources.map((source, index) => (
-                    <Link to={`/source/${source.id}`} key={index} className='dropdown-item' id={source.id}>{source.title}</Link>
+                  {this.state.sources.map(source => (
+                    <Link className="dropdown-item" to={`/source/${source.id}`} key={source.id} id={source.id}>{source.title}</Link>
                   ))}
                 </DropdownMenu>
               </NavDropdown>
-              
+
               <NavItem>
-                <Link to='/for-you' className='nav-link'>For You</Link>
+                <Link className="nav-link" to="/for-you">For You</Link>
               </NavItem>
             </Nav>
 
-            <Nav navbar className='nav'>
+            <Nav className="nav" navbar>
               <NavDropdown isOpen={this.state.userDropdownOpen} toggle={this.toggleUser}>
-                <DropdownToggle nav caret className='a-last'>
-                  <img src='/images/logo.png' className='avatar' alt='' />
+                <DropdownToggle nav caret className="a-last">
+                  <img className="avatar" src="/images/logo.png" alt="" />
                 </DropdownToggle>
-                
+
                 <DropdownMenu right>
                   <DropdownItem>Logout</DropdownItem>
                 </DropdownMenu>
               </NavDropdown>
-            </Nav>	            
+            </Nav>
           </Collapse>
-        </Navbar>     	
+        </Navbar>
       </header>
     );
   }

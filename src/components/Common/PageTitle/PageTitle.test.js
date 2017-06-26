@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import PageTitle from './PageTitle';
 
 it('renders without crashing', () => {

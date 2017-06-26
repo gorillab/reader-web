@@ -1,15 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import './PageContent.scss';
 
-class PageContent extends Component {
-  render() {
-    return (
-      <div className='page-content'>
-        {this.props.children}
-      </div>
-    );
-  }
-}
+const propTypes = {
+  children: PropTypes.any.isRequired,
+};
+
+const PageContent = ({ children }) => (
+  <div className="page-content">
+    {children}
+  </div>
+);
+
+PageContent.propTypes = propTypes;
 
 export default PageContent;

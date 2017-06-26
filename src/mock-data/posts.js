@@ -1,4 +1,4 @@
-export const posts  = [
+const posts = [
   {
     id: 1,
     thumbnail: '/images/logo.png',
@@ -6,9 +6,9 @@ export const posts  = [
     url: 'abc/abc',
     by: {
       name: 'tinhte.vn',
-      link: 'http://www.tinhte.vn'
+      link: 'http://www.tinhte.vn',
     },
-    time: Date.now()
+    time: Date.now(),
   },
   {
     id: 2,
@@ -17,9 +17,9 @@ export const posts  = [
     url: 'abc/abc',
     by: {
       name: 'tinhte.vn',
-      link: 'http://www.tinhte.vn'
+      link: 'http://www.tinhte.vn',
     },
-    time: Date.now()
+    time: Date.now(),
   },
   {
     id: 3,
@@ -28,9 +28,10 @@ export const posts  = [
     url: 'abc/abc',
     by: {
       name: 'tinhte.vn',
-      link: 'http://www.tinhte.vn'
+      link: 'http://www.tinhte.vn',
     },
-    time: Date.now()
-  }
+    time: Date.now(),
+  },
 ];
 
+export default posts;

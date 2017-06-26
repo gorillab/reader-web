@@ -1,15 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './Footer.scss';
 
-class Footer extends Component {
-  render() {
-    const year = new Date().getFullYear();
-    
-    return (
-	    <footer className='footer'>© Gorillab {year}</footer>
-    );
-  }
-}
+const Footer = () => (
+  <footer className="footer">© Gorillab {new Date().getFullYear()}</footer>
+);
 
 export default Footer;

@@ -10,17 +10,18 @@ const rootElem = document.getElementById('root');
 
 ReactDOM.render(
   <App />,
-  rootElem
+  rootElem,
 );
 
 if (module.hot) {
   module.hot.accept('./App', () => {
+    // eslint-disable-next-line
     const NextApp = require('./App').default;
     ReactDOM.render(
       <NextApp />,
-      rootElem
+      rootElem,
     );
-  }); 
+  });
 }
 
 registerServiceWorker();
