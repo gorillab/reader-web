@@ -4,7 +4,7 @@ import PageHeader from '../Common/PageHeader';
 import PageTitle from '../Common/PageTitle';
 import Sort from '../Common/Sort';
 import PageContent from '../Common/PageContent';
-import PostsList from '../PostsList';
+import PostsList from '../Posts/PostsList';
 import SubscribeButton from '../Common/SubscribeButton';
 
 import './Home.scss';
