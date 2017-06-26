@@ -26,6 +26,7 @@
     "bootstrap": "4.0.0-alpha.6",
     "case-sensitive-paths-webpack-plugin": "^2.1.1",
     "chalk": "1.1.3",
+    "compression-webpack-plugin": "^0.4.0",
     "cra-generate": "^3.0.2",
     "css-loader": "^0.28.4",
     "dotenv": "4.0.0",
@@ -59,6 +60,7 @@
     "webpack": "3.0.0",
     "webpack-dev-server": "2.5.0",
     "webpack-manifest-plugin": "1.1.0",
+    "webpack-visualizer-plugin": "^0.1.11",
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {

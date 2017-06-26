@@ -9,6 +9,8 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const Visualizer = require('webpack-visualizer-plugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 
@@ -275,6 +277,16 @@ module.exports = {
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     // Enable scope hoisting
     new webpack.optimize.ModuleConcatenationPlugin(),
+    // Prepare compressed versions of assets to serve them with Content-Encoding
+    new CompressionPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
+    // Visualize your Webpack bundle
+    new Visualizer(),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
