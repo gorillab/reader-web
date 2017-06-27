@@ -66,6 +66,10 @@ class Header extends Component {
               <NavItem>
                 <Link className="nav-link" to="/for-you">For You</Link>
               </NavItem>
+
+              <NavItem>
+                <Link className="nav-link" to="/saved">Saved</Link>
+              </NavItem>
             </Nav>
 
             <Nav className="nav" navbar>
