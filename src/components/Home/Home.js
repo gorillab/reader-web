@@ -18,11 +18,14 @@ const propTypes = {
   history: PropTypes.any.isRequired,
 };
 
+const getPosts = () => posts;
+
 class Home extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      sort: 'new',
       posts,
       title: this.getTitle(location.pathname),
     };
@@ -34,6 +37,7 @@ class Home extends Component {
     });
 
     this.getTitle = this.getTitle.bind(this);
+    this.getPosts = this.getPosts.bind(this);
   }
 
   componentWillUnmount() {
@@ -58,6 +62,15 @@ class Home extends Component {
     return 'Explore';
   }
 
+  getPosts(e) {
+    const sort = e.target.getAttribute('id');
+    const postsList = getPosts(sort);
+    this.setState({
+      sort,
+      posts: postsList,
+    });
+  }
+
   render() {
     return (
       <div className="home">
@@ -66,7 +79,7 @@ class Home extends Component {
 
           <SubscribeButton />
 
-          <Sort />
+          <Sort current={this.state.sort} getPosts={this.getPosts} />
         </PageHeader>
 
         <PageContent>

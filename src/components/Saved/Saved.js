@@ -11,13 +11,27 @@ import './Saved.scss';
 // for testing purpose, should remove later
 import posts from '../../mock-data/posts';
 
+const getPosts = () => posts;
+
 class Saved extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      sort: 'new',
       posts,
     };
+
+    this.getPosts = this.getPosts.bind(this);
+  }
+
+  getPosts(e) {
+    const sort = e.target.getAttribute('id');
+    const postsList = getPosts(sort);
+    this.setState({
+      sort,
+      posts: postsList,
+    });
   }
 
   render() {
@@ -26,7 +40,7 @@ class Saved extends Component {
         <PageHeader>
           <PageTitle title="Saved" />
 
-          <Sort />
+          <Sort current={this.state.sort} getPosts={this.getPosts} />
         </PageHeader>
 
         <PageContent>
