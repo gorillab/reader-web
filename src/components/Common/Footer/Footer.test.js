@@ -5,5 +5,5 @@ import Footer from './Footer';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Footer />, div);
+  ReactDOM.render(<Footer>Test</Footer>, div);
 });

@@ -5,5 +5,5 @@ import PageHeader from './PageHeader';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<PageHeader />, div);
+  ReactDOM.render(<PageHeader>Test</PageHeader>, div);
 });
