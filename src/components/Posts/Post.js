@@ -10,6 +10,7 @@ const propTypes = {
 const Post = ({ post }) => {
   const time = new Date(post.time);
   const date = `${time.getDate()}/${time.getMonth() + 1}/${time.getFullYear()}`;
+  const pathname = location.pathname;
 
   return (
     <li className="post">
@@ -28,7 +29,7 @@ const Post = ({ post }) => {
 
         <div className="actions">
           <button className="btn facebook-share-button">Share</button>
-          <button className="btn save-button">Save</button>
+          { pathname !== '/saved' && post.isRead ? <button className="btn save-button">Save</button> : null }
         </div>
       </div>
     </li>

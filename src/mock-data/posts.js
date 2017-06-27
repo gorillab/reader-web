@@ -9,6 +9,7 @@ const posts = [
       link: 'http://www.tinhte.vn',
     },
     time: Date.now(),
+    isRead: true,
   },
   {
     id: 2,
