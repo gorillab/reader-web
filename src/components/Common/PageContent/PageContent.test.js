@@ -5,5 +5,5 @@ import PageContent from './PageContent';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<PageContent />, div);
+  ReactDOM.render(<PageContent>Test</PageContent>, div);
 });
