@@ -6,6 +6,7 @@ import Footer from './components/Common/Footer';
 import Content from './components/Common/Content';
 import Home from './components/Home';
 import ForYou from './components/ForYou';
+import Saved from './components/Saved';
 
 import './App.scss';
 
@@ -23,6 +24,10 @@ const App = () => {
     key: 'for-you',
     path: '/for-you',
     component: ForYou,
+  }, {
+    key: 'saved',
+    path: '/saved',
+    component: Saved,
   }];
 
   return (
