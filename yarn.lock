@@ -5778,6 +5778,10 @@ readdirp@^2.0.0:
     readable-stream "^2.0.2"
     set-immediate-shim "^1.0.1"
 
+"reader-js@git+ssh://git@github.com:gorillab/reader-js.git":
+  version "1.0.0"
+  resolved "git+ssh://git@github.com:gorillab/reader-js.git#aa6536c56b2f4338eacd97afe189cc1bc8d75484"
+
 readline2@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/readline2/-/readline2-1.0.1.tgz#41059608ffc154757b715d9989d199ffbf372e35"

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Auth } from 'reader-js';
 
 import { Collapse, Navbar, Nav, NavItem, NavbarToggler, NavDropdown, DropdownItem, DropdownToggle, DropdownMenu } from 'reactstrap';
 import { Link } from 'react-router-dom';
@@ -8,6 +9,18 @@ import './Header.scss';
 
 // for testing purpose, should remove later
 import sources from '../../../mock-data/sources';
+
+const logout = () => {
+  try {
+    Auth.logout();
+
+    // handle success
+    // TODO
+  } catch (err) {
+    // handle error
+    // TODO
+  }
+};
 
 class Header extends Component {
   constructor(props) {
@@ -79,7 +92,7 @@ class Header extends Component {
                 </DropdownToggle>
 
                 <DropdownMenu right>
-                  <DropdownItem>Logout</DropdownItem>
+                  <DropdownItem onClick={logout}>Logout</DropdownItem>
                 </DropdownMenu>
               </NavDropdown>
             </Nav>
