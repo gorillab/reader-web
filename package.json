@@ -1,5 +1,6 @@
 {
   "name": "reader-web",
+  "homepage": "https://reader.gorillab.co",
   "version": "0.1.0",
   "private": true,
   "engines": {
