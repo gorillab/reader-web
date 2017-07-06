@@ -25,8 +25,7 @@ class Saved extends Component {
     this.getPosts = this.getPosts.bind(this);
   }
 
-  getPosts(e) {
-    const sort = e.target.getAttribute('id');
+  getPosts(sort) {
     const postsList = getPosts(sort);
     this.setState({
       sort,

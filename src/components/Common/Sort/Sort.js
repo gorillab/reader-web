@@ -27,11 +27,10 @@ const Sort = ({ current, getPosts }) => {
         {items.map(({ display, value }) => (
           <li className={current === value ? 'sort-active' : ''}>
             <Link
-              id={value}
               to={{
                 search: `?sort=${value}`,
               }}
-              onClick={getPosts}
+              onClick={() => getPosts(value)}
             >{display}</Link>
           </li>
         ))}

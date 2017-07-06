@@ -62,8 +62,7 @@ class Home extends Component {
     return 'Explore';
   }
 
-  getPosts(e) {
-    const sort = e.target.getAttribute('id');
+  getPosts(sort) {
     const postsList = getPosts(sort);
     this.setState({
       sort,
