@@ -25,7 +25,7 @@ const Sort = ({ current, getPosts }) => {
     <div className="sort">
       <ul>
         {items.map(({ display, value }) => (
-          <li className={current === value ? 'sort-active' : ''}>
+          <li key={value} className={current === value ? 'sort-active' : ''}>
             <Link
               to={{
                 search: `?sort=${value}`,
