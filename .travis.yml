@@ -18,6 +18,7 @@ script:
   - yarn build
 
 deploy:
+  fqdn: reader.gorillab.co
   local_dir: build
   provider: pages
   skip_cleanup: true
