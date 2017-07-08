@@ -71,8 +71,7 @@
     "build": "node scripts/build.js",
     "serve": "serve build",
     "test": "node scripts/test.js --env=jsdom",
-    "gen": "node_modules/cra-generate/index.js",
-    "now-start": "serve build"
+    "gen": "node_modules/cra-generate/index.js"
   },
   "craGenerate": {
     "cssExtension": "scss",
