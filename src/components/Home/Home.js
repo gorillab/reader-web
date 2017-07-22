@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Sources, Posts } from 'reader-js';
 
 import PageHeader from '../Common/PageHeader';
 import PageTitle from '../Common/PageTitle';
@@ -10,63 +11,97 @@ import SubscribeButton from '../Common/SubscribeButton';
 
 import './Home.scss';
 
-// for testing purpose, should remove later
-import posts from '../../mock-data/posts';
-import sources from '../../mock-data/sources';
-
 const propTypes = {
   history: PropTypes.any.isRequired,
 };
 
-const getPosts = () => posts;
+const getSources = async () => {
+  try {
+    const sources = await Sources.getSources();
+
+    return sources;
+  } catch (err) {
+    return [];
+  }
+};
+
+const getTitle = async (pathname) => {
+  if (pathname) {
+    const regex = /\/source\/([\w]+)/.exec(pathname);
+
+    if (regex && regex[1]) {
+      // find matched source
+      const sources = await getSources();
+      const source = sources.find(({ id }) => id === regex[1]);
+      if (source) {
+        return source.title;
+      }
+
+      this.props.history.push('/');
+    }
+  }
+
+  return 'Explore';
+};
+
+const getPosts = async (query) => {
+  try {
+    const posts = await Posts.getPosts(query);
+
+    return posts;
+  } catch (err) {
+    return [];
+  }
+};
 
 class Home extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      title: 'Explore',
+      posts: [],
       sort: 'new',
-      posts,
-      title: this.getTitle(location.pathname),
+      limit: 25,
+      page: 0,
     };
 
-    this.historyUnlisten = props.history.listen(({ pathname }) => {
-      this.setState({
-        title: this.getTitle(pathname),
-      });
+    this.loadPosts();
+
+    this.historyUnlisten = props.history.listen(async () => {
+      this.loadPosts();
     });
 
-    this.getTitle = this.getTitle.bind(this);
-    this.getPosts = this.getPosts.bind(this);
+    this.changeSort = this.changeSort.bind(this);
+    this.loadPosts = this.loadPosts.bind(this);
   }
 
   componentWillUnmount() {
     this.historyUnlisten();
   }
 
-  getTitle(pathname) {
-    if (pathname) {
-      const regex = /\/source\/([\w]+)/.exec(pathname);
-
-      if (regex && regex[1]) {
-        // find matched source
-        const source = sources.find(({ id }) => id === regex[1]);
-        if (source) {
-          return source.title;
-        }
-
-        this.props.history.push('/');
-      }
-    }
-
-    return 'Explore';
+  async changeSort(sort) {
+    await this.loadPosts({
+      sort,
+      limit: this.state.limit,
+      page: this.state.page,
+    });
   }
 
-  getPosts(sort) {
-    const postsList = getPosts(sort);
+  async loadPosts(query = {
+    sort: this.state.sort,
+    limit: this.state.limit,
+    page: this.state.page,
+  }) {
+    const [title, posts] = await Promise.all([
+      getTitle(location.pathname),
+      getPosts(query),
+    ]);
+
     this.setState({
-      sort,
-      posts: postsList,
+      title,
+      posts,
+      ...query,
     });
   }
 
@@ -78,7 +113,7 @@ class Home extends Component {
 
           <SubscribeButton />
 
-          <Sort current={this.state.sort} getPosts={this.getPosts} />
+          <Sort current={this.state.sort} getPosts={this.changeSort} />
         </PageHeader>
 
         <PageContent>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Auth } from 'reader-js';
+import { Auth, Sources } from 'reader-js';
 
 import { Collapse, Navbar, Nav, NavItem, NavbarToggler, NavDropdown, DropdownItem, DropdownToggle, DropdownMenu } from 'reactstrap';
 import { Link } from 'react-router-dom';
@@ -7,13 +7,29 @@ import Logo from '../Logo';
 
 import './Header.scss';
 
-// for testing purpose, should remove later
-import sources from '../../../mock-data/sources';
+const getSources = async () => {
+  try {
+    const sources = await Sources.getSources();
 
+    return sources;
+  } catch (err) {
+    return [];
+  }
+};
 const logout = () => {
   try {
     Auth.logout();
 
+    // handle success
+    // TODO
+  } catch (err) {
+    // handle error
+    // TODO
+  }
+};
+const loginByFacebook = () => {
+  try {
+    Auth.loginByFacebook();
     // handle success
     // TODO
   } catch (err) {
@@ -34,8 +50,17 @@ class Header extends Component {
       isOpen: false,
       exploreDropdownOpen: false,
       userDropdownOpen: false,
-      sources,
+      sources: [],
     };
+
+    getSources().then((sources) => {
+      this.setState({
+        sources,
+      });
+    }).catch((error) => {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    });
   }
 
   toggle() {
@@ -92,6 +117,7 @@ class Header extends Component {
                 </DropdownToggle>
 
                 <DropdownMenu right>
+                  <DropdownItem onClick={loginByFacebook}>Login by facebook</DropdownItem>
                   <DropdownItem onClick={logout}>Logout</DropdownItem>
                 </DropdownMenu>
               </NavDropdown>
