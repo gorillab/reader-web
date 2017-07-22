@@ -14,17 +14,14 @@ const Post = ({ post }) => {
 
   return (
     <li className="post">
-      <img src={post.thumbnail} className="rounded thumbnail" alt="" />
+      <img src={post.image} className="rounded thumbnail" alt="" />
 
       <div className="title">
-        <a href={post.url}>{post.title}</a>
+        <a href={post.url} target="_blank" rel="noopener noreferrer">{post.title}</a>
       </div>
 
       <div className="meta">
-        <a href={post.by.link} target="_blank" rel="noopener noreferrer">
-          {post.by.name}
-        </a>
-
+        {post.source.title}
         <span className="time">{date}</span>
 
         <div className="actions">
