@@ -1,13 +1,13 @@
-import { Users } from 'reader-js';
+import { Users, Auth } from 'reader-js';
 
-import { INIT_DATA, LOG_OUT } from './types';
+import { GET_USER, LOG_OUT } from './types';
 
 const getUser = () => async (dispatch) => {
   try {
     const user = await Users.getUser();
 
     dispatch({
-      type: INIT_DATA,
+      type: GET_USER,
       user,
     });
   } catch (error) {
@@ -18,7 +18,7 @@ const getUser = () => async (dispatch) => {
 
 const logOut = () => async (dispatch) => {
   try {
-    await Users.signOut();
+    await Auth.logout();
 
     dispatch({
       type: LOG_OUT,

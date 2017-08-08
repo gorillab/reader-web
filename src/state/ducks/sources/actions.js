@@ -1,13 +1,13 @@
 import { Sources } from 'reader-js';
 
-import { INIT_DATA } from '../user/types';
+import GET_SOURCES from './types';
 
 const getSources = () => async (dispatch) => {
   try {
     const sources = await Sources.getSources();
 
     dispatch({
-      type: INIT_DATA,
+      type: GET_SOURCES,
       sources,
     });
   } catch (error) {
