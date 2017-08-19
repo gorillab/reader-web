@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 
 import Home from './Home';
 
-import { isLoggedIn } from '../../state/ducks/user';
-import { getSource as getSourceFunc } from '../../state/ducks/sources';
+import { userSelectors } from '../../state/ducks/user';
+import { sourcesSelectors } from '../../state/ducks/sources';
 
 const propTypes = {
   match: PropTypes.any.isRequired,
@@ -25,8 +25,8 @@ HomeRender.propTypes = propTypes;
 const FinalHomeRender = (props) => {
   const ConnectedHomeRender = connect(
     state => ({
-      isLoggedIn: isLoggedIn(state),
-      getSource: getSourceFunc(state),
+      isLoggedIn: userSelectors.isLoggedIn(state),
+      getSource: sourcesSelectors.getSource(state),
     }),
   )(HomeRender);
 
