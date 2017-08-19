@@ -13,6 +13,7 @@ import './Home.scss';
 
 const propTypes = {
   title: PropTypes.string.isRequired,
+  source: PropTypes.string.isRequired,
 };
 
 class Home extends Component {
@@ -67,7 +68,7 @@ class Home extends Component {
         <PageHeader>
           <PageTitle title={this.props.title} />
 
-          <SubscribeButton />
+          {this.props.source && <SubscribeButton />}
 
           <Sort current={this.state.sort} getPosts={this.changeSort} />
         </PageHeader>
