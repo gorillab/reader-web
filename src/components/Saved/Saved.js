@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Users } from 'reader-js';
 
 import PageHeader from '../Common/PageHeader';
 import PageTitle from '../Common/PageTitle';
@@ -8,28 +9,49 @@ import PostsList from '../Posts/PostsList';
 
 import './Saved.scss';
 
-// for testing purpose, should remove later
-import posts from '../../mock-data/posts';
-
-const getPosts = () => posts;
-
 class Saved extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      posts: [],
       sort: 'new',
-      posts,
+      limit: 25,
+      page: 0,
     };
 
     this.getPosts = this.getPosts.bind(this);
+    this.changeSort = this.changeSort.bind(this);
+
+    this.getPosts();
   }
 
-  getPosts(sort) {
-    const postsList = getPosts(sort);
-    this.setState({
+  async getPosts(query = {
+    sort: this.state.sort,
+    limit: this.state.limit,
+    page: this.state.page,
+  }) {
+    try {
+      const posts = await Users.getSaved({
+        source: this.props.source ? this.props.source.id : undefined,
+        ...query,
+      });
+
+      this.setState({
+        posts,
+        ...query,
+      });
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    }
+  }
+
+  async changeSort(sort) {
+    await this.getPosts({
       sort,
-      posts: postsList,
+      limit: this.state.limit,
+      page: this.state.page,
     });
   }
 
