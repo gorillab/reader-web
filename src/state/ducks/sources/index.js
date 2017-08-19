@@ -1,13 +1,14 @@
-import getSources from './actions';
-import { getSources as selectSources, getSource } from './selectors';
+import { getSources, subscribe, unsubscribe } from './actions';
+import * as sourcesSelectors from './selectors';
 import sourcesReducers from './reducers';
 
 export {
   // actions
   getSources,
+  subscribe,
+  unsubscribe,
   // selectors
-  selectSources,
-  getSource,
+  sourcesSelectors,
 };
 
 export default sourcesReducers;

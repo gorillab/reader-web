@@ -1,3 +1,9 @@
 const GET_SOURCES = 'sources/GET_SOURCES';
+const SUBSCRIBE = 'sources/SUBSCRIBE';
+const UNSUBSCRIBE = 'sources/UNSUBSCRIBE';
 
-export default GET_SOURCES;
+export {
+  GET_SOURCES,
+  SUBSCRIBE,
+  UNSUBSCRIBE,
+};
