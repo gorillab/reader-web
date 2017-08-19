@@ -1,19 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
+import { connect } from 'react-redux';
 
 import './SubscribeButton.scss';
 
+import { subscribe, unsubscribe } from '../../../state/ducks/sources';
+
 const propTypes = {
-  isSubscribed: PropTypes.bool.isRequired,
+  source: PropTypes.any.isRequired,
+  subscribe: PropTypes.func.isRequired,
+  unsubscribe: PropTypes.func.isRequired,
 };
 
-const SubscribeButton = ({ isSubscribed }) => (
+const SubscribeButton = props => (
   <div className="subscribe-button">
-    <Button color="secondary" size="sm">{isSubscribed ? 'Unsubscribe' : 'Subscribe'}</Button>
+    <Button
+      color="secondary"
+      size="sm"
+      onClick={() => {
+        if (props.source.isSubscribed) {
+          props.unsubscribe(props.source.id);
+        } else {
+          props.subscribe(props.source.id);
+        }
+      }}
+    >{props.source.isSubscribed ? 'Unsubscribe' : 'Subscribe'}</Button>
   </div>
 );
 
 SubscribeButton.propTypes = propTypes;
 
-export default SubscribeButton;
+export default connect(
+  () => ({}), {
+    subscribe,
+    unsubscribe,
+  },
+)(SubscribeButton);
