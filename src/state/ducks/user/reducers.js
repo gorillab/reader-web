@@ -1,17 +1,17 @@
-import { INIT_DATA, LOG_OUT } from './types';
+import { GET_USER, LOG_OUT } from './types';
 
 const initialState = null;
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case INIT_DATA:
+    case GET_USER:
       return action.user ? {
         ...state,
         ...action.user,
       } : null;
 
     case LOG_OUT:
-      return undefined;
+      return null;
 
     default:
       return state;
