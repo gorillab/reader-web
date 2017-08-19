@@ -12,10 +12,13 @@
     "react-addons-css-transition-group": "^15.5.2",
     "react-addons-transition-group": "^15.5.2",
     "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "reactstrap": "^4.6.2",
-    "reader-js": "https://github.com/gorillab/reader-js.git"
+    "reader-js": "https://github.com/gorillab/reader-js.git",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
@@ -107,7 +110,7 @@
       "target": "http://localhost:9000",
       "secure": false,
       "pathRewrite": {
-        "^/api" : ""
+        "^/api": ""
       }
     }
   },

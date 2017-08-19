@@ -1,71 +1,32 @@
 import React, { Component } from 'react';
-import { Auth, Sources } from 'reader-js';
-
-import { Collapse, Navbar, Nav, NavItem, NavbarToggler, NavDropdown, DropdownItem, DropdownToggle, DropdownMenu } from 'reactstrap';
+import { Collapse, Navbar, Nav, NavItem, NavbarToggler, NavDropdown, DropdownToggle, DropdownMenu } from 'reactstrap';
 import { Link } from 'react-router-dom';
+
+import { Auth } from 'reader-js';
+
 import Logo from '../Logo';
 
 import './Header.scss';
-
-const getSources = async () => {
-  try {
-    const sources = await Sources.getSources();
-
-    return sources;
-  } catch (err) {
-    return [];
-  }
-};
-const logout = () => {
-  try {
-    Auth.logout();
-
-    // handle success
-    // TODO
-  } catch (err) {
-    // handle error
-    // TODO
-  }
-};
-const loginByFacebook = () => {
-  try {
-    Auth.loginByFacebook();
-    // handle success
-    // TODO
-  } catch (err) {
-    // handle error
-    // TODO
-  }
-};
 
 class Header extends Component {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this);
-    this.toggleExplore = this.toggleExplore.bind(this);
-    this.toggleUser = this.toggleUser.bind(this);
-
     this.state = {
-      isOpen: false,
+      navbarOpen: false,
       exploreDropdownOpen: false,
       userDropdownOpen: false,
       sources: [],
     };
 
-    getSources().then((sources) => {
-      this.setState({
-        sources,
-      });
-    }).catch((error) => {
-      // eslint-disable-next-line no-console
-      console.error(error);
-    });
+    this.toggle = this.toggle.bind(this);
+    this.toggleExplore = this.toggleExplore.bind(this);
+    this.toggleUser = this.toggleUser.bind(this);
   }
 
   toggle() {
     this.setState({
-      isOpen: !this.state.isOpen,
+      navbarOpen: !this.state.navbarOpen,
     });
   }
 
@@ -89,7 +50,7 @@ class Header extends Component {
 
           <Logo />
 
-          <Collapse isOpen={this.state.isOpen} navbar>
+          <Collapse isOpen={this.state.navbarOpen} navbar>
             <Nav className="mr-auto nav" navbar>
               <NavDropdown isOpen={this.state.exploreDropdownOpen} toggle={this.toggleExplore}>
                 <DropdownToggle className="router-link-active" nav caret>Explore</DropdownToggle>
@@ -117,8 +78,9 @@ class Header extends Component {
                 </DropdownToggle>
 
                 <DropdownMenu right>
-                  <DropdownItem onClick={loginByFacebook}>Login by facebook</DropdownItem>
-                  <DropdownItem onClick={logout}>Logout</DropdownItem>
+                  <button type="button" className="dropdown-item" onClick={Auth.logout}>
+                    Logout
+                  </button>
                 </DropdownMenu>
               </NavDropdown>
             </Nav>

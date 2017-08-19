@@ -9,7 +9,9 @@ const propTypes = {
 
 const PageHeader = ({ children }) => (
   <div className="page-header">
-    {children}
+    <div className="page-header-child">
+      {children}
+    </div>
   </div>
 );
 
