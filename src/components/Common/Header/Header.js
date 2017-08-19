@@ -85,7 +85,7 @@ class Header extends Component {
             <Nav className="nav" navbar>
               {!this.props.isLoggedIn ? (
                 <NavItem>
-                  <Link className="nav-link" to={Auth.LOGIN_BY_FACEBOOK_URL}>Facebook</Link>
+                  <a className="nav-link" href={Auth.LOGIN_BY_FACEBOOK_URL}>Facebook</a>
                 </NavItem>
               ) : (
                 <NavDropdown isOpen={this.state.userDropdownOpen} toggle={this.toggleUser}>
