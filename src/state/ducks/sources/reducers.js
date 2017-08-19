@@ -1,10 +1,10 @@
-import { INIT_DATA } from '../user/types';
+import GET_SOURCES from './types';
 
 const initialState = [];
 
 const sourcesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case INIT_DATA:
+    case GET_SOURCES:
       return [
         ...state,
         ...action.sources,

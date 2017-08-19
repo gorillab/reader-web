@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Auth } from 'reader-js';
+
 import { Collapse, Navbar, Nav, NavItem, NavbarToggler, NavDropdown, DropdownToggle, DropdownMenu } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-import { Auth } from 'reader-js';
+import { isLoggedIn, logOut } from '../../../state/ducks/user';
 
 import Logo from '../Logo';
-
 import './Header.scss';
+
+const propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired,
+  logOut: PropTypes.func.isRequired,
+};
 
 class Header extends Component {
   constructor(props) {
@@ -72,17 +80,23 @@ class Header extends Component {
             </Nav>
 
             <Nav className="nav" navbar>
-              <NavDropdown isOpen={this.state.userDropdownOpen} toggle={this.toggleUser}>
-                <DropdownToggle nav caret className="a-last">
-                  <img className="avatar" src="/images/logo.png" alt="" />
-                </DropdownToggle>
+              {!this.props.isLoggedIn ? (
+                <NavItem>
+                  <a className="nav-link" href={Auth.LOGIN_BY_FACEBOOK_URL}>Facebook</a>
+                </NavItem>
+              ) : (
+                <NavDropdown isOpen={this.state.userDropdownOpen} toggle={this.toggleUser}>
+                  <DropdownToggle nav caret className="a-last">
+                    <img className="avatar" src="/images/logo.png" alt="" />
+                  </DropdownToggle>
 
-                <DropdownMenu right>
-                  <button type="button" className="dropdown-item" onClick={Auth.logout}>
-                    Logout
-                  </button>
-                </DropdownMenu>
-              </NavDropdown>
+                  <DropdownMenu right>
+                    <button type="button" className="dropdown-item" onClick={this.props.logOut}>
+                      Logout
+                    </button>
+                  </DropdownMenu>
+                </NavDropdown>
+              )}
             </Nav>
           </Collapse>
         </Navbar>
@@ -91,4 +105,12 @@ class Header extends Component {
   }
 }
 
-export default Header;
+Header.propTypes = propTypes;
+
+export default connect(
+  state => ({
+    isLoggedIn: isLoggedIn(state),
+  }), {
+    logOut,
+  },
+)(Header);
