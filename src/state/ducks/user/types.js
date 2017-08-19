@@ -1,7 +1,7 @@
-const GET_USER = 'user/GET_USER';
 const LOG_OUT = 'user/LOG_OUT';
+const GET_USER = 'user/GET_USER';
 
 export {
-  GET_USER,
   LOG_OUT,
+  GET_USER,
 };

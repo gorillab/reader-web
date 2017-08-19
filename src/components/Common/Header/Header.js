@@ -7,12 +7,14 @@ import { Collapse, Navbar, Nav, NavItem, NavbarToggler, NavDropdown, DropdownTog
 import { Link } from 'react-router-dom';
 
 import { isLoggedIn, logOut } from '../../../state/ducks/user';
+import { selectSources as getSources } from '../../../state/ducks/sources';
 
 import Logo from '../Logo';
 import './Header.scss';
 
 const propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
+  sources: PropTypes.array.isRequired,
   logOut: PropTypes.func.isRequired,
 };
 
@@ -24,7 +26,6 @@ class Header extends Component {
       navbarOpen: false,
       exploreDropdownOpen: false,
       userDropdownOpen: false,
-      sources: [],
     };
 
     this.toggle = this.toggle.bind(this);
@@ -60,29 +61,31 @@ class Header extends Component {
 
           <Collapse isOpen={this.state.navbarOpen} navbar>
             <Nav className="mr-auto nav" navbar>
-              <NavDropdown isOpen={this.state.exploreDropdownOpen} toggle={this.toggleExplore}>
-                <DropdownToggle className="router-link-active" nav caret>Explore</DropdownToggle>
+              {!!this.props.sources.length &&
+                <NavDropdown isOpen={this.state.exploreDropdownOpen} toggle={this.toggleExplore}>
+                  <DropdownToggle className="router-link-active" nav caret>Explore</DropdownToggle>
 
-                <DropdownMenu>
-                  {this.state.sources.map(source => (
-                    <Link className="dropdown-item" to={`/source/${source.id}`} key={source.id} id={source.id}>{source.title}</Link>
-                  ))}
-                </DropdownMenu>
-              </NavDropdown>
+                  <DropdownMenu>
+                    {this.props.sources.map(source => (
+                      <Link className="dropdown-item" to={`/source/${source.id}`} key={source.id} id={source.id}>{source.title}</Link>
+                    ))}
+                  </DropdownMenu>
+                </NavDropdown>
+              }
 
-              <NavItem>
+              {this.props.isLoggedIn && <NavItem>
                 <Link className="nav-link" to="/for-you">For You</Link>
-              </NavItem>
+              </NavItem>}
 
-              <NavItem>
+              {this.props.isLoggedIn && <NavItem>
                 <Link className="nav-link" to="/saved">Saved</Link>
-              </NavItem>
+              </NavItem>}
             </Nav>
 
             <Nav className="nav" navbar>
               {!this.props.isLoggedIn ? (
                 <NavItem>
-                  <a className="nav-link" href={Auth.LOGIN_BY_FACEBOOK_URL}>Facebook</a>
+                  <Link className="nav-link" to={Auth.LOGIN_BY_FACEBOOK_URL}>Facebook</Link>
                 </NavItem>
               ) : (
                 <NavDropdown isOpen={this.state.userDropdownOpen} toggle={this.toggleUser}>
@@ -110,6 +113,7 @@ Header.propTypes = propTypes;
 export default connect(
   state => ({
     isLoggedIn: isLoggedIn(state),
+    sources: getSources(state),
   }), {
     logOut,
   },
