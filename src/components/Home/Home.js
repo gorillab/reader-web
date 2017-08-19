@@ -12,8 +12,12 @@ import SubscribeButton from '../Common/SubscribeButton';
 import './Home.scss';
 
 const propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
-  source: PropTypes.any.isRequired,
+  source: PropTypes.any,
+};
+const defaultProps = {
+  source: undefined,
 };
 
 class Home extends Component {
@@ -40,7 +44,7 @@ class Home extends Component {
   }) {
     try {
       const posts = await Posts.getPosts({
-        source: this.props.source.id,
+        source: this.props.source ? this.props.source.id : undefined,
         ...query,
       });
 
@@ -68,7 +72,8 @@ class Home extends Component {
         <PageHeader>
           <PageTitle title={this.props.title} />
 
-          {this.props.source && <SubscribeButton isSubscribed={this.props.source.isSubscribed} />}
+          {this.props.isLoggedIn && this.props.source
+          && <SubscribeButton source={this.props.source} />}
 
           <Sort current={this.state.sort} getPosts={this.changeSort} />
         </PageHeader>
@@ -82,5 +87,6 @@ class Home extends Component {
 }
 
 Home.propTypes = propTypes;
+Home.defaultProps = defaultProps;
 
 export default Home;
