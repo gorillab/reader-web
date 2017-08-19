@@ -6,8 +6,8 @@ import { Auth } from 'reader-js';
 import { Collapse, Navbar, Nav, NavItem, NavbarToggler, NavDropdown, DropdownToggle, DropdownMenu } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-import { isLoggedIn, logOut } from '../../../state/ducks/user';
-import { selectSources as getSources } from '../../../state/ducks/sources';
+import { logOut, userSelectors } from '../../../state/ducks/user';
+import { sourcesSelectors } from '../../../state/ducks/sources';
 
 import Logo from '../Logo';
 import './Header.scss';
@@ -16,16 +16,6 @@ const propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   sources: PropTypes.array.isRequired,
   logOut: PropTypes.func.isRequired,
-};
-const loginByFacebook = () => {
-  try {
-    Auth.loginByFacebook();
-    // handle success
-    // TODO
-  } catch (err) {
-    // handle error
-    // TODO
-  }
 };
 
 class Header extends Component {
@@ -122,8 +112,8 @@ Header.propTypes = propTypes;
 
 export default connect(
   state => ({
-    isLoggedIn: isLoggedIn(state),
-    sources: getSources(state),
+    isLoggedIn: userSelectors.isLoggedIn(state),
+    sources: sourcesSelectors.getSources(state),
   }), {
     logOut,
   },
