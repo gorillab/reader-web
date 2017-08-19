@@ -13,7 +13,7 @@ import './Home.scss';
 
 const propTypes = {
   title: PropTypes.string.isRequired,
-  source: PropTypes.string.isRequired,
+  source: PropTypes.any.isRequired,
 };
 
 class Home extends Component {
@@ -40,7 +40,7 @@ class Home extends Component {
   }) {
     try {
       const posts = await Posts.getPosts({
-        source: this.props.source,
+        source: this.props.source.id,
         ...query,
       });
 
@@ -68,7 +68,7 @@ class Home extends Component {
         <PageHeader>
           <PageTitle title={this.props.title} />
 
-          {this.props.source && <SubscribeButton />}
+          {this.props.source && <SubscribeButton isSubscribed={this.props.source.isSubscribed} />}
 
           <Sort current={this.state.sort} getPosts={this.changeSort} />
         </PageHeader>
