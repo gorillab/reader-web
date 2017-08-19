@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider as ReduxProvider } from 'react-redux';
 
 import configureStore from './state';
-import { getUser } from './state/ducks/user/actions';
-import getSources from './state/ducks/sources/actions';
+import { getUser } from './state/ducks/user';
+import { getSources } from './state/ducks/sources';
 
 import Header from './components/Common/Header';
 import Footer from './components/Common/Footer';
@@ -16,8 +16,10 @@ import Saved from './components/Saved';
 import './App.scss';
 
 const store = configureStore(window.REDUX_INITIAL_DATA);
-store.dispatch(getUser());
-store.dispatch(getSources());
+Promise.all([
+  store.dispatch(getUser()),
+  store.dispatch(getSources()),
+]);
 
 const routes = [{
   key: 'home',

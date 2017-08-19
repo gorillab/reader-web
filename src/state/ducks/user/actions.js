@@ -1,6 +1,19 @@
 import { Users, Auth } from 'reader-js';
 
-import { GET_USER, LOG_OUT } from './types';
+import { LOG_OUT, GET_USER } from './types';
+
+const logOut = () => async (dispatch) => {
+  try {
+    await Auth.logout();
+
+    dispatch({
+      type: LOG_OUT,
+    });
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error);
+  }
+};
 
 const getUser = () => async (dispatch) => {
   try {
@@ -16,20 +29,7 @@ const getUser = () => async (dispatch) => {
   }
 };
 
-const logOut = () => async (dispatch) => {
-  try {
-    await Auth.logout();
-
-    dispatch({
-      type: LOG_OUT,
-    });
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error);
-  }
-};
-
 export {
-  getUser,
   logOut,
+  getUser,
 };
