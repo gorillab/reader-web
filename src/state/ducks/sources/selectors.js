@@ -1,3 +1,7 @@
-const getSources = state => state.sources;
+const getSources = state => Object.values(state.sources);
+const getSource = state => id => state.sources[id];
 
-export default getSources;
+export {
+  getSources,
+  getSource,
+};
