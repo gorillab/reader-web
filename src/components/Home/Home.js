@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Posts } from 'reader-js';
 
 import PageHeader from '../Common/PageHeader';
 import PageTitle from '../Common/PageTitle';
@@ -10,63 +11,58 @@ import SubscribeButton from '../Common/SubscribeButton';
 
 import './Home.scss';
 
-// for testing purpose, should remove later
-import posts from '../../mock-data/posts';
-import sources from '../../mock-data/sources';
-
 const propTypes = {
-  history: PropTypes.any.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  source: PropTypes.any,
 };
-
-const getPosts = () => posts;
+const defaultProps = {
+  source: undefined,
+};
 
 class Home extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      posts: [],
       sort: 'new',
-      posts,
-      title: this.getTitle(location.pathname),
+      limit: 25,
+      page: 0,
     };
 
-    this.historyUnlisten = props.history.listen(({ pathname }) => {
-      this.setState({
-        title: this.getTitle(pathname),
-      });
-    });
-
-    this.getTitle = this.getTitle.bind(this);
+    this.changeSort = this.changeSort.bind(this);
     this.getPosts = this.getPosts.bind(this);
+
+    this.getPosts();
   }
 
-  componentWillUnmount() {
-    this.historyUnlisten();
-  }
+  async getPosts(query = {
+    sort: this.state.sort,
+    limit: this.state.limit,
+    page: this.state.page,
+  }) {
+    try {
+      const posts = await Posts.getPosts({
+        source: this.props.source ? this.props.source.id : undefined,
+        ...query,
+      });
 
-  getTitle(pathname) {
-    if (pathname) {
-      const regex = /\/source\/([\w]+)/.exec(pathname);
-
-      if (regex && regex[1]) {
-        // find matched source
-        const source = sources.find(({ id }) => id === regex[1]);
-        if (source) {
-          return source.title;
-        }
-
-        this.props.history.push('/');
-      }
+      this.setState({
+        posts,
+        ...query,
+      });
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
     }
-
-    return 'Explore';
   }
 
-  getPosts(sort) {
-    const postsList = getPosts(sort);
-    this.setState({
+  async changeSort(sort) {
+    await this.getPosts({
       sort,
-      posts: postsList,
+      limit: this.state.limit,
+      page: this.state.page,
     });
   }
 
@@ -74,11 +70,12 @@ class Home extends Component {
     return (
       <div className="home">
         <PageHeader>
-          <PageTitle title={this.state.title} />
+          <PageTitle title={this.props.title} />
 
-          <SubscribeButton />
+          {this.props.isLoggedIn && this.props.source
+          && <SubscribeButton source={this.props.source} />}
 
-          <Sort current={this.state.sort} getPosts={this.getPosts} />
+          <Sort current={this.state.sort} getPosts={this.changeSort} />
         </PageHeader>
 
         <PageContent>
@@ -90,5 +87,6 @@ class Home extends Component {
 }
 
 Home.propTypes = propTypes;
+Home.defaultProps = defaultProps;
 
 export default Home;

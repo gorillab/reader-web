@@ -9,7 +9,7 @@ import { getSources } from './state/ducks/sources';
 import Header from './components/Common/Header';
 import Footer from './components/Common/Footer';
 import Content from './components/Common/Content';
-import Home from './components/Home';
+import HomeRender from './components/Home';
 import ForYou from './components/ForYou';
 import Saved from './components/Saved';
 
@@ -25,11 +25,11 @@ const routes = [{
   key: 'home',
   path: '/',
   exact: true,
-  component: Home,
+  render: HomeRender,
 }, {
   key: 'source',
   path: '/source/:source',
-  component: Home,
+  render: HomeRender,
 }, {
   key: 'for-you',
   path: '/for-you',
