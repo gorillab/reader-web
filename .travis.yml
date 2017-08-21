@@ -18,13 +18,20 @@ script:
   - yarn build
 
 deploy:
-  provider: surge
-  project: ./build
-  domain: glab-reader-web.surge.sh
-  skip_cleanup: true
-  on:
-    branch: master
-    node: '8'
+  - provider: surge
+    project: ./build
+    domain: staging.reader.gorillab.co
+    skip_cleanup: true
+    on:
+      branch: master
+      node: '8'
+  - provider: surge
+    project: ./build
+    domain: reader.gorillab.co
+    skip_cleanup: true
+    on:
+      tags: true
+      node: '8'
 
 notifications:
   email: false
