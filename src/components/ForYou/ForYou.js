@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Users } from 'reader-js';
+import qs from 'qs';
 
 import PageHeader from '../Common/PageHeader';
 import PageTitle from '../Common/PageTitle';
@@ -13,15 +14,21 @@ class ForYou extends Component {
   constructor(props) {
     super(props);
 
+    const { sort } = qs.parse(location.search, { ignoreQueryPrefix: true });
+
     this.state = {
       posts: [],
-      sort: 'new',
+      sort: sort || 'new',
       limit: 25,
       page: 0,
     };
 
-    this.changeSort = this.changeSort.bind(this);
     this.getPosts = this.getPosts.bind(this);
+    this.changeSort = this.changeSort.bind(this);
+  }
+
+  componentDidMount() {
+    this.getPosts();
   }
 
   async getPosts(query = {
@@ -56,7 +63,7 @@ class ForYou extends Component {
         <PageHeader>
           <PageTitle title="For You" />
 
-          <Sort current={this.state.sort} getPosts={this.getPosts} />
+          <Sort current={this.state.sort} onClick={this.changeSort} />
         </PageHeader>
 
         <PageContent>

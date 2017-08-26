@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Posts } from 'reader-js';
+import qs from 'qs';
 
 import PageHeader from '../Common/PageHeader';
 import PageTitle from '../Common/PageTitle';
@@ -24,16 +25,20 @@ class Home extends Component {
   constructor(props) {
     super(props);
 
+    const { sort } = qs.parse(location.search, { ignoreQueryPrefix: true });
+
     this.state = {
       posts: [],
-      sort: 'new',
+      sort: sort || 'new',
       limit: 25,
       page: 0,
     };
 
-    this.changeSort = this.changeSort.bind(this);
     this.getPosts = this.getPosts.bind(this);
+    this.changeSort = this.changeSort.bind(this);
+  }
 
+  componentDidMount() {
     this.getPosts();
   }
 
@@ -75,7 +80,7 @@ class Home extends Component {
           {this.props.isLoggedIn && this.props.source
           && <SubscribeButton source={this.props.source} />}
 
-          <Sort current={this.state.sort} getPosts={this.changeSort} />
+          <Sort current={this.state.sort} onClick={this.changeSort} />
         </PageHeader>
 
         <PageContent>

@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "prop-types": "^15.5.10",
+    "qs": "^6.5.0",
     "react": "^15.5.4",
     "react-addons-css-transition-group": "^15.5.2",
     "react-addons-transition-group": "^15.5.2",

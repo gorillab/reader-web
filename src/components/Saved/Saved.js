@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Users } from 'reader-js';
+import qs from 'qs';
 
 import PageHeader from '../Common/PageHeader';
 import PageTitle from '../Common/PageTitle';
@@ -13,16 +14,20 @@ class Saved extends Component {
   constructor(props) {
     super(props);
 
+    const { sort } = qs.parse(location.search, { ignoreQueryPrefix: true });
+
     this.state = {
       posts: [],
-      sort: 'new',
+      sort: sort || 'new',
       limit: 25,
       page: 0,
     };
 
     this.getPosts = this.getPosts.bind(this);
     this.changeSort = this.changeSort.bind(this);
+  }
 
+  componentDidMount() {
     this.getPosts();
   }
 
@@ -32,10 +37,7 @@ class Saved extends Component {
     page: this.state.page,
   }) {
     try {
-      const posts = await Users.getSaved({
-        source: this.props.source ? this.props.source.id : undefined,
-        ...query,
-      });
+      const posts = await Users.getSaved(query);
 
       this.setState({
         posts,
@@ -61,7 +63,7 @@ class Saved extends Component {
         <PageHeader>
           <PageTitle title="Saved" />
 
-          <Sort current={this.state.sort} getPosts={this.getPosts} />
+          <Sort current={this.state.sort} onClick={this.changeSort} />
         </PageHeader>
 
         <PageContent>

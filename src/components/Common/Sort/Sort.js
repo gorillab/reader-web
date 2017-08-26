@@ -6,10 +6,10 @@ import './Sort.scss';
 
 const propTypes = {
   current: PropTypes.string.isRequired,
-  getPosts: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
-const Sort = ({ current, getPosts }) => {
+const Sort = ({ current, onClick }) => {
   const items = [{
     display: 'New',
     value: 'new',
@@ -30,7 +30,7 @@ const Sort = ({ current, getPosts }) => {
               to={{
                 search: `?sort=${value}`,
               }}
-              onClick={() => getPosts(value)}
+              onClick={() => onClick(value)}
             >{display}</Link>
           </li>
         ))}
