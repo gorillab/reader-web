@@ -12,8 +12,6 @@ const propTypes = {
 };
 
 const Post = ({ post, isLoggedIn }) => {
-  const time = post.time ? new Date(post.time) : null;
-  const date = time ? `${time.getDate()}/${time.getMonth() + 1}/${time.getFullYear()}` : null;
   const isSavedPage = location.pathname === '/saved';
 
   return (
@@ -27,10 +25,6 @@ const Post = ({ post, isLoggedIn }) => {
       <div className="meta">
         {post.source && (
           <span className="source">{post.source.title}</span>
-        )}
-
-        {date && (
-          <span className="time">{date}</span>
         )}
 
         <div className="actions">
