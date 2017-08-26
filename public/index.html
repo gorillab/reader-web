@@ -1,15 +1,39 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <base href="/">
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>    
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1daaf1"/>   
+    <meta name="theme-color" content="#1daaf1"> 
+    <meta name="HandheldFriendly" content="True"/>
+
+    <title>Reader | reader.gorillab.co</title>
+    <meta name="description" content="Daily tech feeds"/>
+    <meta name="keywords" content="technology, news, feed, reader, gorillab">
+    <meta name="author" content="Gorillab"/>
+
+    <meta property="og:title" content="Reader | reader.gorillab.co"/>
+    <meta property="og:site_name" content="reader.gorillab.co"/>
+    <meta property="og:description" content="Daily tech feeds"/>
+    <!-- <meta property="og:image" content=""/> -->
+    <meta property="og:url" content="https://reader.gorillab.co"/>
+    <meta property="og:type" content="website"/>
+
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
+    <link rel="canonical" href="https://reader.gorillab.co"/>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <!-- <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-ipad-retina.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-iphone-retina.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-ipad.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon.png"/> -->
+
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -19,32 +43,23 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Reader</title>
 
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId            : '1922383334663210',
-          autoLogAppEvents : true,
-          xfbml            : true,
-          version          : 'v2.10'
-        });
-        FB.AppEvents.logPageView();
-      };
-    
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5CF4C5V');</script>
+    <!-- End Google Tag Manager -->
   </head>
+
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CF4C5V"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
+
     <div id="root"></div>
     <!--
       This HTML file is a template.
