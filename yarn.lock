@@ -5809,7 +5809,7 @@ readdirp@^2.0.0:
 
 "reader-js@https://github.com/gorillab/reader-js.git":
   version "1.0.0"
-  resolved "https://github.com/gorillab/reader-js.git#1e8438a2571a474658489deaf070ec27d05fb5b4"
+  resolved "https://github.com/gorillab/reader-js.git#450080891310f5bd572c9119046dbe139a73c335"
   dependencies:
     qs "^6.5.0"
 
