@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import { MemoryRouter } from 'react-router-dom';
+
 import ForYou from './ForYou';
 
 it('renders without crashing', () => {

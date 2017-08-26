@@ -13,7 +13,7 @@ const propTypes = {
   unsubscribe: PropTypes.func.isRequired,
 };
 
-const SubscribeButton = props => (
+export const SubscribeButton = props => (
   <div className="subscribe-button">
     <Button
       color="secondary"

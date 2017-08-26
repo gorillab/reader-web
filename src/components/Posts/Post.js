@@ -12,7 +12,7 @@ const propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
 };
 
-class Post extends Component {
+export class PostComponent extends Component {
   constructor(props) {
     super(props);
 
@@ -113,10 +113,10 @@ class Post extends Component {
   }
 }
 
-Post.propTypes = propTypes;
+PostComponent.propTypes = propTypes;
 
 export default connect(
   state => ({
     isLoggedIn: userSelectors.isLoggedIn(state),
   }),
-)(Post);
+)(PostComponent);

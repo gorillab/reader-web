@@ -2,13 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { MemoryRouter } from 'react-router-dom';
-import Header from './Header';
+import { Header } from './Header';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
+  const props = {
+    isLoggedIn: true,
+    sources: [],
+    logOut: () => {},
+  };
   ReactDOM.render(
     <MemoryRouter>
-      <Header />
+      <Header {...props} />
     </MemoryRouter>
     , div);
 });

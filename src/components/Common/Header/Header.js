@@ -18,7 +18,7 @@ const propTypes = {
   logOut: PropTypes.func.isRequired,
 };
 
-class Header extends Component {
+export class Header extends Component {
   constructor(props) {
     super(props);
 

@@ -6,7 +6,7 @@ import PageHeader from '../Common/PageHeader';
 import PageTitle from '../Common/PageTitle';
 import Sort from '../Common/Sort';
 import PageContent from '../Common/PageContent';
-import PostsList from '../Posts/PostsList';
+import PostsList from '../Posts';
 
 import './Saved.scss';
 

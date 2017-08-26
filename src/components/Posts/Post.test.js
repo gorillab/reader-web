@@ -1,22 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Post from './Post';
+import { PostComponent } from './Post';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  const post = {
-    id: 1,
-    thumbnail: '/images/logo.png',
-    title: 'Jean E. Sammet, who developed the FORMAC programming language, has died',
-    url: 'abc/abc',
-    by: {
-      name: 'tinhte.vn',
-      link: 'http://www.tinhte.vn',
+  const props = {
+    post: {
+      id: 1,
+      thumbnail: '/images/logo.png',
+      title: 'Jean E. Sammet, who developed the FORMAC programming language, has died',
+      url: 'abc/abc',
+      by: {
+        name: 'tinhte.vn',
+        link: 'http://www.tinhte.vn',
+      },
+      time: Date.now(),
+      isRead: true,
     },
-    time: Date.now(),
-    isRead: true,
+    isLoggedIn: true,
   };
-
-  ReactDOM.render(<Post post={post} />, div);
+  ReactDOM.render(<PostComponent {...props} />, div);
 });
