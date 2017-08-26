@@ -20,14 +20,14 @@ script:
 deploy:
   - provider: surge
     project: ./build
-    domain: staging.reader.gorillab.co
+    domain: glab-staging-reader.surge.sh
     skip_cleanup: true
     on:
       branch: master
       node: '8'
   - provider: surge
     project: ./build
-    domain: reader.gorillab.co
+    domain: glab-reader.surge.sh
     skip_cleanup: true
     on:
       tags: true
