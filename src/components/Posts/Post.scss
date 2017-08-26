@@ -41,12 +41,12 @@
       }
     }
 
-    .time {
-      margin-left: 5px;
-    }
-
     .actions {
       display: inline-block;
+    }
+    
+    .btn {
+      margin-right: 5px;
     }
 
     .button-in-post {
@@ -72,14 +72,10 @@
 
     .facebook-share-button {
       @extend .button-in-post;
-
-      margin-left: 5px;
     }
 
     .save-button {
       @extend .button-in-post;
-
-      margin-left: 5px;
     }
 
     .sub-button {
@@ -106,8 +102,6 @@
     }
 
     .btn-group {
-      margin-left: 5px;
-
       &:hover {
         .plus-button {
           width: 26px;
