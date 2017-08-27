@@ -94,7 +94,12 @@ export class Header extends Component {
                   </DropdownToggle>
 
                   <DropdownMenu right>
-                    <button type="button" className="dropdown-item" onClick={this.props.logOut}>
+                    <button
+                      name="logout"
+                      type="button"
+                      className="dropdown-item"
+                      onClick={this.props.logOut}
+                    >
                       Logout
                     </button>
                   </DropdownMenu>

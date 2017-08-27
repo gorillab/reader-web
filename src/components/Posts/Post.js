@@ -90,6 +90,7 @@ export class PostComponent extends Component {
 
           <div className="actions">
             <button
+              name="share"
               type="button"
               className="btn facebook-share-button"
               onClick={this.share}
@@ -99,6 +100,7 @@ export class PostComponent extends Component {
 
             {!this.state.isSavedPage && this.props.isLoggedIn && (
               <button
+                name="save"
                 type="button"
                 className="btn save-button"
                 onClick={this.state.isSaved ? this.unSave : this.save}

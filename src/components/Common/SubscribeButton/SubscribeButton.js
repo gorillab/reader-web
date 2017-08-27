@@ -16,6 +16,7 @@ const propTypes = {
 export const SubscribeButton = props => (
   <div className="subscribe-button">
     <Button
+      name="subscribe"
       color="secondary"
       size="sm"
       onClick={() => {
