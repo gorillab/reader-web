@@ -1,15 +1,15 @@
 {
   "short_name": "Reader",
-  "name": "Reader",
+  "name": "Your daily tech feeds",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "./favicon.ico",
       "sizes": "192x192",
       "type": "image/png"
     }
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#1daaf1",
+  "background_color": "#f2f3f5"
 }
