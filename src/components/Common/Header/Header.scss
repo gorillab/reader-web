@@ -9,6 +9,32 @@
 
   .nav {
     background-color:#1daaf1;
+    
+    .nav-item{
+      @media (max-width: 575px) {
+        margin-left: 15px;
+
+        .dropdown-menu{
+            background-color:#1daaf1;
+            border: none;
+            padding: 0;
+
+            .dropdown-item {
+              color: #f7f7f7;
+
+              &:active, &:focus {
+                background-color: #1daaf1;
+              }
+            }
+        }        
+      }
+    }
+  }
+
+  .navbar-brand{
+      @media (max-width: 575px) {
+        margin-left: 15px;
+      }
   }
 
   .inner {
@@ -19,8 +45,9 @@
     padding-right: 0px;
 
     @media (max-width: 575px) {
-      padding-left: 10px;
-      padding-right: 10px;
+      // padding-left: 10px;
+      // padding-right: 10px;
+
     }
   }
 
@@ -51,5 +78,9 @@
   .avatar {
     width: 20px;
     height: 20px;
+  }
+
+  .dropdown-item {
+    font-size: 15px;
   }
 }
