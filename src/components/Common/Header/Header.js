@@ -60,7 +60,7 @@ export class Header extends Component {
           <Logo />
 
           <Collapse isOpen={this.state.navbarOpen} navbar>
-            <Nav className="mr-auto nav" navbar>
+            <Nav className="mr-auto nav is-logout" navbar>
               {!!this.props.sources.length &&
                 <NavDropdown isOpen={this.state.exploreDropdownOpen} toggle={this.toggleExplore}>
                   <DropdownToggle className="router-link-active" nav caret>Explore</DropdownToggle>
@@ -80,11 +80,18 @@ export class Header extends Component {
               {this.props.isLoggedIn && <NavItem>
                 <Link className="nav-link" to="/saved">Saved</Link>
               </NavItem>}
+
+              {this.props.isLoggedIn && <NavItem>
+                <button className="nav-link" onClick={this.props.logOut}>
+                Logout
+                </button>
+              </NavItem>}
+
             </Nav>
 
-            <Nav className="nav" navbar>
+            <Nav className="nav is-hide" navbar>
               {!this.props.isLoggedIn ? (
-                <NavItem>
+                <NavItem className="btn-logFace">
                   <a className="nav-link" href={Auth.LOGIN_BY_FACEBOOK_URL}>Facebook</a>
                 </NavItem>
               ) : (

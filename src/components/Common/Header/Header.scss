@@ -30,6 +30,31 @@
       }
     }
   }
+  .is-logout{
+    .nav-item:last-child{
+      display: none;
+      @media (max-width: 575px) {
+        display: block;
+        .nav-link{
+          font-size: 15px;
+          border: none;
+          background-color: #1daaf1;
+        }
+      }
+    }
+  }
+  .is-hide{
+    .nav-item{
+      @media (max-width: 575px) {
+        display: none;
+      }
+    }
+    .btn-logFace{
+      @media (max-width: 575px) {
+        display: block;
+      }
+    }
+  }
 
   .navbar-brand{
       @media (max-width: 575px) {
