@@ -84,7 +84,9 @@ class Home extends Component {
         </PageHeader>
 
         <PageContent>
-          <PostsList posts={this.state.posts} />
+          <div className="row">
+            <PostsList posts={this.state.posts} />
+          </div>
         </PageContent>
       </div>
     );
