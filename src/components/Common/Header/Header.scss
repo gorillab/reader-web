@@ -47,8 +47,14 @@
       }
     }
     .btn-logFace{
+      .loginMobile{
+        display: none;
+      }
       @media (max-width: 575px) {
         display: block;
+        .loginMobile{
+          display: block;
+        } 
       }
     }
   }
