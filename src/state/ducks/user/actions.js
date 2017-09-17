@@ -1,4 +1,4 @@
-import { Users, Auth } from 'reader-js';
+import { Users, Auth } from '@gorillab/reader-js';
 
 import { LOG_OUT, GET_USER } from './types';
 
