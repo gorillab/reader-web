@@ -43,7 +43,7 @@
 
     .actions {
       display: inline-block;
-      margin-left: 5px; 
+      // margin-left: 5px; 
     }
     
     .btn {
@@ -72,6 +72,28 @@
     }
 
     .facebook-share-button {
+      background: #3b5998;
+      border-radius: 3px;
+      font-weight: 600;
+      padding: 5px 8px;
+      display: inline-block;
+      position: static;
+      &:hover {
+        cursor: pointer;
+        background: #213A6F
+      }
+      & sgv {
+         width: 18px;
+        fill: white;
+        vertical-align: middle;
+        border-radius: 2px
+      }
+      & span {
+        vertical-align: middle;
+        color: white;
+        font-size: 14px;
+        padding: 0 3px
+      }
       @extend .button-in-post;
     }
 

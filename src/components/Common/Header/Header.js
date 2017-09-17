@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { logOut, userSelectors } from '../../../state/ducks/user';
 import { sourcesSelectors } from '../../../state/ducks/sources';
 
+import FacebookButton from '../FacebookButton';
 import Logo from '../Logo';
 import './Header.scss';
 
@@ -86,13 +87,28 @@ export class Header extends Component {
                 Logout
                 </button>
               </NavItem>}
-
             </Nav>
 
             <Nav className="nav is-hide" navbar>
               {!this.props.isLoggedIn ? (
                 <NavItem className="btn-logFace">
-                  <a className="nav-link" href={Auth.LOGIN_BY_FACEBOOK_URL}>Facebook</a>
+                  <a
+                    className="nav-link loginMobile"
+                    href={Auth.LOGIN_BY_FACEBOOK_URL}
+                  >
+                    Login with Facebook
+                  </a>
+                  {/* <button
+                    className="loginBtn loginBtn--facebook"
+                    onClick={() => (window.location.href = Auth.LOGIN_BY_FACEBOOK_URL)}
+                  >
+                      Login
+                  </button>*/}
+                  <FacebookButton
+                    content="Login"
+                    classname="fb-login"
+                    action={() => (window.location.href = Auth.LOGIN_BY_FACEBOOK_URL)}
+                  />
                 </NavItem>
               ) : (
                 <NavDropdown isOpen={this.state.userDropdownOpen} toggle={this.toggleUser}>

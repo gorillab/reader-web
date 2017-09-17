@@ -5,4 +5,7 @@
   transition: all .5s cubic-bezier(.55,0,.1,1);
   background-color: #fff;
   border-radius: 2px;
+  @media (max-width: 575px) {
+    margin: 0;
+  }
 }

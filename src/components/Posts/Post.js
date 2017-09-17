@@ -5,6 +5,7 @@ import { Posts } from 'reader-js';
 
 import { userSelectors } from '../../state/ducks/user';
 
+import FacebookButton from '../Common/FacebookButton';
 import './Post.scss';
 
 const propTypes = {
@@ -85,19 +86,18 @@ export class PostComponent extends Component {
 
         <div className="meta">
           {this.props.post.source && (
-            <span className="source">{this.props.post.source.title}</span>
+            <button className="btn save-button">{this.props.post.source.title}</button>
           )}
 
           <div className="actions">
-            <button
+            {/* <button
               name="share"
               type="button"
-              className="btn facebook-share-button"
+              className="btn loginBtn loginBtn--facebook"
               onClick={this.share}
             >
               Share
-            </button>
-
+            </button>*/}
             {!this.state.isSavedPage && this.props.isLoggedIn && (
               <button
                 name="save"
@@ -108,6 +108,7 @@ export class PostComponent extends Component {
                 {this.state.isSaved ? 'Unsave' : 'Save'}
               </button>
             )}
+            <FacebookButton content="Share" classname=" btn fb-share" action={this.share} />
           </div>
         </div>
       </li>
