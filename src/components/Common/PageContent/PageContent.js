@@ -8,7 +8,7 @@ const propTypes = {
 };
 
 const PageContent = ({ children }) => (
-  <div className="page-content">
+  <div className="page-content container">
     {children}
   </div>
 );

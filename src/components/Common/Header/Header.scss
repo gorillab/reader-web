@@ -1,19 +1,15 @@
 .header {
-  position: fixed;
-  z-index: 999;
-  height: 55px;
-  top: 0;
-  left: 0;
-  right: 0;
   background-color: #1daaf1;
+
+  .container {
+    padding: 0;
+  }
 
   .nav {
     background-color:#1daaf1;
     
     .nav-item{
       @media (max-width: 575px) {
-        margin-left: 15px;
-
         .dropdown-menu{
             background-color:#1daaf1;
             border: none;
@@ -30,6 +26,7 @@
       }
     }
   }
+
   .is-logout{
     .nav-item:last-child{
       display: none;
@@ -53,26 +50,6 @@
       @media (max-width: 575px) {
         display: block;
       }
-    }
-  }
-
-  .navbar-brand{
-      @media (max-width: 575px) {
-        margin-left: 15px;
-      }
-  }
-
-  .inner {
-    max-width: 800px;
-    box-sizing: border-box;
-    margin: 0 auto;
-    padding-left: 0px;
-    padding-right: 0px;
-
-    @media (max-width: 575px) {
-      // padding-left: 10px;
-      // padding-right: 10px;
-
     }
   }
 
