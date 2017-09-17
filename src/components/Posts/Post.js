@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Posts } from 'reader-js';
+import { Link } from 'react-router-dom';
 
 import { userSelectors } from '../../state/ducks/user';
 
@@ -86,18 +87,10 @@ export class PostComponent extends Component {
 
         <div className="meta">
           {this.props.post.source && (
-            <button className="btn save-button">{this.props.post.source.title}</button>
+            <Link className="btn save-button source" to={`/source/${this.props.post.source.id}`}>{this.props.post.source.title}</Link>
           )}
 
           <div className="actions">
-            {/* <button
-              name="share"
-              type="button"
-              className="btn loginBtn loginBtn--facebook"
-              onClick={this.share}
-            >
-              Share
-            </button>*/}
             {!this.state.isSavedPage && this.props.isLoggedIn && (
               <button
                 name="save"
