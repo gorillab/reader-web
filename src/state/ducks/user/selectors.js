@@ -1,3 +1,7 @@
 const isLoggedIn = state => !!state.user;
+const getUser = state => state.user;
 
-export default isLoggedIn;
+export {
+  isLoggedIn,
+  getUser,
+};

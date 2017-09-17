@@ -16,7 +16,12 @@ import './Header.scss';
 const propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   sources: PropTypes.array.isRequired,
+  user: PropTypes.any,
   logOut: PropTypes.func.isRequired,
+};
+
+const defaultProps = {
+  user: null,
 };
 
 export class Header extends Component {
@@ -105,12 +110,6 @@ export class Header extends Component {
                     >
                       Login with Facebook
                     </a>
-                    {/* <button
-                      className="loginBtn loginBtn--facebook"
-                      onClick={() => (window.location.href = Auth.LOGIN_BY_FACEBOOK_URL)}
-                    >
-                        Login
-                    </button>*/}
                     <FacebookButton
                       content="Login"
                       classname="fb-login"
@@ -120,7 +119,7 @@ export class Header extends Component {
                 ) : (
                   <NavDropdown isOpen={this.state.userDropdownOpen} toggle={this.toggleUser}>
                     <DropdownToggle nav caret className="a-last">
-                      <img className="avatar" src="/images/logo.png" alt="" />
+                      {this.props.user.profile.displayName}
                     </DropdownToggle>
 
                     <DropdownMenu right>
@@ -145,11 +144,13 @@ export class Header extends Component {
 }
 
 Header.propTypes = propTypes;
+Header.defaultProps = defaultProps;
 
 export default connect(
   state => ({
     isLoggedIn: userSelectors.isLoggedIn(state),
     sources: sourcesSelectors.getSources(state),
+    user: userSelectors.getUser(state),
   }), {
     logOut,
   },
