@@ -1,10 +1,6 @@
 import { logOut, getUser } from './actions';
-import isLoggedIn from './selectors';
+import * as userSelectors from './selectors';
 import reducers from './reducers';
-
-const userSelectors = {
-  isLoggedIn,
-};
 
 export {
   // actions

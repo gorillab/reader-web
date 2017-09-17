@@ -44,6 +44,13 @@
       display: inline-block;
       // margin-left: 5px; 
     }
+    .source {
+      text-decoration: none;
+      padding: 3px 8px !important;
+      &:hover {
+        color: #000;
+      }
+    }
     
     .btn {
       margin-right: 5px;
