@@ -1,4 +1,4 @@
-import { Sources } from 'reader-js';
+import { Sources } from '@gorillab/reader-js';
 
 import { GET_SOURCES, SUBSCRIBE, UNSUBSCRIBE } from './types';
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Users } from 'reader-js';
+import { Users } from '@gorillab/reader-js';
 import qs from 'qs';
 
 import PageHeader from '../Common/PageHeader';
