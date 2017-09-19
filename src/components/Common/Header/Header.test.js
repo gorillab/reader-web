@@ -10,6 +10,11 @@ it('renders without crashing', () => {
     isLoggedIn: true,
     sources: [],
     logOut: () => {},
+    user: {
+      profile: {
+        displayname: '',
+      },
+    },
   };
   ReactDOM.render(
     <MemoryRouter>
