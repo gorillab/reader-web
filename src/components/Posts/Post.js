@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 import { userSelectors } from '../../state/ducks/user';
 
-import FacebookButton from '../Common/FacebookButton';
+// import FacebookButton from '../Common/FacebookButton';
 import './Post.scss';
 
 const propTypes = {
@@ -101,7 +101,14 @@ export class PostComponent extends Component {
                 {this.state.isSaved ? 'Unsave' : 'Save'}
               </button>
             )}
-            <FacebookButton content="Share" classname=" btn fb-share" action={this.share} />
+            <button
+              name="share"
+              type="button"
+              className="btn facebook-share-button"
+              onClick={this.share}
+            >
+              Share
+            </button>
           </div>
         </div>
       </li>
