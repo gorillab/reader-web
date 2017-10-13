@@ -27,38 +27,6 @@
     }
   }
 
-  .is-logout{
-    .nav-item:last-child{
-      display: none;
-      @media (max-width: 575px) {
-        display: block;
-        .nav-link{
-          font-size: 15px;
-          border: none;
-          background-color: #1daaf1;
-        }
-      }
-    }
-  }
-  .is-hide{
-    .nav-item{
-      @media (max-width: 575px) {
-        display: none;
-      }
-    }
-    .btn-logFace{
-      .loginMobile{
-        display: none;
-      }
-      @media (max-width: 575px) {
-        display: block;
-        .loginMobile{
-          display: block;
-        } 
-      }
-    }
-  }
-
   .a-last {
     margin-right: 0 !important;
   }
@@ -71,6 +39,11 @@
     vertical-align: middle;
     font-weight: 300;
     letter-spacing: .075em;
+
+    @media (min-width: 768px) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
 
     &:hover {
         color: #fff;

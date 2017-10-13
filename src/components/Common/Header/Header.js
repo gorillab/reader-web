@@ -62,28 +62,26 @@ export class Header extends Component {
       <header className="header">
         <div className="container">
           <Navbar light toggleable>
-            <NavbarToggler right onClick={this.toggle} />
-
             <Logo />
 
-            <Collapse isOpen={this.state.navbarOpen} navbar>
-              <Nav className="mr-auto nav is-logout" navbar>
-                {!!this.props.sources.length &&
-                  <NavDropdown
-                    isOpen={this.state.exploreDropdownOpen}
-                    toggle={this.toggleExplore}
-                  >
-                    <DropdownToggle className="router-link-active" nav caret>
-                      Explore
-                    </DropdownToggle>
+            <NavbarToggler right onClick={this.toggle} />
 
-                    <DropdownMenu>
-                      {this.props.sources.map(source => (
-                        <Link className="dropdown-item" to={`/source/${source.id}`} key={source.id} id={source.id}>{source.title}</Link>
-                      ))}
-                    </DropdownMenu>
-                  </NavDropdown>
-                }
+            <Collapse isOpen={this.state.navbarOpen} navbar>
+              <Nav className="mr-auto nav" navbar>
+                {!!this.props.sources.length && <NavDropdown
+                  isOpen={this.state.exploreDropdownOpen}
+                  toggle={this.toggleExplore}
+                >
+                  <DropdownToggle className="router-link-active" nav caret>
+                    Explore
+                  </DropdownToggle>
+
+                  <DropdownMenu>
+                    {this.props.sources.map(source => (
+                      <Link className="dropdown-item" to={`/source/${source.id}`} key={source.id} id={source.id}>{source.title}</Link>
+                    ))}
+                  </DropdownMenu>
+                </NavDropdown>}
 
                 {this.props.isLoggedIn && <NavItem>
                   <Link className="nav-link" to="/for-you">For You</Link>
@@ -92,24 +90,11 @@ export class Header extends Component {
                 {this.props.isLoggedIn && <NavItem>
                   <Link className="nav-link" to="/saved">Saved</Link>
                 </NavItem>}
-
-                {this.props.isLoggedIn && <NavItem>
-                  <button className="nav-link" onClick={this.props.logOut}>
-                  Logout
-                  </button>
-                </NavItem>}
-
               </Nav>
 
-              <Nav className="nav is-hide" navbar>
+              <Nav className="nav" navbar>
                 {!this.props.isLoggedIn ? (
                   <NavItem className="btn-logFace">
-                    <a
-                      className="nav-link loginMobile"
-                      href={Auth.LOGIN_BY_FACEBOOK_URL}
-                    >
-                      Login with Facebook
-                    </a>
                     <FacebookButton
                       content="Login"
                       classname="fb-login"
