@@ -97,8 +97,8 @@ export class Header extends Component {
                   <NavItem className="btn-logFace">
                     <FacebookButton
                       content="Login"
-                      classname="fb-login"
-                      action={() => (window.location.href = Auth.LOGIN_BY_FACEBOOK_URL)}
+                      className="fb-login"
+                      action={() => { location.href = Auth.LOGIN_BY_FACEBOOK_URL; }}
                     />
                   </NavItem>
                 ) : (

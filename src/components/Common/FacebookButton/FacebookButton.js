@@ -4,13 +4,13 @@ import './FacebookButton.scss';
 
 const propTypes = {
   content: PropTypes.string.isRequired,
-  classname: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
   action: PropTypes.func.isRequired,
 };
 
-const FacebookButton = ({ content, classname, action }) => (
+const FacebookButton = ({ content, className, action }) => (
   <button
-    className={`facebook-button ${classname}`}
+    className={`facebook-button ${className}`}
     onClick={action}
   >
     {content}

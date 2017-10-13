@@ -51,8 +51,6 @@ const App = () => (
             <Route {...route} />
           ))}
         </Content>
-
-        {/* <Footer />*/}
       </div>
     </Router>
   </ReduxProvider>

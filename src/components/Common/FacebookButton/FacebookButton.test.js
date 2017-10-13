@@ -5,7 +5,7 @@ import FacebookButton from './FacebookButton';
 it('renders without crashing', () => {
   const props = {
     content: '',
-    classname: '',
+    className: '',
     action: () => {},
   };
   const div = document.createElement('div');
