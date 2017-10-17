@@ -72,9 +72,14 @@ export class PostComponent extends Component {
   }
 
   render() {
+    const noImage = {
+      padding: this.props.post.image ? '15px 15px 15px 80px' : '15px',
+    };
     return (
-      <li className="post">
-        <img src={this.props.post.image} className="rounded thumbnail" alt="" />
+      <li className="post" style={noImage}>
+        { this.props.post.image &&
+          <img src={this.props.post.image} className="rounded thumbnail" alt="" />
+        }
 
         <div className="title">
           <a
