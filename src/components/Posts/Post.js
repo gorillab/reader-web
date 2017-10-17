@@ -73,8 +73,10 @@ export class PostComponent extends Component {
 
   render() {
     return (
-      <li className="post">
-        <img src={this.props.post.image} className="rounded thumbnail" alt="" />
+      <li className={`post ${!this.props.post.image ? 'no-image' : ''}`}>
+        { this.props.post.image &&
+          <img src={this.props.post.image} className="rounded thumbnail" alt="" />
+        }
 
         <div className="title">
           <a
