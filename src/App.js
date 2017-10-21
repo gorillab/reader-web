@@ -7,7 +7,7 @@ import { getUser } from './state/ducks/user';
 import { getSources } from './state/ducks/sources';
 
 import Header from './components/Common/Header';
-// import Footer from './components/Common/Footer';
+import Footer from './components/Common/Footer';
 import Content from './components/Common/Content';
 import HomeRender from './components/Home';
 import ForYou from './components/ForYou';
@@ -51,6 +51,8 @@ const App = () => (
             <Route {...route} />
           ))}
         </Content>
+
+        <Footer className="hidden-sm-down" />
       </div>
     </Router>
   </ReduxProvider>
