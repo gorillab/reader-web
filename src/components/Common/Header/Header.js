@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Auth } from '@gorillab/reader-js';
 
-import { Collapse, Navbar, Nav, NavItem, NavbarToggler, NavDropdown, DropdownToggle, DropdownMenu } from 'reactstrap';
+import { Collapse, Navbar, Nav, NavItem, NavDropdown, DropdownToggle, DropdownMenu } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 import { logOut, userSelectors } from '../../../state/ducks/user';
@@ -32,13 +32,26 @@ export class Header extends Component {
       navbarOpen: false,
       exploreDropdownOpen: false,
       userDropdownOpen: false,
+      isChecked: false,
     };
 
     this.toggle = this.toggle.bind(this);
     this.toggleExplore = this.toggleExplore.bind(this);
     this.toggleUser = this.toggleUser.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.unCheck = this.unCheck.bind(this);
   }
 
+  unCheck() {
+    this.setState({
+      isChecked: false,
+    });
+  }
+  handleChange(e) {
+    this.setState({
+      isChecked: e.target.checked,
+    });
+  }
   toggle() {
     this.setState({
       navbarOpen: !this.state.navbarOpen,
@@ -64,31 +77,40 @@ export class Header extends Component {
           <Navbar light toggleable>
             <Logo />
 
-            <NavbarToggler right onClick={this.toggle} />
-
-            <Collapse isOpen={this.state.navbarOpen} navbar>
+            <div className="outer-menu">
+              <input
+                className="checkbox-toggle"
+                type="checkbox"
+                checked={this.state.isChecked}
+                onChange={this.handleChange}
+              />
+              <div className="hamburger">
+                <div>{}</div>
+              </div>
+            </div>
+            <Collapse navbar className={this.state.isChecked ? 'show-overlay' : ''}>
               <Nav className="mr-auto nav" navbar>
                 {!!this.props.sources.length && <NavDropdown
                   isOpen={this.state.exploreDropdownOpen}
                   toggle={this.toggleExplore}
                 >
-                  <DropdownToggle className="router-link-active" nav caret>
+                  <DropdownToggle nav caret className="router-link-active">
                     Explore
                   </DropdownToggle>
 
                   <DropdownMenu>
                     {this.props.sources.map(source => (
-                      <Link className="dropdown-item" to={`/source/${source.id}`} key={source.id} id={source.id}>{source.title}</Link>
+                      <Link onClick={this.unCheck} className="dropdown-item" to={`/source/${source.id}`} key={source.id} id={source.id}>{source.title}</Link>
                     ))}
                   </DropdownMenu>
                 </NavDropdown>}
 
                 {this.props.isLoggedIn && <NavItem>
-                  <Link className="nav-link" to="/for-you">For You</Link>
+                  <Link onClick={this.unCheck} className="nav-link" to="/for-you">For You</Link>
                 </NavItem>}
 
                 {this.props.isLoggedIn && <NavItem>
-                  <Link className="nav-link" to="/saved">Saved</Link>
+                  <Link onClick={this.unCheck} className="nav-link" to="/saved">Saved</Link>
                 </NavItem>}
               </Nav>
 
