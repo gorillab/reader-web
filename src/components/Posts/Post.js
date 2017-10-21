@@ -12,6 +12,7 @@ import './Post.scss';
 const propTypes = {
   post: PropTypes.any.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export class PostComponent extends Component {
@@ -83,7 +84,7 @@ export class PostComponent extends Component {
             href={this.props.post.url}
             onClick={this.view}
           >
-            {this.props.post.title}
+            {`${this.props.index + 1}. ${this.props.post.title}`}
           </a>
         </div>
 

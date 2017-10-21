@@ -11,8 +11,8 @@ const propTypes = {
 
 export const PostsList = ({ posts }) => (
   <ul className="posts-list">
-    {posts.map(post => (
-      <Post key={post.id} post={post} />
+    {posts.map((post, index) => (
+      <Post key={post.id} post={post} index={index} />
     ))}
   </ul>
 );
