@@ -11,6 +11,7 @@ import { sourcesSelectors } from '../../../state/ducks/sources';
 
 import FacebookButton from '../FacebookButton';
 import Logo from '../Logo';
+import Footer from '../Footer';
 import './Header.scss';
 
 const propTypes = {
@@ -77,7 +78,7 @@ export class Header extends Component {
           <Navbar light toggleable>
             <Logo />
 
-            <div className="outer-menu">
+            <div className={`${!this.state.isChecked ? 'z-index-1' : ''} outer-menu`}>
               <input
                 className="checkbox-toggle"
                 type="checkbox"
@@ -142,6 +143,7 @@ export class Header extends Component {
                   </NavDropdown>
                 )}
               </Nav>
+              <Footer className="hidden-sm-up" />
             </Collapse>
           </Navbar>
         </div>

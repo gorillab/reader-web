@@ -1,7 +1,11 @@
 .footer {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  padding-bottom: 15px;
   text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+  a, a:hover, a:active, a:focus {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  span {
+    color: rgba(255, 0, 0, 0.5);
+  }
 }
