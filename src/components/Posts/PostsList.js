@@ -22,7 +22,7 @@ export const PostsList = ({ posts, getMore }) => (
       ))}
     </ul>
 
-    {getMore && <div className="text-center">
+    {getMore && <div className="get-more-wrapper">
       <button type="button" name="get-more" className="btn btn-get-more" onClick={getMore}>
         Read More
       </button>
