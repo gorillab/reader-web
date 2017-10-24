@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 import { userSelectors } from '../../state/ducks/user';
 
-// import FacebookButton from '../Common/FacebookButton';
 import './Post.scss';
 
 const propTypes = {
@@ -20,7 +19,6 @@ export class PostComponent extends Component {
     super(props);
 
     this.state = {
-      isSavedPage: location.pathname === '/saved',
       isSaved: props.post.isSaved,
     };
 
@@ -94,7 +92,7 @@ export class PostComponent extends Component {
           )}
 
           <div className="actions">
-            {!this.state.isSavedPage && this.props.isLoggedIn && (
+            {this.props.isLoggedIn && (
               <button
                 name="save"
                 type="button"
