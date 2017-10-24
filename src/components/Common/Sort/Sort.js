@@ -16,9 +16,9 @@ const Sort = ({ current, onClick }) => {
   }, {
     display: 'Best',
     value: 'best',
-  }, {
-    display: 'Daily',
-    value: 'daily',
+  // }, {
+  //   display: 'Daily',
+  //   value: 'daily',
   }];
 
   return (
