@@ -10,6 +10,8 @@ import PostsList from '../Posts';
 
 import './ForYou.scss';
 
+const LIMIT = 25;
+
 class ForYou extends Component {
   constructor(props) {
     super(props);
@@ -19,11 +21,11 @@ class ForYou extends Component {
     this.state = {
       posts: [],
       sort: sort || 'new',
-      limit: 25,
-      page: 0,
+      limit: LIMIT,
+      page: 1,
     };
 
-    this.getPosts = this.getPosts.bind(this);
+    this.getMore = this.getMore.bind(this);
     this.changeSort = this.changeSort.bind(this);
   }
 
@@ -31,13 +33,14 @@ class ForYou extends Component {
     this.getPosts();
   }
 
-  async getPosts(query = {
-    sort: this.state.sort,
-    limit: this.state.limit,
-    page: this.state.page,
-  }) {
+  async getPosts(query = {}) {
     try {
-      const posts = await Users.getForYou(query);
+      const posts = await Users.getForYou({
+        sort: this.state.sort,
+        limit: this.state.limit,
+        page: this.state.page,
+        ...query,
+      });
 
       this.setState({
         posts,
@@ -49,12 +52,26 @@ class ForYou extends Component {
     }
   }
 
-  async changeSort(sort) {
-    await this.getPosts({
-      sort,
-      limit: this.state.limit,
-      page: this.state.page,
-    });
+  async getMore() {
+    try {
+      const posts = await Users.getForYou({
+        sort: this.state.sort,
+        limit: LIMIT,
+        page: Math.floor(this.state.posts.length / LIMIT) + 1,
+      });
+
+      this.setState({
+        posts: this.state.posts.concat(posts),
+        limit: this.state.limit + LIMIT,
+      });
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    }
+  }
+
+  changeSort(sort) {
+    this.getPosts({ sort });
   }
 
   render() {
@@ -68,7 +85,10 @@ class ForYou extends Component {
 
         <PageContent>
           <div className="row">
-            <PostsList posts={this.state.posts} />
+            <PostsList
+              posts={this.state.posts}
+              getMore={this.state.posts.length >= this.state.limit && this.getMore}
+            />
           </div>
         </PageContent>
       </div>

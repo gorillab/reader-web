@@ -7,16 +7,30 @@ import './PostsList.scss';
 
 const propTypes = {
   posts: PropTypes.arrayOf(PropTypes.any).isRequired,
+  getMore: PropTypes.any,
 };
 
-export const PostsList = ({ posts }) => (
-  <ul className="posts-list">
-    {posts.map((post, index) => (
-      <Post key={post.id} post={post} index={index} />
-    ))}
-  </ul>
+const defaultProps = {
+  getMore: false,
+};
+
+export const PostsList = ({ posts, getMore }) => (
+  <div className="posts-list-wrapper">
+    <ul className="posts-list">
+      {posts.map((post, index) => (
+        <Post key={post.id} post={post} index={index} />
+      ))}
+    </ul>
+
+    {getMore && <div className="text-center">
+      <button type="button" name="get-more" className="btn btn-get-more" onClick={getMore}>
+        Read More
+      </button>
+    </div>}
+  </div>
 );
 
 PostsList.propTypes = propTypes;
+PostsList.defaultProps = defaultProps;
 
 export default PostsList;
