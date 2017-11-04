@@ -36,7 +36,7 @@ export class PostComponent extends Component {
     // eslint-disable-next-line no-undef
     FB.ui({
       method: 'share',
-      url: this.props.post.url,
+      href: this.props.post.url,
     }, (res) => {
       if (res && !res.error_message) {
         Posts.sharePost(this.props.post.id);
