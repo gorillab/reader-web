@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { MemoryRouter } from 'react-router-dom';
 import { PostComponent } from './Post';
 
 it('renders without crashing', () => {
@@ -8,17 +9,25 @@ it('renders without crashing', () => {
   const props = {
     post: {
       id: 1,
-      thumbnail: '/images/logo.png',
+      image: '/images/logo.png',
       title: 'Jean E. Sammet, who developed the FORMAC programming language, has died',
+      content: 'Jean E. Sammet, who developed the FORMAC programming language, has died',
       url: 'abc/abc',
-      by: {
-        name: 'tinhte.vn',
-        link: 'http://www.tinhte.vn',
+      source: {
+        id: 2,
+        title: 'Medium',
       },
-      time: Date.now(),
-      isRead: true,
+      meta: {
+        numSaved: 0,
+        numShared: 0,
+        numViewed: 0,
+      },
     },
     isLoggedIn: true,
+    index: 1,
   };
-  ReactDOM.render(<PostComponent {...props} />, div);
+  ReactDOM.render(
+    <MemoryRouter>
+      <PostComponent {...props} />
+    </MemoryRouter>, div);
 });

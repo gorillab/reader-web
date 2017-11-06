@@ -76,12 +76,14 @@
       }
     }
 
-    .facebook-share-button {
+    .share-button,
+    .save-button,
+    .view-button {
       @extend .button-in-post;
     }
 
-    .save-button {
-      @extend .button-in-post;
+    .btn-group {
+      margin-right: 5px;
     }
 
     .sub-button {

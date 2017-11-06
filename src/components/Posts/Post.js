@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Posts } from '@gorillab/reader-js';
 import { Link } from 'react-router-dom';
+import { Button, ButtonGroup } from 'reactstrap';
 
 import { userSelectors } from '../../state/ducks/user';
 
@@ -92,24 +93,24 @@ export class PostComponent extends Component {
           )}
 
           <div className="actions">
-            {this.props.isLoggedIn && (
-              <button
-                name="save"
-                type="button"
-                className="btn save-button"
-                onClick={this.state.isSaved ? this.unSave : this.save}
-              >
-                {this.state.isSaved ? 'Unsave' : 'Save'}
-              </button>
-            )}
             <button
-              name="share"
+              name="save"
               type="button"
-              className="btn facebook-share-button"
-              onClick={this.share}
+              className="btn view-button"
             >
-              Share
+              {`${this.props.post.meta.numViewed || 0} Views`}
             </button>
+
+            {this.props.isLoggedIn && (
+              <ButtonGroup size="sm">
+                <Button className={'save-button mr-0'}>{this.props.post.meta.numSaved || 0}</Button>
+                <Button className={'save-button mr-0'} onClick={this.state.isSaved ? this.unSave : this.save}>{this.state.isSaved ? 'Unsave' : 'Save'}</Button>
+              </ButtonGroup>
+            )}
+            <ButtonGroup size="sm">
+              <Button className={'share-button mr-0'}>{this.props.post.meta.numShared || 0}</Button>
+              <Button className={'share-button mr-0'} onClick={this.share}>Share</Button>
+            </ButtonGroup>
           </div>
         </div>
       </li>
