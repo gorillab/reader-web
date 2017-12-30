@@ -58,6 +58,4 @@ typings/
 .env
 
 # Build
-build/
-
-yarn.lock
+build
