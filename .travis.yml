@@ -1,38 +1,46 @@
+sudo: required
+
 language: node_js
 
 node_js:
-  - 6
-  - 7
-  - 8
+  - 9
 
-install:
-  - yarn
+jobs:
+  include:
+    - stage: test
+      install:
+        - yarn
+      script:
+        - yarn test
+    - stage: build
+      install:
+        - yarn
+      script:
+        - yarn build
+    - stage: deploy
+      install:
+        - yarn
+      script:
+        - yarn build
+      deploy:
+        - provider: surge
+          project: ./build
+          domain: glab-staging-reader.surge.sh
+          skip_cleanup: true
+          on:
+            branch: master
+        - provider: surge
+          project: ./build
+          domain: glab-reader.surge.sh
+          skip_cleanup: true
+          on:
+            branch: master
+            tags: true
 
 cache:
   yarn: true
   directories:
   - node_modules
-
-script:
-  - yarn test
-  - yarn build
-
-deploy:
-  - provider: surge
-    project: ./build
-    domain: glab-staging-reader.surge.sh
-    skip_cleanup: true
-    on:
-      branch: master
-      node: '8'
-  - provider: surge
-    project: ./build
-    domain: glab-reader.surge.sh
-    skip_cleanup: true
-    on:
-      branch: master
-      tags: true
-      node: '8'
 
 notifications:
   email: false
