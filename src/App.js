@@ -28,7 +28,7 @@ const routes = [{
   render: HomeRender,
 }, {
   key: 'source',
-  path: '/source/:source',
+  path: '/source/:sourceId',
   render: HomeRender,
 }, {
   key: 'for-you',

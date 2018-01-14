@@ -17,7 +17,7 @@ const HomeRender = ({ match, getSource, ...rest }) => {
   const source = match.params.source ? getSource(match.params.source) : undefined;
   const title = source ? source.title : 'Explore';
 
-  return <Home title={title} source={source} {...rest} />;
+  return <Home title={title} source={source} {...rest} match={match} />;
 };
 
 HomeRender.propTypes = propTypes;

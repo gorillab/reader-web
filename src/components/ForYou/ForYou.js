@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Users } from '@gorillab/reader-js';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import qs from 'qs';
+
+import { getForYouPosts, postsSelectors } from '../../state/ducks/posts';
 
 import PageHeader from '../Common/PageHeader';
 import PageTitle from '../Common/PageTitle';
@@ -11,6 +14,11 @@ import PostsList from '../Posts';
 import './ForYou.scss';
 
 const LIMIT = 25;
+
+const propTypes = {
+  getPosts: PropTypes.func.isRequired,
+  getForYouPosts: PropTypes.func.isRequired,
+};
 
 class ForYou extends Component {
   constructor(props) {
@@ -26,52 +34,28 @@ class ForYou extends Component {
     };
 
     this.getMore = this.getMore.bind(this);
-    this.changeSort = this.changeSort.bind(this);
   }
 
-  componentDidMount() {
-    this.getPosts();
-  }
-
-  async getPosts(query = {}) {
-    try {
-      const posts = await Users.getForYou({
+  async componentDidMount() {
+    if (!this.props.getPosts(this.state.sort).length) {
+      await this.props.getForYouPosts({
         sort: this.state.sort,
         limit: this.state.limit,
         page: this.state.page,
-        ...query,
       });
-
-      this.setState({
-        posts,
-        ...query,
-      });
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
     }
+    // eslint-disable-next-line react/no-did-mount-set-state
+    this.setState({
+      posts: [...this.props.getPosts(this.state.sort)],
+    });
   }
 
-  async getMore() {
-    try {
-      const posts = await Users.getForYou({
-        sort: this.state.sort,
-        limit: LIMIT,
-        page: Math.floor(this.state.posts.length / LIMIT) + 1,
-      });
-
-      this.setState({
-        posts: this.state.posts.concat(posts),
-        limit: this.state.limit + LIMIT,
-      });
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
-    }
-  }
-
-  changeSort(sort) {
-    this.getPosts({ sort });
+  getMore() {
+    this.props.getForYouPosts({
+      sort: this.state.sort,
+      limit: LIMIT,
+      page: Math.floor(this.props.getPosts(this.state.sort).length / LIMIT) + 1,
+    });
   }
 
   render() {
@@ -80,7 +64,7 @@ class ForYou extends Component {
         <PageHeader>
           <PageTitle title="For You" />
 
-          <Sort current={this.state.sort} onClick={this.changeSort} />
+          <Sort current={this.state.sort} />
         </PageHeader>
 
         <PageContent>
@@ -95,5 +79,12 @@ class ForYou extends Component {
     );
   }
 }
+ForYou.propTypes = propTypes;
 
-export default ForYou;
+export default connect(
+  state => ({
+    getPosts: postsSelectors.getForYouPosts(state),
+  }), {
+    getForYouPosts,
+  },
+)(ForYou);

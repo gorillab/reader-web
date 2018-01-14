@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Users } from '@gorillab/reader-js';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import qs from 'qs';
+
+import { getSavedPosts, postsSelectors } from '../../state/ducks/posts';
 
 import PageHeader from '../Common/PageHeader';
 import PageTitle from '../Common/PageTitle';
@@ -12,12 +15,16 @@ import './Saved.scss';
 
 const LIMIT = 25;
 
+const propTypes = {
+  getPosts: PropTypes.func.isRequired,
+  getSavedPosts: PropTypes.func.isRequired,
+};
+
 class Saved extends Component {
   constructor(props) {
     super(props);
 
     const { sort } = qs.parse(location.search, { ignoreQueryPrefix: true });
-
     this.state = {
       posts: [],
       sort: sort || 'new',
@@ -26,52 +33,28 @@ class Saved extends Component {
     };
 
     this.getMore = this.getMore.bind(this);
-    this.changeSort = this.changeSort.bind(this);
   }
 
-  componentDidMount() {
-    this.getPosts();
-  }
-
-  async getPosts(query = {}) {
-    try {
-      const posts = await Users.getSaved({
+  async componentDidMount() {
+    if (!this.props.getPosts(this.state.sort).length) {
+      await this.props.getSavedPosts({
         sort: this.state.sort,
         limit: this.state.limit,
         page: this.state.page,
-        ...query,
       });
-
-      this.setState({
-        posts,
-        ...query,
-      });
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
     }
+    // eslint-disable-next-line react/no-did-mount-set-state
+    this.setState({
+      posts: [...this.props.getPosts(this.state.sort)],
+    });
   }
 
-  async getMore() {
-    try {
-      const posts = await Users.getSaved({
-        sort: this.state.sort,
-        limit: LIMIT,
-        page: Math.floor(this.state.posts.length / LIMIT) + 1,
-      });
-
-      this.setState({
-        posts: this.state.posts.concat(posts),
-        limit: this.state.limit + LIMIT,
-      });
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
-    }
-  }
-
-  async changeSort(sort) {
-    await this.getPosts({ sort });
+  getMore() {
+    this.props.getSavedPosts({
+      sort: this.state.sort,
+      limit: LIMIT,
+      page: Math.floor(this.props.getPosts(this.state.sort).length / LIMIT) + 1,
+    });
   }
 
   render() {
@@ -80,7 +63,7 @@ class Saved extends Component {
         <PageHeader>
           <PageTitle title="Saved" />
 
-          <Sort current={this.state.sort} onClick={this.changeSort} />
+          <Sort current={this.state.sort} />
         </PageHeader>
 
         <PageContent>
@@ -96,4 +79,12 @@ class Saved extends Component {
   }
 }
 
-export default Saved;
+Saved.propTypes = propTypes;
+
+export default connect(
+  state => ({
+    getPosts: postsSelectors.getSavedPosts(state),
+  }), {
+    getSavedPosts,
+  },
+)(Saved);
