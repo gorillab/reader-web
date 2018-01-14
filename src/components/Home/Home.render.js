@@ -14,10 +14,10 @@ const propTypes = {
 };
 
 const HomeRender = ({ match, getSource, ...rest }) => {
-  const source = match.params.source ? getSource(match.params.source) : undefined;
+  const source = match.params.sourceId ? getSource(match.params.sourceId) : undefined;
   const title = source ? source.title : 'Explore';
 
-  return <Home title={title} source={source} {...rest} match={match} />;
+  return <Home title={title} source={source} {...rest} />;
 };
 
 HomeRender.propTypes = propTypes;

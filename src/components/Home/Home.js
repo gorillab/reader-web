@@ -19,16 +19,14 @@ const LIMIT = 25;
 const propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
-  source: PropTypes.any,
+  source: PropTypes.object.isRequired,
   getPosts: PropTypes.func.isRequired,
   getHomePosts: PropTypes.func.isRequired,
   // eslint-disable-next-line react/no-unused-prop-types
   getPostsBySource: PropTypes.func.isRequired,
-  // eslint-disable-next-line react/no-unused-prop-types
-  match: PropTypes.any.isRequired,
 };
 const defaultProps = {
-  source: undefined,
+  source: {},
 };
 
 class Home extends Component {
@@ -47,9 +45,9 @@ class Home extends Component {
   }
 
   async componentDidMount() {
-    const sourceId = this.props.match.params.sourceId;
+    const sourceId = this.props.source.id;
     if (sourceId) {
-      if (!this.props.getPostsBySource(this.state.sort, sourceId).length) {
+      if (!this.props.getPostsBySource(sourceId, this.state.sort).length) {
         await this.props.getSourcePosts({
           source: sourceId,
           sort: this.state.sort,
@@ -59,7 +57,7 @@ class Home extends Component {
       }
       // eslint-disable-next-line react/no-did-mount-set-state
       this.setState({
-        posts: [...this.props.getPostsBySource(this.state.sort, sourceId)],
+        posts: [...this.props.getPostsBySource(sourceId, this.state.sort)],
       });
     } else {
       if (!this.props.getPosts(this.state.sort).length) {

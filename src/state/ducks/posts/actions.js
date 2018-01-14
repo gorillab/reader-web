@@ -78,7 +78,6 @@ const getSourcePosts = ({ source, sort = 'new', limit = 25, page = 1 }) => async
 };
 
 export {
-  // eslint-disable-next-line import/prefer-default-export
   getHomePosts,
   getForYouPosts,
   getSavedPosts,
