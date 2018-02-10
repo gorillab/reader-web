@@ -5,7 +5,7 @@ import './Logo.scss';
 
 const Logo = () => (
   <Link to="/" className="navbar-brand">
-    <img src="/images/logo.png" className="logo" alt="" />
+    <img src="/images/text-logo.png" className="logo" alt="" />
   </Link>
 );
 
