@@ -19,8 +19,9 @@ const LIMIT = 25;
 const propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
-  source: PropTypes.object.isRequired,
+  source: PropTypes.any,
   getPosts: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/no-unused-prop-types
   getHomePosts: PropTypes.func.isRequired,
   // eslint-disable-next-line react/no-unused-prop-types
   getPostsBySource: PropTypes.func.isRequired,
@@ -74,12 +75,27 @@ class Home extends Component {
     }
   }
 
-  getMore() {
-    this.props.getHomePosts({
+  async getMore() {
+    if (this.props.source) {
+      await this.props.getSourcePosts({
+        source: this.props.source.id,
+        sort: this.state.sort,
+        limit: this.state.limit,
+        page: Math.floor(this.state.posts.length / LIMIT) + 1,
+      });
+      this.setState({
+        posts: [...this.props.getPostsBySource(this.props.source.id, this.state.sort)],
+      });
+      return;
+    }
+    await this.props.getHomePosts({
       source: this.props.source ? this.props.source.id : undefined,
       sort: this.state.sort,
       limit: LIMIT,
-      page: Math.floor(this.props.getPosts(this.state.sort).length / LIMIT) + 1,
+      page: Math.floor(this.state.posts.length / LIMIT) + 1,
+    });
+    this.setState({
+      posts: [...this.props.getPosts(this.state.sort)],
     });
   }
 

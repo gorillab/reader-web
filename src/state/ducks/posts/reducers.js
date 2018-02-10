@@ -12,7 +12,7 @@ const postsReducer = (state = initialState, action) => {
     case GET_HOME_POSTS:
       return {
         ...state,
-        home: action.posts,
+        home: [...state.home, ...action.posts],
       };
     case GET_FOR_YOU_POSTS:
       return {
@@ -29,10 +29,9 @@ const postsReducer = (state = initialState, action) => {
         ...state,
         sources: {
           ...state.sources,
-          [action.source]: action.posts,
+          [action.source]: [...action.posts],
         },
       };
-
     default:
       return state;
   }
