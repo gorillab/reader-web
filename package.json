@@ -1,10 +1,10 @@
 {
   "name": "reader-web",
   "homepage": "https://5mins.fun",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "engines": {
-    "node": ">=6"
+    "node": ">=9"
   },
   "dependencies": {
     "@gorillab/reader-js": "^1.0.1",
