@@ -1,5 +1,5 @@
 .header {
-  background-color: #1daaf1;
+  background-color:#1293fe;
 
   .container {
     padding: 0;
@@ -15,7 +15,7 @@
         height: 100%;
         top: 0;
         left: 0;
-        background: rgba(29, 170, 241, 0.9);
+        background: #137ff7;
         z-index: 2000;
 
         ul.nav.navbar-nav {
@@ -91,12 +91,12 @@
               }
 
               &:hover {
-                  color: #fff;
+                  color: #f7f9fa;
                   text-decoration: none;
               }
             }
             .router-link-active {
-              color: #fff !important;
+              color: #f7f9fa !important;
               font-weight: 400;
             }
             .dropdown-menu {
@@ -108,7 +108,7 @@
         }
 
         .footer {
-          color: #fff;
+          color: #f7f9fa;
           font-weight: 100;
           bottom: 0;
           right: 0;
@@ -117,7 +117,7 @@
           position: absolute;
           padding: .5em 1em;
           a, a:hover, a:active, a:focus {
-            color: #fff;
+            color: #f7f9fa;
           }
           span {
             color: red;
@@ -181,7 +181,7 @@
             @extend .in-hamburger;
             position: relative;
             flex: none;
-            background: #fff;
+            background: #f7f9fa;
             display: flex;
             align-items: center;
             justify-content: center;

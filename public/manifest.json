@@ -1,5 +1,5 @@
 {
-  "short_name": "Reader",
+  "short_name": "5mins.fun",
   "name": "Your daily tech feed",
   "icons": [
     {
@@ -26,6 +26,6 @@
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#1daaf1",
-  "background_color": "#f2f3f5"
+  "theme_color": "#1293FE",
+  "background_color": "#1293FE"
 }
