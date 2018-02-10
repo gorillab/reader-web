@@ -58,12 +58,12 @@
         }
 
         .nav {
-          background-color:#1daaf1;
+          background-color:#1293fe;
           
           .nav-item{
             @media (max-width: 575px) {
               .dropdown-menu{
-                  background-color:#1daaf1;
+                  background-color:#1293fe;
                   border: none;
                   padding: 0;
 
@@ -71,7 +71,7 @@
                     color: #f7f7f7;
 
                     &:active, &:focus {
-                      background-color: #1daaf1;
+                      background-color: #1293fe;
                     }
                   }
               }        
