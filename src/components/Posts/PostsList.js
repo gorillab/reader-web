@@ -24,7 +24,7 @@ export const PostsList = ({ posts, getMore }) => (
 
     {getMore && <div className="get-more-wrapper">
       <button type="button" name="get-more" className="btn btn-get-more" onClick={getMore}>
-        Read More
+        View more
       </button>
     </div>}
   </div>

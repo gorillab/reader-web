@@ -26,7 +26,7 @@ export const SubscribeButton = props => (
           props.subscribe(props.source.id);
         }
       }}
-    >{props.source.isSubscribed ? 'Unsubscribe' : 'Subscribe'}</Button>
+    >{props.source.isSubscribed ? 'Subscribed' : 'Subscribe'}</Button>
   </div>
 );
 

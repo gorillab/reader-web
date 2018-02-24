@@ -104,7 +104,7 @@ export class PostComponent extends Component {
             {this.props.isLoggedIn && (
               <ButtonGroup size="sm">
                 <Button className={'save-button mr-0'}>{this.props.post.meta.numSaved || 0}</Button>
-                <Button className={'save-button mr-0'} onClick={this.state.isSaved ? this.unSave : this.save}>{this.state.isSaved ? 'Unsave' : 'Save'}</Button>
+                <Button className={'save-button mr-0'} onClick={this.state.isSaved ? this.unSave : this.save}>{this.state.isSaved ? 'Saved' : 'Save'}</Button>
               </ButtonGroup>
             )}
             <ButtonGroup size="sm">
