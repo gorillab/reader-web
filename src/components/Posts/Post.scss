@@ -7,7 +7,7 @@
   &:hover {
     background-color: #f9f9f9;
   }
-  
+
   img {
     position: absolute;
     right: 15px;
@@ -35,13 +35,13 @@
       text-decoration: underline;
 
       &:hover {
-        color: #1daaf1;
+        color: #1293fe;
       }
     }
 
     .actions {
       display: inline-block;
-      // margin-left: 5px; 
+      // margin-left: 5px;
     }
     .source {
       text-decoration: none;
@@ -50,7 +50,7 @@
         color: #000;
       }
     }
-    
+
     .btn {
       margin-right: 5px;
     }
@@ -92,7 +92,7 @@
       background: #f8f8f8;
       border-radius: 3px !important;
     }
-    
+
     .plus-button {
       @extend .button-in-post;
 
