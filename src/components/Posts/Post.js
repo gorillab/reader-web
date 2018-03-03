@@ -83,7 +83,7 @@ export class PostComponent extends Component {
             href={this.props.post.url}
             onClick={this.view}
           >
-            {`${this.props.index + 1}. ${this.props.post.title}`}
+            <span className="order">{this.props.index + 1}.</span> {this.props.post.title}
           </a>
         </div>
 
