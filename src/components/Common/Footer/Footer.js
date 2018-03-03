@@ -12,7 +12,7 @@ const defaultProps = {
 };
 
 const Footer = ({ className }) => (
-  <footer className={`footer ${className || ''}`}><a href="https://gorillab.co/">Gorillab</a> <span>♥︎</span> You</footer>
+  <footer className={`footer ${className || ''}`}><a href="https://gorillab.co/">Gorillab</a> <span className="heart">♥︎</span> You</footer>
 );
 
 Footer.propTypes = propTypes;

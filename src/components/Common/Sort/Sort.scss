@@ -23,19 +23,17 @@
 	}
 
 	a {
-		color: rgba(0, 0, 0, 0.5);
+		color: rgba(19, 56, 86, 0.5);
 
 		&:focus, &:hover {
-			color: rgba(0, 0, 0, 0.5);
-	    	text-decoration: none;
+        color: rgba(19, 56, 86, 0.5);
+        text-decoration: none;
 		}
 	}
 
 	.sort-active {
 		a {
-			font-weight: 500;
-			color: #333;
-			opacity: 0.7;
+			color: rgba(19, 56, 86, 0.75);
 		}
 	}
 }

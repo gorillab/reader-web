@@ -1,11 +1,10 @@
 .post {
   background-color: #fff;
   padding: 15px 80px 15px 15px;
-  border-bottom: 1px solid #eee;
   position: relative;
 
   &:hover {
-    background-color: #f9f9f9;
+    background-color: #fafdff;
   }
 
   img {
@@ -15,31 +14,24 @@
   }
 
   .thumbnail {
-    width: 45px;
-    max-height: 45px;
+    width: 50px;
+    max-height: 50px;
   }
 
   .title {
     a, a:hover {
-      color: #202020;
+      color: #364b5d;
       text-decoration: none;
-      font-size: 1rem;
+    }
+    
+    a {
+      display: block;
+      line-height: 1rem;
     }
   }
 
   .meta {
-    margin-top: 10px;
-    font-size: .85em;
-    color: #828282;
-
-    a {
-      color: #828282;
-      text-decoration: underline;
-
-      &:hover {
-        color: #1293fe;
-      }
-    }
+    margin-top: 0.5rem;
 
     .actions {
       display: inline-block;
@@ -47,7 +39,7 @@
     }
     .source {
       text-decoration: none;
-      padding: 3px 8px !important;
+      padding-top: 5px !important;
       &:hover {
         color: #000;
       }
@@ -58,14 +50,12 @@
     }
 
     .button-in-post {
-      font-size: 11px;
-      font-weight: 400;
+      font-size: 0.7rem;
       letter-spacing: .3px;
-      line-height: 16px;
+      line-height: 0.7rem;
       text-transform: uppercase;
-      border-color: #e8e8e8;
-      color: #000;
-      opacity: 0.7;
+      border-color: #e2e7ea;
+      color: rgba(19, 56, 86, 0.6);
       height: 24px;
       padding: 0 8px;
       border-radius: 3px;
@@ -74,7 +64,8 @@
       background: #fff;
 
       &:hover {
-        background: #e8e8e8;
+        background: #e9f0f7;
+        color: rgba(19, 56, 86, 0.75);
       }
     }
 

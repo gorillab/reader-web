@@ -1,11 +1,13 @@
 .footer {
   padding-bottom: 15px;
   text-align: center;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(19, 56, 86, 0.5);
+
   a, a:hover, a:active, a:focus {
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(19, 56, 86, 0.5);
   }
-  span {
+
+  .heart {
     color: rgba(255, 0, 0, 0.5);
   }
 }
