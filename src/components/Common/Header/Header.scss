@@ -134,7 +134,7 @@
       }
       .outer-menu {
         @extend .top-0-right-0;
-        position: fixed;
+        // position: fixed;
         z-index: 2001;
         display: none;
         @media (max-width: 575px) {

@@ -49,8 +49,11 @@ export class Header extends Component {
     });
   }
   handleChange(e) {
+    const body = document.getElementsByTagName('body')[0];
+    const isChecked = e.target.checked;
+    body.className = isChecked && 'block-scroll';
     this.setState({
-      isChecked: e.target.checked,
+      isChecked,
     });
   }
   toggle() {
