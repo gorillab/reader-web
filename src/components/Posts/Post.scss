@@ -19,9 +19,15 @@
   }
 
   .title {
+    display: block;
+    color: #364b5d;
     line-height: 1.25rem;
+    text-decoration: none;
+    // text-overflow: ellipsis;
+    // overflow: hidden;
+    // white-space: nowrap;
 
-    a, a:hover {
+    a:hover {
       color: #364b5d;
       text-decoration: none;
     }

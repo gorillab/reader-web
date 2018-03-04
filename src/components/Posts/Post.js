@@ -9,6 +9,8 @@ import { userSelectors } from '../../state/ducks/user';
 
 import './Post.scss';
 
+const trimText = (text, length = 100) => `${text.substr(0, length)}${text.length > length ? '...' : ''}`;
+
 const propTypes = {
   post: PropTypes.any.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
@@ -78,14 +80,9 @@ export class PostComponent extends Component {
           <img src={this.props.post.image} className="rounded thumbnail" alt="" />
         }
 
-        <div className="title">
-          <a
-            href={this.props.post.url}
-            onClick={this.view}
-          >
-            <span className="order">{this.props.index + 1}.</span> {this.props.post.title}
-          </a>
-        </div>
+        <a className="title" href={this.props.post.url} onClick={this.view}>
+          <span className="order">{this.props.index + 1}.</span> {trimText([this.props.post.title, this.props.post.content].join(' - '))}
+        </a>
 
         <div className="meta">
           <div className="actions">
