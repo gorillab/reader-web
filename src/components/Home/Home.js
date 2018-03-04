@@ -102,6 +102,7 @@ class Home extends Component {
         <PageContent>
           <div className="row">
             <PostsList
+              source={this.props.source}
               posts={this.state.posts}
               getMore={this.state.posts.length >= this.state.limit && this.getMore}
             />

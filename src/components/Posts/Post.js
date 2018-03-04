@@ -12,9 +12,14 @@ import './Post.scss';
 const trimText = (text, length = 100) => `${text.substr(0, length)}${text.length > length ? '...' : ''}`;
 
 const propTypes = {
+  source: PropTypes.any,
   post: PropTypes.any.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
   index: PropTypes.number.isRequired,
+};
+
+const defaultProps = {
+  source: undefined,
 };
 
 export class PostComponent extends Component {
@@ -86,7 +91,7 @@ export class PostComponent extends Component {
 
         <div className="meta">
           <div className="actions">
-            {this.props.post.source && (
+            {!this.props.source && this.props.post.source && (
               <Link className="btn save-button source" to={`/source/${this.props.post.source.id}`}>{this.props.post.source.title}</Link>
             )}
             <button
@@ -115,6 +120,7 @@ export class PostComponent extends Component {
 }
 
 PostComponent.propTypes = propTypes;
+PostComponent.defaultProps = defaultProps;
 
 export default connect(
   state => ({

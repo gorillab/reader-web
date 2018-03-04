@@ -6,19 +6,21 @@ import Post from './Post';
 import './PostsList.scss';
 
 const propTypes = {
+  source: PropTypes.any,
   posts: PropTypes.arrayOf(PropTypes.any).isRequired,
   getMore: PropTypes.any,
 };
 
 const defaultProps = {
+  source: undefined,
   getMore: false,
 };
 
-export const PostsList = ({ posts, getMore }) => (
+export const PostsList = ({ source, posts, getMore }) => (
   <div className="posts-list-wrapper">
     <ul className="posts-list">
       {posts.map((post, index) => (
-        <Post key={post.id} post={post} index={index} />
+        <Post key={post.id} source={source} post={post} index={index} />
       ))}
     </ul>
 
