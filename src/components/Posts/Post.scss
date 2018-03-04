@@ -19,13 +19,11 @@
   }
 
   .title {
+    line-height: 1.25rem;
+
     a, a:hover {
       color: #364b5d;
       text-decoration: none;
-    }
-    
-    a {
-      display: block;
     }
 
     .order {
@@ -34,21 +32,20 @@
   }
 
   .meta {
+    line-height: initial;
     margin-top: 0.5rem;
 
-    .actions {
-      display: inline-block;
-      // margin-left: 5px;
-    }
     .source {
       text-decoration: none;
-      padding-top: 5px !important;
+      padding-top: 6px !important;
+
       &:hover {
         color: #000;
       }
     }
 
     .btn {
+      vertical-align: top;
       margin-right: 5px;
     }
 

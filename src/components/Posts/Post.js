@@ -88,11 +88,10 @@ export class PostComponent extends Component {
         </div>
 
         <div className="meta">
-          {this.props.post.source && (
-            <Link className="btn save-button source" to={`/source/${this.props.post.source.id}`}>{this.props.post.source.title}</Link>
-          )}
-
           <div className="actions">
+            {this.props.post.source && (
+              <Link className="btn save-button source" to={`/source/${this.props.post.source.id}`}>{this.props.post.source.title}</Link>
+            )}
             <button
               name="save"
               type="button"
