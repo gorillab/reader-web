@@ -81,7 +81,7 @@ export class PostComponent extends Component {
         }
 
         <a className="title" href={this.props.post.url} onClick={this.view}>
-          <span className="order">{this.props.index + 1}.</span> {trimText([this.props.post.title, this.props.post.content].join(' - '))}
+          <span className="order">{this.props.index + 1}.</span> {trimText(`${this.props.post.title}${this.props.post.content ? ` - ${this.props.post.content}` : ''}`)}
         </a>
 
         <div className="meta">
