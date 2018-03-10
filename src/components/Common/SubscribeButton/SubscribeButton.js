@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'reactstrap';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
+import { Button } from 'reactstrap';
 
 import './SubscribeButton.scss';
 
@@ -32,9 +34,9 @@ export const SubscribeButton = props => (
 
 SubscribeButton.propTypes = propTypes;
 
-export default connect(
+export default withRouter(connect(
   () => ({}), {
     subscribe,
     unsubscribe,
   },
-)(SubscribeButton);
+)(SubscribeButton));

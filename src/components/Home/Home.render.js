@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Home from './Home';
@@ -23,12 +24,12 @@ const HomeRender = ({ match, getSource, ...rest }) => {
 HomeRender.propTypes = propTypes;
 
 const FinalHomeRender = (props) => {
-  const ConnectedHomeRender = connect(
+  const ConnectedHomeRender = withRouter(connect(
     state => ({
       isLoggedIn: userSelectors.isLoggedIn(state),
       getSource: sourcesSelectors.getSource(state),
     }),
-  )(HomeRender);
+  )(HomeRender));
 
   return <ConnectedHomeRender {...props} />;
 };

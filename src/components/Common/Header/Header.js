@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Auth } from '@gorillab/reader-js';
 
 import { Collapse, Navbar, Nav, NavItem, NavDropdown, DropdownToggle, DropdownMenu } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import { logOut, userSelectors } from '../../../state/ducks/user';
 import { sourcesSelectors } from '../../../state/ducks/sources';
@@ -158,7 +158,7 @@ export class Header extends Component {
 Header.propTypes = propTypes;
 Header.defaultProps = defaultProps;
 
-export default connect(
+export default withRouter(connect(
   state => ({
     isLoggedIn: userSelectors.isLoggedIn(state),
     sources: sourcesSelectors.getSources(state),
@@ -166,4 +166,4 @@ export default connect(
   }), {
     logOut,
   },
-)(Header);
+)(Header));

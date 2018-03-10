@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Posts } from '@gorillab/reader-js';
-import { Link } from 'react-router-dom';
+
+import { withRouter, Link } from 'react-router-dom';
 import { Button, ButtonGroup } from 'reactstrap';
 
 import { userSelectors } from '../../state/ducks/user';
@@ -122,8 +123,8 @@ export class PostComponent extends Component {
 PostComponent.propTypes = propTypes;
 PostComponent.defaultProps = defaultProps;
 
-export default connect(
+export default withRouter(connect(
   state => ({
     isLoggedIn: userSelectors.isLoggedIn(state),
   }),
-)(PostComponent);
+)(PostComponent));
