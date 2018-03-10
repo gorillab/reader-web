@@ -23,7 +23,6 @@ export const PostsList = ({ source, posts, getMore }) => (
         <Post key={post.id} source={source} post={post} index={index} />
       ))}
     </ul>
-
     {getMore && <div className="get-more-wrapper">
       <button type="button" name="get-more" className="btn btn-get-more" onClick={getMore}>
         View more
