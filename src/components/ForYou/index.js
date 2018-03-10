@@ -1,1 +1,1 @@
-export { default } from './ForYou';
+export { default } from './ForYou.async';

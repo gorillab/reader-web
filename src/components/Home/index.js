@@ -1,1 +1,1 @@
-export { default } from './Home.render';
+export { default } from './Home.async';
