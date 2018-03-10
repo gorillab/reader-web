@@ -1,9 +1,0 @@
-export { default as Content } from './Content';
-export { default as Footer } from './Footer';
-export { default as Header } from './Header';
-export { default as Logo } from './Logo';
-export { default as PageContent } from './PageContent';
-export { default as PageHeader } from './PageHeader';
-export { default as PageTitle } from './PageTitle';
-export { default as Sort } from './Sort';
-export { default as SubscribeButton } from './SubscribeButton';
