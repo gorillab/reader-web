@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "@gorillab/reader-js": "^1.0.1",
-    "history": "^4.7.2",
     "prop-types": "^15.5.10",
     "qs": "^6.5.0",
     "react": "^15.5.4",
@@ -19,7 +18,6 @@
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
-    "react-router-redux": "next",
     "reactstrap": "^4.6.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"

@@ -1,9 +1,8 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { ConnectedRouter } from 'react-router-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider as ReduxProvider } from 'react-redux';
 
-import configureStore, { history } from './state';
+import configureStore from './state';
 import { getUser } from './state/ducks/user';
 import { getSources } from './state/ducks/sources';
 
@@ -22,7 +21,7 @@ Promise.all([
 
 const App = () => (
   <ReduxProvider store={store}>
-    <ConnectedRouter history={history}>
+    <Router>
       <div className="app">
         <Header />
 
@@ -36,7 +35,7 @@ const App = () => (
 
         <Footer className="hidden-sm-down" />
       </div>
-    </ConnectedRouter>
+    </Router>
   </ReduxProvider>
 );
 
