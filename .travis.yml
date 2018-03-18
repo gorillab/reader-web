@@ -1,48 +1,28 @@
 sudo: required
-
 language: node_js
-
 node_js:
-- 9
-
+    - 9
 jobs:
-  include:
-  - stage: test
-    install:
-    - yarn
-    script:
-    - yarn test
-  - stage: build
-    install:
-    - yarn
-    script:
-    - yarn build
-  - stage: deploy
-    install:
-    - yarn
-    script:
-    - yarn build
-    deploy:
-    - provider: surge
-      project: "./build"
-      domain: glab-staging-reader.surge.sh
-      skip_cleanup: true
-      on:
-        branch: master
-    - provider: surge
-      project: "./build"
-      domain: glab-reader.surge.sh
-      skip_cleanup: true
-      on:
-        branch: master
-        tags: true
-
+    include:
+        -
+            stage: test
+            install: [yarn]
+            script: ['yarn test']
+        -
+            stage: build
+            install: [yarn]
+            script: ['yarn build']
+        -
+            stage: deploy
+            install: [yarn]
+            script: ['yarn build']
+            deploy: [{provider: surge, project: ./build, domain: glab-staging-reader.surge.sh, skip_cleanup: true, on: {branch: master}}, {provider: surge, project: ./build, domain: glab-reader.surge.sh, skip_cleanup: true, on: {branch: master, tags: true}}]
 cache:
-  yarn: true
-  directories:
-  - node_modules
-
+    yarn: true
+    directories:
+        - node_modules
 notifications:
-  email: false
-  slack:
-    secure: aCyNxELPFfeuc+bBNKR5ZgjUEH4mL8D8zd8qkGPdR3oOIHTH7bcM3+btsR/AiNnqMIQDBJAmYkeY5toM38AwjsPCojUDskvPfvhkMnQ06Bz4Qm6QQzxGleTMYUg2cukUD4kTRoriapKxhOb+SMg9MQCOMnAgKAH7HpnK6BgYqW1zjkV4o3jyxHmmOfhFlz1Y0CkFjuZBdXWa1wi+E36//SMl6q/f0NMQNbNIRR7hL4wP6qrNonU6ThH/+g18+Xgtw4ooJiGu2yP9Fg0Ty+85LQbbuo5QN1SWbR8fvkdElzF91GOQVjnl9MJczl4VseqN/pgYomoFmfvojKmQQ9wL6Z1BBrIbzPD6B6PxDu5njD/xiVpUQ3u+R3Np7bpGAE+61cJT1jizDnVUFcXVfpdkCSZ2Cjry2mJVjkxazNM4s1YDJ5IEXwYP4IYxOvexeq/IS3/o6Pm9DEv70K8ev+V4mhPNQRNnPgJJzo6t9yim8gooX/PFM2pfgnkHDSvST5Zi1zARrrO4f+wPFNC7op7nRVhInD5oshRUHIJ5p+XiEHlPVC0G5EQpvG5wXGMsu+Ws4cAzkUU7XiHKDQbLEq1SpkI2i3hbxDq8D9yGwzpi3bCklRZDZlK6ucBqGo30IyElj9YhYVpL7xrea9qfn0f4zNiCnyYQwZ5140licQmMaUU=
+    email: false
+    slack:
+        secure: aCyNxELPFfeuc+bBNKR5ZgjUEH4mL8D8zd8qkGPdR3oOIHTH7bcM3+btsR/AiNnqMIQDBJAmYkeY5toM38AwjsPCojUDskvPfvhkMnQ06Bz4Qm6QQzxGleTMYUg2cukUD4kTRoriapKxhOb+SMg9MQCOMnAgKAH7HpnK6BgYqW1zjkV4o3jyxHmmOfhFlz1Y0CkFjuZBdXWa1wi+E36//SMl6q/f0NMQNbNIRR7hL4wP6qrNonU6ThH/+g18+Xgtw4ooJiGu2yP9Fg0Ty+85LQbbuo5QN1SWbR8fvkdElzF91GOQVjnl9MJczl4VseqN/pgYomoFmfvojKmQQ9wL6Z1BBrIbzPD6B6PxDu5njD/xiVpUQ3u+R3Np7bpGAE+61cJT1jizDnVUFcXVfpdkCSZ2Cjry2mJVjkxazNM4s1YDJ5IEXwYP4IYxOvexeq/IS3/o6Pm9DEv70K8ev+V4mhPNQRNnPgJJzo6t9yim8gooX/PFM2pfgnkHDSvST5Zi1zARrrO4f+wPFNC7op7nRVhInD5oshRUHIJ5p+XiEHlPVC0G5EQpvG5wXGMsu+Ws4cAzkUU7XiHKDQbLEq1SpkI2i3hbxDq8D9yGwzpi3bCklRZDZlK6ucBqGo30IyElj9YhYVpL7xrea9qfn0f4zNiCnyYQwZ5140licQmMaUU=
+        on_pull_requests: false
